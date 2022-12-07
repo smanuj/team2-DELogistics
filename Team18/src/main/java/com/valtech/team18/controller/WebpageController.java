@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -341,7 +342,7 @@ public class WebpageController {
 	public String newOrder(@RequestParam("custName") String custName, @RequestParam("toAddress") String toAddress,
 			@RequestParam("phNum") String phNum, @RequestParam("orderType") String orderType,
 			@RequestParam("suppid") int suppid, @RequestParam("driverid") int driverid, ModelMap model)
-			throws Exception, NumberFormatException {
+			throws Exception, NumberFormatException,MissingServletRequestParameterException {
 		try {
 			System.out.println(suppid);
 			if (custName.equals(null) || toAddress.equals(null) || orderType.equals(null) || (phNum == "")
@@ -362,11 +363,13 @@ public class WebpageController {
 			String str = "Enter Fileds Correctly";
 			model.addAttribute("mess", str);
 			return "/admin/newOrder";
-		} catch (Exception nfe) {
+		} 
+		catch (Exception nfe) {
 			String str = "Enter Fileds Correctly";
 			model.addAttribute("mess", str);
 			return "/admin/newOrder";
 		}
+		
 
 	}
 
