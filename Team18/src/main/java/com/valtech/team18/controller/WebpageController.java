@@ -27,6 +27,7 @@ import com.valtech.team18.service.AdminLoginService;
 import com.valtech.team18.service.AdminService;
 import com.valtech.team18.service.NewOrderService;
 import com.valtech.team18.service.RegisterService;
+import com.valtech.team18.service.SendMail;
 import com.valtech.team18.service.SupplierLoginService;
 import com.valtech.team18.service.SupplierService;
 import com.valtech.team18.service.TruckDetailsService;
@@ -70,6 +71,9 @@ public class WebpageController {
 
 	@Autowired
 	private TruckDetailsRepo truckDetailsRepo;
+	
+	@Autowired
+	private SendMail sm;
 
 	// Navigate to Main Home Page
 	@GetMapping("/")
@@ -263,6 +267,14 @@ public class WebpageController {
 	@GetMapping("/admin/truckDetails")
 	public String truckDetails(Model model) {
 		model.addAttribute("TruckDetails", tdService.getAllTruckD());
+		return "admin/truckDetails";
+	}
+	
+	// Navigate to Truck Details page for Admin
+	@PostMapping("/admin/truckDetails")
+	public String truckDetailsMail(Model model) {
+		model.addAttribute("TruckDetails", tdService.getAllTruckD());
+		sm.sendMail();
 		return "admin/truckDetails";
 	}
 

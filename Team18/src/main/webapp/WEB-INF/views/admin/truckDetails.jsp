@@ -101,9 +101,13 @@
 						<td>${TruckDetails.driverPhNum}</td>
 						<td>${TruckDetails.temp}<!-- <button class="btn btn-lg btn-md btn-warning">
 								<i class="fa fa-thermometer-full"></i> Alert!
-							</button> --> <input type="button" value="Alert !"
+							</button> --> <!-- <input type="button" value="Alert !"
 							class="btn  btn-md btn-danger" id="Alert" name="Alert"
-							onclick="alertbtn()"></td>
+							onclick="alertbtn()"></td> -->
+							<form th:action="@{/login}" method="POST" class="form-signin  ">
+								<button class="btn btn-dark btn-lg btn-block" name="Alert"
+											value="Alert" type="Submit" text="Alert">Alert</button>
+							</form>
 						
 						<td><a
 							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn btn-lg btn-md btn-warning">
