@@ -14,9 +14,12 @@ public class SupplierDetails {
 	private int suppId;
 	//suppName and suppPassword strings are used to save supplier login credentials
 	private String suppName;
+	private String email;
 	private String suppPassword;
 	private String fromAddress;
 	private String suppContactDetails;
+	private boolean approved;
+	
 	
 
 	public String getSuppPassword() {
@@ -28,10 +31,21 @@ public class SupplierDetails {
 	}
 
 
-	@Override
-	public String toString() {
-		return "SupplierDetails [suppId=" + suppId + ", fromAddress=" + fromAddress + ", suppName=" + suppName
-				+ ", suppPassword=" + suppPassword + ", suppContactDetails=" + suppContactDetails + "]";
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
 	}
 
 	public int getSuppId() {
@@ -71,21 +85,47 @@ public class SupplierDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SupplierDetails(int suppId, String fromAddress, String suppName, String suppPassword,
-			String suppContactDetails) {
+	
+	
+	public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
+			String suppContactDetails, boolean approved) {
 		super();
 		this.suppId = suppId;
-		this.fromAddress = fromAddress;
 		this.suppName = suppName;
+		this.email = email;
 		this.suppPassword = suppPassword;
+		this.fromAddress = fromAddress;
 		this.suppContactDetails = suppContactDetails;
+		this.approved = approved;
+		
+	}
+//
+//	public SupplierDetails( String suppName, String suppPassword, String fromAddress,String suppContactDetails) {
+//		super();
+//		this.fromAddress = fromAddress;
+//		this.suppName = suppName;
+//		this.suppPassword = suppPassword;
+//		this.suppContactDetails = suppContactDetails;
+//	}
+
+	public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress,
+			String suppContactDetails, boolean approved) {
+		super();
+		this.suppName = suppName;
+		this.email = email;
+		this.suppPassword = suppPassword;
+		this.fromAddress = fromAddress;
+		this.suppContactDetails = suppContactDetails;
+		this.approved = approved;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", email=" + email + ", suppPassword="
+				+ suppPassword + ", fromAddress=" + fromAddress + ", suppContactDetails=" + suppContactDetails
+				+ ", approved=" + approved +"]";
 	}
 	
-	public SupplierDetails( String suppName, String suppPassword, String fromAddress,String suppContactDetails) {
-		super();
-		this.fromAddress = fromAddress;
-		this.suppName = suppName;
-		this.suppPassword = suppPassword;
-		this.suppContactDetails = suppContactDetails;
-	}
+	
 }

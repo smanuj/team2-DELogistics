@@ -136,38 +136,41 @@ public class WebpageController {
 	public String supplierReg(@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("confirmpassword") String cpassword, @RequestParam("fromAddress") String fromAddress,
 			@RequestParam("contactNumber") String contactNumber, ModelMap model) throws Exception {
-		try {
-			if (username.equals(null) || password.equals(null) || cpassword.equals(null) || fromAddress.equals(null)
-					|| contactNumber.equals(null) || (username == "") || (password == "") || (cpassword == "")
-					|| (fromAddress == "") || (contactNumber == "")) {
-				String str = "Fields cannot be Empty";
-				model.addAttribute("mess", str);
-				return "/supplier/supplierRegister";
-			} else {
-
-				if (password.equals(cpassword)) {
-					PendingSupplier pd = new PendingSupplier(username, password, fromAddress, contactNumber);
-
-					int i = registerService.RegisterSupplier(pd);
-
-					if (i == 1) {
-						String str = "Username already Exists";
-						model.addAttribute("mess", str);
-						return "/supplier/supplierRegister";
-					}
-
-					return "redirect:/supplier/supplierLogin";
-				} else {
-					String str = "Entered Password do not Match";
-					model.addAttribute("mess", str);
-					return "/supplier/supplierRegister";
-				}
-			}
-		} catch (Exception ex) {
-			String str = "Enter Fields Correctly";
-			model.addAttribute("mess", str);
-			return "/supplier/supplierRegister";
-		}
+//		try {
+////			if (username.equals(null) || password.equals(null) || cpassword.equals(null) || fromAddress.equals(null)
+////					|| contactNumber.equals(null) || (username == "") || (password == "") || (cpassword == "")
+////					|| (fromAddress == "") || (contactNumber == "")) {
+////				String str = "Fields cannot be Empty";
+////				model.addAttribute("mess", str);
+////				return "/supplier/supplierRegister";
+////			} else
+////			if{
+//
+//				if (password.equals(cpassword)) {
+//					PendingSupplier pd = new PendingSupplier(username, password, fromAddress, contactNumber);
+//
+//					int i = registerService.RegisterSupplier(pd);
+//
+//					if (i == 1) {
+//						String str = "Username already Exists";
+//						model.addAttribute("mess", str);
+//						return "/supplier/supplierRegister";
+//					}
+//
+//					return "redirect:/supplier/supplierLogin";
+//				} else {
+//					String str = "Entered Password do not Match";
+//					model.addAttribute("mess", str);
+//					return "/supplier/supplierRegister";
+//				}
+////			}
+//		} catch (Exception ex) {
+//			String str = "Enter Fields Correctly";
+//			model.addAttribute("mess", str);
+//			return "/supplier/supplierRegister";
+//		}
+		
+		
 	}
 
 	// Navigate to Login Page for Truck Driver
