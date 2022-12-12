@@ -274,7 +274,10 @@ public class WebpageController {
 	@PostMapping("/admin/truckDetails")
 	public String truckDetailsMail(Model model) {
 		model.addAttribute("TruckDetails", tdService.getAllTruckD());
-		sm.sendMail();
+		String sample="This is a sample text";
+		String email="harshithvishwanathan927@gmail.com";
+//		String email="smanuj007@gmail.com";
+		sm.sendMail(email,sample);
 		return "admin/truckDetails";
 	}
 
@@ -386,11 +389,10 @@ public class WebpageController {
 	}
 
 	// Navigate to supplier home page for a particular supplier id
-	@SuppressWarnings("deprecation")
 	@GetMapping("/supplier/supplierHome/{id}")
 	public String suppHome(@PathVariable("id") int id, Model model) {
 		model.addAttribute("id", id);
-		String supplierName = supplierDetailsRepo.getById(id).getSuppName();
+		String supplierName = supplierDetailsRepo.findById(id).get().getSuppName();
 		model.addAttribute("sName", supplierName);
 		return "supplier/supplierHome";
 	}

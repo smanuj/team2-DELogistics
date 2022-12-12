@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(propagation = Propagation.SUPPORTS)
 public class SendMailImpl implements SendMail {
 	@Override
-	public void sendMail() {
+	public void sendMail(String email, String sample) {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
@@ -39,9 +39,10 @@ public class SendMailImpl implements SendMail {
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("dartexpresslogistics@outlook.com"));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("smanuj007@gmail.com"));
-			message.setSubject("You got mail");
-			message.setText("This email was sent with JavaMail.");
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+			message.setSubject("Alert");
+//			message.setText("This email was sent with JavaMail.");
+			message.setText(sample);
 			Transport.send(message);
 			System.out.println("Email sent.");
 		} catch (MessagingException e) {
