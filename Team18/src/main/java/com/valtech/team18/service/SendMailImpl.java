@@ -11,6 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +19,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class SendMailImpl implements SendMail {
+	@Value("${from.mail}")
+	private String fromId;
 	@Override
-	public void sendMail(String email, String sample) {
+	public void sendMail(String email, String subject, String body) {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
@@ -32,17 +35,17 @@ public class SendMailImpl implements SendMail {
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("dartexpresslogistics@outlook.com", "Qwertyuiop12#");
+				return new PasswordAuthentication(fromId, "Qwertyuiop12#");
 			}
 		});
 
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("dartexpresslogistics@outlook.com"));
+			message.setFrom(new InternetAddress(fromId));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			message.setSubject("Alert");
-//			message.setText("This email was sent with JavaMail.");
-			message.setText(sample);
+			message.setSubject(subject);
+			// message.setText("This email was sent with JavaMail.");
+			message.setText(body);
 			Transport.send(message);
 			System.out.println("Email sent.");
 		} catch (MessagingException e) {

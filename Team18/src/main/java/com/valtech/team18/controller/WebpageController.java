@@ -277,10 +277,11 @@ public class WebpageController {
 	@PostMapping("/admin/truckDetails")
 	public String truckDetailsMail(Model model) {
 		model.addAttribute("TruckDetails", tdService.getAllTruckD());
-		String sample="This is a sample text";
+		String body="This is a sample text";
+		String subject="This is a sample text";
 		String email="harshithvishwanathan927@gmail.com";
 //		String email="smanuj007@gmail.com";
-		sm.sendMail(email,sample);
+		sm.sendMail(email,subject, body);
 		return "admin/truckDetails";
 	}
 
