@@ -13,5 +13,13 @@ public interface TruckDetailsService {
 
 	List<OrderDetails> getAllOrdersByDriverId(int id);
 
+	List<TruckDetails> getPendingDriver();
+
+	List<TruckDetails> getApprovedDriver();
+
+	TruckDetails approvingDriver(int id);
+
+	void deleteRejectedDriver(int id);
+	
 
 }

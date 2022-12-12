@@ -38,5 +38,27 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		return orderDetailsRepo.getAllOrdersByDriverId(truckId);
 	}
 
+	@Override
+	public List<TruckDetails> getPendingDriver(){
+		return truckDetailsRepo.findAllByApprovedFalse();
+	}
+
+	@Override
+	public List<TruckDetails> getApprovedDriver() {
+		return truckDetailsRepo.findAllByApprovedTrue();
+	}
+
+	@Override
+	public TruckDetails approvingDriver(int id) {
+		TruckDetails td=truckDetailsRepo.findById(id).get();
+		td.setApproved(true);
+		return truckDetailsRepo.save(td);
+	}
+
+	@Override
+	public void deleteRejectedDriver(int id) {
+		truckDetailsRepo.deleteById(id);
+		
+	}
 	
 }

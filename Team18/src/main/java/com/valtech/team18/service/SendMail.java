@@ -2,6 +2,6 @@ package com.valtech.team18.service;
 
 public interface SendMail {
 
-	void sendMail();
+	void sendMail(String email, String subject, String body);
 
 }

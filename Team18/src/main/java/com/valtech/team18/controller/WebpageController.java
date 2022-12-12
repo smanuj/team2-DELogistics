@@ -136,38 +136,41 @@ public class WebpageController {
 	public String supplierReg(@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("confirmpassword") String cpassword, @RequestParam("fromAddress") String fromAddress,
 			@RequestParam("contactNumber") String contactNumber, ModelMap model) throws Exception {
-		try {
-			if (username.equals(null) || password.equals(null) || cpassword.equals(null) || fromAddress.equals(null)
-					|| contactNumber.equals(null) || (username == "") || (password == "") || (cpassword == "")
-					|| (fromAddress == "") || (contactNumber == "")) {
-				String str = "Fields cannot be Empty";
-				model.addAttribute("mess", str);
-				return "/supplier/supplierRegister";
-			} else {
-
-				if (password.equals(cpassword)) {
-					PendingSupplier pd = new PendingSupplier(username, password, fromAddress, contactNumber);
-
-					int i = registerService.RegisterSupplier(pd);
-
-					if (i == 1) {
-						String str = "Username already Exists";
-						model.addAttribute("mess", str);
-						return "/supplier/supplierRegister";
-					}
-
-					return "redirect:/supplier/supplierLogin";
-				} else {
-					String str = "Entered Password do not Match";
-					model.addAttribute("mess", str);
-					return "/supplier/supplierRegister";
-				}
-			}
-		} catch (Exception ex) {
-			String str = "Enter Fields Correctly";
-			model.addAttribute("mess", str);
-			return "/supplier/supplierRegister";
-		}
+//		try {
+////			if (username.equals(null) || password.equals(null) || cpassword.equals(null) || fromAddress.equals(null)
+////					|| contactNumber.equals(null) || (username == "") || (password == "") || (cpassword == "")
+////					|| (fromAddress == "") || (contactNumber == "")) {
+////				String str = "Fields cannot be Empty";
+////				model.addAttribute("mess", str);
+////				return "/supplier/supplierRegister";
+////			} else
+////			if{
+//
+//				if (password.equals(cpassword)) {
+//					PendingSupplier pd = new PendingSupplier(username, password, fromAddress, contactNumber);
+//
+//					int i = registerService.RegisterSupplier(pd);
+//
+//					if (i == 1) {
+//						String str = "Username already Exists";
+//						model.addAttribute("mess", str);
+//						return "/supplier/supplierRegister";
+//					}
+//
+//					return "redirect:/supplier/supplierLogin";
+//				} else {
+//					String str = "Entered Password do not Match";
+//					model.addAttribute("mess", str);
+//					return "/supplier/supplierRegister";
+//				}
+////			}
+//		} catch (Exception ex) {
+//			String str = "Enter Fields Correctly";
+//			model.addAttribute("mess", str);
+//			return "/supplier/supplierRegister";
+//		}
+		
+		
 	}
 
 	// Navigate to Login Page for Truck Driver
@@ -274,7 +277,11 @@ public class WebpageController {
 	@PostMapping("/admin/truckDetails")
 	public String truckDetailsMail(Model model) {
 		model.addAttribute("TruckDetails", tdService.getAllTruckD());
-		sm.sendMail();
+		String body="This is a sample text";
+		String subject="This is a sample text";
+		String email="harshithvishwanathan927@gmail.com";
+//		String email="smanuj007@gmail.com";
+		sm.sendMail(email,subject, body);
 		return "admin/truckDetails";
 	}
 
@@ -386,11 +393,10 @@ public class WebpageController {
 	}
 
 	// Navigate to supplier home page for a particular supplier id
-	@SuppressWarnings("deprecation")
 	@GetMapping("/supplier/supplierHome/{id}")
 	public String suppHome(@PathVariable("id") int id, Model model) {
 		model.addAttribute("id", id);
-		String supplierName = supplierDetailsRepo.getById(id).getSuppName();
+		String supplierName = supplierDetailsRepo.findById(id).get().getSuppName();
 		model.addAttribute("sName", supplierName);
 		return "supplier/supplierHome";
 	}

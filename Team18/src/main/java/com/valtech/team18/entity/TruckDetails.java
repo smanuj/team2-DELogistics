@@ -12,32 +12,20 @@ public class TruckDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int truckId;
-	//driverName and driverPassword strings are used to save driver login credentials
+	// driverName and driverPassword strings are used to save driver login
+	// credentials
 	private String driverName;
 	private String driverPassword;
 	private long driverPhNum;
 	private double temp;
+	private String email;
+	private boolean approved;
+	
 
 	public TruckDetails() {
 		super();
 	}
 
-	
-	public String getDriverPassword() {
-		return driverPassword;
-	}
-
-	public void setDriverPassword(String driverPassword) {
-		this.driverPassword = driverPassword;
-	}
-
-	@Override
-	public String toString() {
-		return "TruckDetails [truckId=" + truckId + ", driverName=" + driverName + ", driverPassword=" + driverPassword
-				+ ", driverPhNum=" + driverPhNum + ", temp=" + temp + "]";
-	}
-
-	
 	public TruckDetails(String driverName, String driverPassword, long driverPhNum) {
 		super();
 		this.driverName = driverName;
@@ -45,29 +33,33 @@ public class TruckDetails {
 		this.driverPhNum = driverPhNum;
 	}
 
+//	public TruckDetails(String driverName, String driverPassword, long driverPhNum, double temp) {
+//		super();
+//		this.driverName = driverName;
+//		this.driverPassword = driverPassword;
+//		this.driverPhNum = driverPhNum;
+//		this.temp = temp;
+//	}
 
-	public TruckDetails(String driverName, String driverPassword, long driverPhNum, double temp) {
-		super();
-		this.driverName = driverName;
-		this.driverPassword = driverPassword;
-		this.driverPhNum = driverPhNum;
-		this.temp = temp;
-	}
+	
 
-	public TruckDetails(int truckId, String driverName, String driverPassword, long driverPhNum, double temp) {
-		super();
-		this.truckId = truckId;
-		this.driverName = driverName;
-		this.driverPassword = driverPassword;
-		this.driverPhNum = driverPhNum;
-		this.temp = temp;
-	}
 
+	public TruckDetails(int truckId, String driverName, String driverPassword, long driverPhNum, double temp, String email,
+		boolean approved, boolean pending) {
+	super();
+	this.truckId = truckId;
+	this.driverName = driverName;
+	this.driverPassword = driverPassword;
+	this.driverPhNum = driverPhNum;
+	this.temp = temp;
+	this.email = email;
+	this.approved = approved;
+	
+}
 
 	public int getTruckId() {
 		return truckId;
 	}
-
 	public void setTruckId(int truckId) {
 		this.truckId = truckId;
 	}
@@ -96,4 +88,38 @@ public class TruckDetails {
 		this.temp = temp;
 	}
 
+	public String getDriverPassword() {
+		return driverPassword;
+	}
+
+	public void setDriverPassword(String driverPassword) {
+		this.driverPassword = driverPassword;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+
+	@Override
+	public String toString() {
+		return "TruckDetails [truckId=" + truckId + ", driverName=" + driverName + ", driverPassword=" + driverPassword
+				+ ", driverPhNum=" + driverPhNum + ", temp=" + temp + ", email=" + email + ", approved=" + approved
+				+  "]";
+	}
+
+	
+	
 }
