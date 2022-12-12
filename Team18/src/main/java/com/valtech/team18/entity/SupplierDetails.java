@@ -17,7 +17,7 @@ public class SupplierDetails {
 	private String email;
 	private String suppPassword;
 	private String fromAddress;
-	private String suppContactDetails;
+	private long suppContactDetails;
 	private boolean approved;
 	
 	
@@ -72,11 +72,11 @@ public class SupplierDetails {
 		this.suppName = suppName;
 	}
 
-	public String getSuppContactDetails() {
+	public Long getSuppContactDetails() {
 		return suppContactDetails;
 	}
 
-	public void setSuppContactDetails(String suppContactDetails) {
+	public void setSuppContactDetails(long suppContactDetails) {
 		this.suppContactDetails = suppContactDetails;
 	}
 
@@ -88,7 +88,7 @@ public class SupplierDetails {
 	
 	
 	public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
-			String suppContactDetails, boolean approved) {
+			long suppContactDetails, boolean approved) {
 		super();
 		this.suppId = suppId;
 		this.suppName = suppName;
@@ -109,7 +109,7 @@ public class SupplierDetails {
 //	}
 
 	public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress,
-			String suppContactDetails, boolean approved) {
+			long suppContactDetails, boolean approved) {
 		super();
 		this.suppName = suppName;
 		this.email = email;

@@ -51,6 +51,38 @@ public class SupplierServiceImpl implements SupplierService {
 	}
 
 
+	@Override
+	public List<SupplierDetails> getPendingSupplier() {
+		return supplierDetailsRepo.findAllByApprovedFalse();
+	}
+
+
+	@Override
+	public List<SupplierDetails> getApprovedSupplier() {
+		return supplierDetailsRepo.findAllByApprovedTrue();
+	}
+
+
+	@Override
+	public SupplierDetails approvingSupplier(int id) {
+//		TruckDetails td=truckDetailsRepo.findById(id).get();
+//		td.setApproved(true);
+		
+		SupplierDetails sd=supplierDetailsRepo.findById(id).get();
+		sd.setApproved(true);
+		
+		 return supplierDetailsRepo.save(sd);
+		
+	}
+
+
+	@Override
+	public void deleteRejectedSupplier(int id) {
+		supplierDetailsRepo.deleteById(id);
+	}
+
+
+	
 	
 
 

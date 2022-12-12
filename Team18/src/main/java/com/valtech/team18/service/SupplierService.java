@@ -15,5 +15,14 @@ public interface SupplierService {
 	List<OrderDetails> getAllOrdersBySuppId(int suppId);
 	
 	List<Integer> getAllDriverIdFromOrderDetails(OrderDetails od);
+	
+	List<SupplierDetails> getPendingSupplier();
+	
+	List<SupplierDetails> getApprovedSupplier();
+
+	SupplierDetails approvingSupplier(int id);
+
+	void deleteRejectedSupplier(int id);
+	
 
 }
