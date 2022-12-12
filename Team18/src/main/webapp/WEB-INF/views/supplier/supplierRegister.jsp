@@ -86,16 +86,24 @@
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example1c">Username</label><br>
-                            <input type="text" id="username" name="username" placeholder="Username" class="form-control" />
+                            <input type="text" id="username" name="username" placeholder="Username" class="form-control" pattern="[a-zA-Z]+" title="Enter Characters only" required />
                           </div>
                         </div>
-      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="form3Example4c">Email</label><br>
+                             <input type="email" id="email" required name="email" placeholder="Enter Email" class="form-control" pattern="[.com]" required/>
+					
+                          </div>
+                        </div>
+   
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example3c">Password</label><br>
                             <input type="password" placeholder="Password" id="password" name="password"
-            class="form-control form-control-lg" pattern="[A-Za-z0-9#@$&]{3,10}"  title="Password strength too weak" />
+         					   class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Must have atleast 1 uppercase, 1 lowercase, 1 letter and 1 number" required/>
                           </div>
                         </div>
       
@@ -104,7 +112,7 @@
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Confirm Password</label><br>
                             <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword"
-                            class="form-control form-control-lg" pattern="[A-Za-z0-9#@$&]{3,10}"  title="Password strength too weak" />
+                            class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Does not match" required/>
                           </div>
                         </div>
       
@@ -113,16 +121,26 @@
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Phone Number</label><br>
                             <input type="text" id="contactNumber" name="contactNumber"
-						placeholder="Contact Number" class="form-control form-control-lg"  pattern="^\d{10}$"  title="Invalid Phone number!!"	/>
+						placeholder="Contact Number" class="form-control form-control-lg"  pattern="^\d{10}$"  title="Invalid Phone number!!" required/>
                           </div>
                         </div>
                         
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="form3Example4c">LandLine Number</label><br>
+                            <input type = "tel" id= "phone" name= "phone" 
+						placeholder="Contact Number" class="form-control form-control-lg"  pattern="[0-9]{11}"  title="Invalid number!!"	/>
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Warehouse Address</label><br>
                             <input type="text" id="fromAddress" name="fromAddress"
-						placeholder="Warehouse Address" class="form-control form-control-lg" />
+						placeholder="Warehouse Address" class="form-control form-control-lg" required />
                           </div>
                         </div>
 
