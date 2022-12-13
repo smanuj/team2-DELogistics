@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -113,10 +114,13 @@ public class ApplicationController {
 	public String forgotPass(@RequestParam("email")String email,@RequestParam("role")String role,Model model){
 		if(role.equals("supp")){
 			if(supplierLoginService.checkmail(email)){
-				return "newPassword";
+//				return "newPassword";
+				int id = supplierLoginService.getIdFromEmail(email);
+				return "redirect:/newPassword/supp/" + id;
+				
 			}
 			else{
-				String message = "Invalid email";
+				String message = "Invalid email for Supplier";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "forgotPassword";
@@ -124,10 +128,11 @@ public class ApplicationController {
 		}
 		else {
 			if(truckLoginService.checkmail(email)){
-				return "newPassword";
+				int id = truckLoginService.getIdFromEmail(email);
+				return "redirect:/newPassword/driver/" + id;
 			}
 			else{
-				String message = "Invalid email";
+				String message = "Invalid email for Driver";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "forgotPassword";
@@ -137,11 +142,65 @@ public class ApplicationController {
 		
 	}
 	
-	@GetMapping("/newPassword")
-	public String newPassword() {
+	@GetMapping("/newPassword/supp/{id}")
+	public String newPasswordForSupp() {
 		return "newPassword";
 	}
 	
+	@GetMapping("/newPassword/driver/{id}")
+	public String newPasswordForDriver() {
+		return "newPassword";
+	}
 	
+	@PostMapping("/newPassword/supp/{id}")
+	public String changeSuppPass(@PathVariable("id")int id,@RequestParam("otp")String otp,@RequestParam("newpassword")String password,@RequestParam("confirmPassword")String cPassword,Model model){
+		if(supplierLoginService.checkOTP(id,otp)){
+			if(password==cPassword||password.equals(cPassword)){
+				supplierLoginService.changePassword(id,password);
+				String message = "Password has been changed";
+				System.out.println(message);
+				model.addAttribute("mess", message);
+				return "mainHomePage";
+			}	
+			else{
+				String message = "Enter passwords do not match";
+				System.out.println(message);
+				model.addAttribute("mess", message);
+				return "/newPassword/supp/{id}";
+			}
+		}
+		else {
+			String message = "Invalid OTP enter the correct OTP";
+			System.out.println(message);
+			model.addAttribute("mess", message);
+			return "/newPassword/supp/{id}";
+		}
+		
+	}
+	
+	@PostMapping("/newPassword/driver/{id}")
+	public String changeDriverPass(@PathVariable("id")int id,@RequestParam("otp")String otp,@RequestParam("newpassword")String password,@RequestParam("confirmPassword")String cPassword,Model model){
+		if(truckLoginService.checkOTP(id,otp)){
+			if(password==cPassword||password.equals(cPassword)){
+				truckLoginService.changePassword(id,password);
+				String message = "Password has been changed";
+				System.out.println(message);
+				model.addAttribute("mess", message);
+				return "mainHomePage";
+			}	
+			else{
+				String message = "Enter passwords do not match";
+				System.out.println(message);
+				model.addAttribute("mess", message);
+				return "/newPassword/supp/{id}";
+			}
+		}
+		else {
+			String message = "Invalid OTP enter the correct OTP";
+			System.out.println(message);
+			model.addAttribute("mess", message);
+			return "/newPassword/supp/{id}";
+		}
+	}
 	
 }

@@ -17,6 +17,8 @@ public interface SupplierDetailsRepo extends JpaRepository<SupplierDetails, Inte
 	List<SupplierDetails> findAllByApprovedTrue();
 
 	SupplierDetails findByEmail(String email);
+	
+	SupplierDetails findBySuppId(int id);
 
 //	boolean existsByEmail(String email);
 	

@@ -74,7 +74,25 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		return false;
 	}
 	
-	
+	@Override
+	public boolean checkOTP(int id,String otp) {
+		TruckDetails td=truckDetailsRepo.findByTruckId(id);
+		if(otp.equals(td.getDriverPassword()))
+			return true;
+		
+		return false;
+	}
+
+
+	@Override
+	public void changePassword(int id, String password) {
+		TruckDetails td=truckDetailsRepo.findByTruckId(id);
+		td.setDriverPassword(password);
+		truckDetailsRepo.save(td);
+		mailMessage.succesfulChange(td.getEmail());
+		
+		
+	}
 	
 
 	// Save new supplier details

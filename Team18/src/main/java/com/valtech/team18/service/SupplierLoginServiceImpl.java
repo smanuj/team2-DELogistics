@@ -71,6 +71,27 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		}
 		return false;
 	}
+
+
+	@Override
+	public boolean checkOTP(int id,String otp) {
+		SupplierDetails sd=supplierDetailsRepo.findBySuppId(id);
+		if(otp.equals(sd.getSuppPassword()))
+			return true;
+		
+		return false;
+	}
+
+
+	@Override
+	public void changePassword(int id, String password) {
+		SupplierDetails sd=supplierDetailsRepo.findBySuppId(id);
+		sd.setSuppPassword(password);
+		supplierDetailsRepo.save(sd);
+		mailMessage.succesfulChange(sd.getEmail());
+		
+		
+	}
 	
 	
 
