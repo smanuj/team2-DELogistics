@@ -18,4 +18,7 @@ public interface SupplierDetailsRepo extends JpaRepository<SupplierDetails, Inte
 
 	SupplierDetails findByEmail(String email);
 
+//	boolean existsByEmail(String email);
+	
+
 }

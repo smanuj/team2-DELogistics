@@ -87,16 +87,16 @@
             </div><br>
             <label class="form-label text-white" for="form3Example4c">Choose
                 User role</label><br> <select class="btn  btn-warning"
-                name="email" id="email">
+                name="role" id="role">
               
 
 
                 <option value = ""disabled selected>Select</option>
 
                 
-                <option value=2>
+                <option value="supp">
                     Supplier</option>
-                    <option value=3>
+                    <option value="driver">
                         Truck Driver</option>
                 
             </select><br>
