@@ -8,4 +8,6 @@ public interface MailMessage {
 
 	void registerationFailure(String email);
 
+	void sendOTP(String email, String pass);
+
 }

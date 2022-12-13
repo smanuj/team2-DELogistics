@@ -31,4 +31,12 @@ public class MailMessageImpl implements MailMessage {
 		mm.sendMail(email, subject2, body2);
 	}
 
+	@Override
+	public void sendOTP(String email, String pass) {
+		String subject3 = "Reset Password";
+		String body3 = "Hello, Please use this OTP to reset your password: "+pass+" DO NOT SHARE THIS OTP WITH ANYONE!!. -admin";
+		mm.sendMail(email, subject3, body3);
+		
+	}
+
 }
