@@ -211,7 +211,7 @@ public class AdminController {
 		} catch (Exception ex) {
 			System.out.println(ex);
 			
-			String str = "Enter Fileds Correctly";
+			String str = "Enter Fields Correctly";
 			 model.addAttribute("mess", str);
 			 return "/admin/newOrder";
 			

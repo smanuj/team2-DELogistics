@@ -16,4 +16,6 @@ public interface TruckDetailsRepo extends JpaRepository<TruckDetails, Integer> {
 	List<TruckDetails> findAllByApprovedFalse();
 	List<TruckDetails> findAllByApprovedTrue();
 
+	TruckDetails findByEmail(String email);
+
 }

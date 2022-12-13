@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.valtech.team18.entity.PendingDriver;
+//import com.valtech.team18.entity.PendingDriver;
 import com.valtech.team18.entity.TruckDetails;
 import com.valtech.team18.repo.TruckDetailsRepo;
 
@@ -36,16 +36,26 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 
 	}
 
-	// Save new supplier details
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED)
-	public TruckDetails saveNew(PendingDriver pd) {
-		String username = pd.getUsername();
-		String password = pd.getPassword();
-		long driverNumber = pd.getDriverNumber();
-
-		TruckDetails td = new TruckDetails(username, password, driverNumber);
-		return truckDetailsRepo.save(td);
+	public int getIdFromEmail(String email) {
+		
+		return truckDetailsRepo.findByEmail(email).getTruckId();
+//		return supplierDetailsRepo.findByEmail(email).getSuppId();
 	}
+	
+	
+	
+
+	// Save new supplier details
+//	@Override
+//	@Transactional(propagation = Propagation.REQUIRED)
+//	public TruckDetails saveNew(PendingDriver pd) {
+//		String username = pd.getUsername();
+//		String password = pd.getPassword();
+//		long driverNumber = pd.getDriverNumber();
+//
+//		TruckDetails td = new TruckDetails(username, password, driverNumber);
+//		return truckDetailsRepo.save(td);
+//	}
 
 }
