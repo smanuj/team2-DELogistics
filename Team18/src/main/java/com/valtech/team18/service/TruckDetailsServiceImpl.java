@@ -23,6 +23,9 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	@Autowired
 	private TruckDetailsRepo truckDetailsRepo;
 	
+	@Autowired
+	private MailMessage mailMessage;
+	
 	@Override
 	public List<OrderDetails> getAllOrderD(){
 		return orderDetailsRepo.findAll();
@@ -52,12 +55,15 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	public TruckDetails approvingDriver(int id) {
 		TruckDetails td=truckDetailsRepo.findById(id).get();
 		td.setApproved(true);
+		mailMessage.registeredSuccessfully(td.getEmail(),"Driver");
 		return truckDetailsRepo.save(td);
 	}
 
 	@Override
 	public void deleteRejectedDriver(int id) {
+		TruckDetails td=truckDetailsRepo.findById(id).get();
 		truckDetailsRepo.deleteById(id);
+		mailMessage.registerationFailure(td.getEmail(),"Driver");
 		
 	}
 	

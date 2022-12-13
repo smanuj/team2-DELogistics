@@ -158,9 +158,9 @@ public class ApplicationController {
 			if(password==cPassword||password.equals(cPassword)){
 				supplierLoginService.changePassword(id,password);
 				String message = "Password has been changed";
+//				model.addAttribute("mess", message);
 				System.out.println(message);
-				model.addAttribute("mess", message);
-				return "mainHomePage";
+				return "redirect:/";
 			}	
 			else{
 				String message = "Enter passwords do not match";
@@ -184,9 +184,9 @@ public class ApplicationController {
 			if(password==cPassword||password.equals(cPassword)){
 				truckLoginService.changePassword(id,password);
 				String message = "Password has been changed";
-				System.out.println(message);
+//				System.out.println(message);
 				model.addAttribute("mess", message);
-				return "mainHomePage";
+				return "redirect:/";
 			}	
 			else{
 				String message = "Enter passwords do not match";

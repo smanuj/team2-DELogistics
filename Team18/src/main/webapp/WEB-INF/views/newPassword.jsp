@@ -79,7 +79,7 @@
         <div class="card">
           <div class="card-body" style="  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHvanRCaIyLlAOvtKhaJMNhjvEJCJta80tVQ&usqp=CAU'); background-size:cover  ;">
             <h5 class="card-title   text-white display-4" style="text-align: center;">Change Password</h5><br>
-            <form th:action="@{/login}" method="POST" class="form-signin  "></form>
+            <form th:action="@{/login}" method="POST" class="form-signin  ">
             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
                
@@ -104,7 +104,7 @@
             value="Login" type="Submit" text="Login">Submit</button></center>
           <div class="text-danger p-3">
             <strong>${mess}</strong>
-          </div>
+          </div></form>
           </div>
            
           </div>

@@ -65,7 +65,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 			String pass=getRandomNumberString();
 			sd.setSuppPassword(pass);
 			supplierDetailsRepo.save(sd);
-			mailMessage.sendOTP(sd.getEmail(),pass);
+			mailMessage.sendOTP(sd.getEmail(),pass,"Supplier");
 			return true;
 			
 		}
@@ -88,7 +88,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		SupplierDetails sd=supplierDetailsRepo.findBySuppId(id);
 		sd.setSuppPassword(password);
 		supplierDetailsRepo.save(sd);
-		mailMessage.succesfulChange(sd.getEmail());
+		mailMessage.successfulPasswordChange(sd.getEmail(),"Supplier");
 		
 		
 	}

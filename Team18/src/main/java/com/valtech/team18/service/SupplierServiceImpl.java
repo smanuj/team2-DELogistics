@@ -28,6 +28,8 @@ public class SupplierServiceImpl implements SupplierService {
 	@Autowired
 	private TruckDetailsRepo truckDetailsRepo;
 	
+	@Autowired
+	private MailMessage mailMessage;
 	
 	@Override
 	public List<TruckDetails> getAllTruckD(){
@@ -70,7 +72,7 @@ public class SupplierServiceImpl implements SupplierService {
 		
 		SupplierDetails sd=supplierDetailsRepo.findById(id).get();
 		sd.setApproved(true);
-		
+		mailMessage.registeredSuccessfully(sd.getEmail(),"Supplier");
 		 return supplierDetailsRepo.save(sd);
 		
 	}
@@ -78,7 +80,9 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public void deleteRejectedSupplier(int id) {
+		SupplierDetails sd=supplierDetailsRepo.findById(id).get();
 		supplierDetailsRepo.deleteById(id);
+		mailMessage.registerationFailure(sd.getEmail(),"Supplier");
 	}
 
 
