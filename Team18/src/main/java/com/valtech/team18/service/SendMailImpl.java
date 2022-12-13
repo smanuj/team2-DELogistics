@@ -57,7 +57,7 @@ public class SendMailImpl implements SendMail {
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("dartexpresslogistics@outlook.com"));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("smanuj007@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 			message.setSubject(subject);
 			// message.setText("This email was sent with JavaMail.");
 			message.setText(body);
