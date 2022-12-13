@@ -21,6 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class SendMailImpl implements SendMail {
 	@Value("${from.mail}")
 	private String fromId;
+	@Value("${from.password}")
+	private String password;
+
 	@Override
 	public void sendMail(String email, String subject, String body) {
 		Properties props = new Properties();
@@ -35,7 +38,7 @@ public class SendMailImpl implements SendMail {
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(fromId, "Qwertyuiop12#");
+				return new PasswordAuthentication(fromId, password);
 			}
 		});
 
