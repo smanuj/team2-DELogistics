@@ -87,12 +87,12 @@
             <div class="form-outline flex-fill mb-0"><br>
 
                 <label class="form-label text-white" for="form3Example1c">Enter the New Password</label><br> 
-              <input type="password" id="newpassword" name="newpassword" placeholder="New Password" class="form-control" />
+              <input type="password" id="newpassword" name="newpassword" onCopy="return false;" onPaste="return false;" placeholder="New Password"  class="form-control" />
             </div><br>
             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
                 <label class="form-label text-white" for="form3Example1c">Confirm Password</label><br> 
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-control" />
+                <input type="password" id="confirmPassword" name="confirmPassword" onCopy="return false;" onPaste="return false;" placeholder="Confirm Password" class="form-control" />
               </div><br>
             
             <center>

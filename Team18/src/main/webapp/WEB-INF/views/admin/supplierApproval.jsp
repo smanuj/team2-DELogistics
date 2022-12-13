@@ -84,6 +84,7 @@
 					<tr>
 						<td>Id</td>
 						<td>Supplier Name</td>
+						<td>Supplier Email</td>
 						<td>Supplier Number</td>
 						<td>Supplier Address</td>
 						<td>Click here to accept</td>
@@ -93,18 +94,19 @@
 				<tbody>
 					<c:forEach items="${PendingSupplier}" var="PendingSupplier">
 						<tr>
-							<td>${PendingSupplier.id}</td>
-							<td>${PendingSupplier.username}</td>
+							<td>${PendingSupplier.suppId}</td>
+							<td>${PendingSupplier.suppName}</td>
+							<td>${PendingSupplier.email}</td>
 							<td>${PendingSupplier.suppContactDetails}</td>
 							<td>${PendingSupplier.fromAddress}</td>
 							<form method="post"
-								action="/admin/supplierApproval/${PendingSupplier.id}">
+								action="/admin/supplierApproval/${PendingSupplier.suppId}">
 								<td><input type="submit" value="Approve"
 									class="btn btn-lg  btn-success" id="details" name="Approve">
 									<!-- <i class="fa fa-ban"></i> --></td>
 							</form>
 							<form method="post"
-								action="/admin/supplierApproval/sdelete/${PendingSupplier.id}">
+								action="/admin/supplierApproval/sdelete/${PendingSupplier.suppId}">
 								<td><input type="submit" value="Reject"
 									class="btn btn-lg  btn-danger " id="details" name="Reject">
 									<!-- <i class="fa fa-ban"></i> --></td>

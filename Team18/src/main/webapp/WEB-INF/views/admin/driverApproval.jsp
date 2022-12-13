@@ -84,6 +84,7 @@
 					<tr>
 						<td>ID</td>
 						<td>Driver name</td>
+						<td>Driver Email</td>
 						<td>Driver Number</td>
 						<td>Click here to accept</td>
 						<td>Click here to reject</td>
@@ -92,20 +93,21 @@
 				<tbody>
 					<c:forEach items="${PendingDriver}" var="PendingDriver">
 						<tr>
-							<td>${PendingDriver.id}</td>
-							<td>${PendingDriver.username}</td>
-							<td>${PendingDriver.driverNumber}</td>
+							<td>${PendingDriver.truckId}</td>
+							<td>${PendingDriver.driverName}</td>
+							<td>${PendingDriver.email}</td>
+							<td>${PendingDriver.driverPhNum}</td>
 
 
 							<form method="post"
-								action="/admin/driverApproval/${PendingDriver.id}">
+								action="/admin/driverApproval/${PendingDriver.truckId}">
 
 								<td><input type="submit" value="Approve"
 									class="btn btn-lg  btn-success" id="Approve" name="Approve">
 									</td>
 							</form>
 							<form method="post"
-								action="/admin/driverApproval/ddelete/${PendingDriver.id}">
+								action="/admin/driverApproval/ddelete/${PendingDriver.truckId}">
 								<td><input type="submit" value="Reject"
 									class="btn btn-lg  btn-danger " id="details" name="Reject">
 									</td>

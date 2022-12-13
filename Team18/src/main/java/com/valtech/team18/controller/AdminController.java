@@ -90,6 +90,7 @@ public class AdminController {
 	public String driverApp(Model model) {
 		// model.addAttribute("PendingDriver", registerService.getDriverList());
 		model.addAttribute("PendingDriver", tdService.getPendingDriver());
+		System.out.println(tdService.getPendingDriver());
 
 		return "admin/driverApproval";
 	}
