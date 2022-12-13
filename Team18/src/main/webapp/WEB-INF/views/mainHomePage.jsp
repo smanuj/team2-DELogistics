@@ -194,15 +194,15 @@
 
                                             <label class="form-label" for="form3Example4c">Choose
                                                 Your profile</label><br> <select class="btn  btn-warning"
-                                                name="driverid" id="driverid">
+                                                name="role" id="role">
                                                 
                                                     <option value = ""disabled selected>Select</option>
 
-                                                    <option value=1>
+                                                    <option value="admin">
                                                     Admin</option>
-                                                    <option value=2>
+                                                    <option value="supp">
                                                         Supplier</option>
-                                                        <option value=3>
+                                                        <option value="driver">
                                                             Truck Driver</option>
                                                
                                             </select>

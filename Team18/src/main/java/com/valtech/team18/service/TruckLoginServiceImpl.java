@@ -18,12 +18,12 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 
 	// Login Validation by checking given username and password in the database
 	@Override
-	public boolean loginvalidation(String username, String password) throws NullPointerException {
+	public boolean loginvalidation(String email, String password) throws NullPointerException {
 
 		try {
-			TruckDetails sup = truckDetailsRepo.findByDriverName(username);
+			TruckDetails sup = truckDetailsRepo.findByEmail(email);
 
-			if ((username.equals(sup.getDriverName())) && (password.equals(sup.getDriverPassword()))) {
+			if ((email.equals(sup.getEmail())) && (password.equals(sup.getDriverPassword()))) {
 				return true;
 			}
 

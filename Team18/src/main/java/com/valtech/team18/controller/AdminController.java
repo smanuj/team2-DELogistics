@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.valtech.team18.entity.OrderDetails;
 import com.valtech.team18.service.AdminLoginService;
 import com.valtech.team18.service.AdminService;
+import com.valtech.team18.service.MailMessage;
 import com.valtech.team18.service.NewOrderService;
-import com.valtech.team18.service.RegisterService;
 import com.valtech.team18.service.SendMail;
 import com.valtech.team18.service.SupplierService;
 import com.valtech.team18.service.TruckDetailsService;
@@ -38,9 +38,10 @@ public class AdminController {
 
 	@Autowired
 	SendMail sm;
-
+	
 	@Autowired
-	RegisterService registerService;
+	MailMessage mm;
+
 
 	@Autowired
 	NewOrderService newOrderService;
@@ -73,16 +74,15 @@ public class AdminController {
 		return "admin/truckDetails";
 	}
 
-	// // Navigate to Truck Details page for Admin
-	// @PostMapping("/admin/truckDetails")
-	// public String truckDetailsMail(Model model) {
-	// model.addAttribute("TruckDetails", tdService.getAllTruckD());
-	// String sample = "This is a sample text";
-	// String email = "smanuj007@gmail.com";
-	// // String email="smanuj007@gmail.com";
-	// sm.sendMail(email, sample);
-	// return "admin/truckDetails";
-	// }
+	 // Navigate to Truck Details page for Admin
+	 @PostMapping("/admin/truckDetails")
+	 public String truckDetailsMail(Model model) {
+	 model.addAttribute("TruckDetails", tdService.getAllTruckD());
+	 String email = "smanuj007@gmail.com";
+	 // String email="smanuj007@gmail.com";
+	 mm.sendAlert(email);
+	 return "admin/truckDetails";
+	 }
 
 	// Navigate to Driver Approval page for Admin so that admin can proceed to
 	// Approve/Reject the pending Driver details

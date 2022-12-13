@@ -16,19 +16,12 @@ public class ApplicationController {
 
 	@Autowired
 	AdminLoginService adminLoginService;
-	
+
 	@Autowired
 	SupplierLoginService supplierLoginService;
-	
+
 	@Autowired
 	TruckLoginService truckLoginService;
-
-	// Navigate to Main Home Page
-	@GetMapping("/")
-	public String indexPage() {
-
-		return "Index";
-	}
 
 	// Navigate to Login Page
 	@GetMapping("/login")
@@ -36,30 +29,31 @@ public class ApplicationController {
 
 		return "/Login";
 	}
-	
-	// Navigate to Login Page
-		@GetMapping("/")
-		public String mainhomepage() {
 
-			return "/mainHomePage";
-		}
+	// Navigate to Login Page
+	@GetMapping("/")
+	public String mainhomepage() {
+
+		return "/mainHomePage";
+	}
 
 	// Submit username and password for validating Admin Login
-	@PostMapping("/mainHomePage")
-	public String adminLoginVal(@RequestParam("email") String email, @RequestParam("password") String password,@RequestParam("role")String role,
-			ModelMap model) {
-		if(role == "admin"){
+	@PostMapping("/")
+	public String adminLoginVal(@RequestParam("email") String email, @RequestParam("password") String password,
+			@RequestParam("role") String role, ModelMap model) {
+		System.out.println("test1");
+		if (role.equals("admin")) {
+			System.out.println("test2");
 			if (adminLoginService.loginvalidation(email, password) == true) {
+				System.out.println("test3");
 				return "redirect:/admin/adminHome";
-			}
-			else {
+			} else {
 				String message = "Invalid Username and Password";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "mainHomePage";
 			}
-		}
-		else if(role == "supp"){
+		} else if (role.equals("supp")) {
 			if (supplierLoginService.loginvalidation(email, password) == true) {
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/supplier/supplierHome/" + id;
@@ -70,37 +64,31 @@ public class ApplicationController {
 				return "mainHomePage";
 			}
 		}
-		
-		
-		else if(role == "driver"){
+
+		else if (role.equals("driver")) {
 			if (truckLoginService.loginvalidation(email, password) == true) {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/truckDriver/truckDriverHome/" + id;
 			} else {
 
-				String message = "Invalid Username and Password";
+				String message = "Invalid driver Username and Password";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "mainHomePage";
 			}
-			
+
 		}
-		
-		
-		
-		
+
 		return "mainHomePage";
-		
-		
-		
-//		if (adminLoginService.loginvalidation(email, password) == true) {
-//			return "redirect:/admin/adminHome";
-//		} else {
-//			String message = "Invalid Username and Password";
-//			System.out.println(message);
-//			model.addAttribute("mess", message);
-//			return "admin/adminLogin";
-//		}
+
+		// if (adminLoginService.loginvalidation(email, password) == true) {
+		// return "redirect:/admin/adminHome";
+		// } else {
+		// String message = "Invalid Username and Password";
+		// System.out.println(message);
+		// model.addAttribute("mess", message);
+		// return "admin/adminLogin";
+		// }
 	}
 
 	// Navigate to the About Us page
