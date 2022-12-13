@@ -8,6 +8,8 @@ public interface TruckLoginService {
 	boolean loginvalidation(String username, String password) throws NullPointerException;
 
 	int getIdFromEmail(String email);
+
+	boolean checkmail(String email);
 	
 	
 //	TruckDetails saveNew(PendingDriver pd);

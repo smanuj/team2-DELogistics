@@ -2,6 +2,7 @@ package com.valtech.team18.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -102,4 +103,45 @@ public class ApplicationController {
 	public String contactUs() {
 		return "contactUs";
 	}
+	
+	@GetMapping("/forgotPassword")
+	public String forgotPassword() {
+		return "forgotPassword";
+	}
+	
+	@PostMapping("/forgotPassword")
+	public String forgotPass(@RequestParam("email")String email,@RequestParam("role")String role,Model model){
+		if(role.equals("supp")){
+			if(supplierLoginService.checkmail(email)){
+				return "newPassword";
+			}
+			else{
+				String message = "Invalid email";
+				System.out.println(message);
+				model.addAttribute("mess", message);
+				return "forgotPassword";
+			}
+		}
+		else {
+			if(truckLoginService.checkmail(email)){
+				return "newPassword";
+			}
+			else{
+				String message = "Invalid email";
+				System.out.println(message);
+				model.addAttribute("mess", message);
+				return "forgotPassword";
+			}
+			
+		}
+		
+	}
+	
+	@GetMapping("/newPassword")
+	public String newPassword() {
+		return "newPassword";
+	}
+	
+	
+	
 }

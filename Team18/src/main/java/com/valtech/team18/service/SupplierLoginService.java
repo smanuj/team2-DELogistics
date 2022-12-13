@@ -9,6 +9,8 @@ public interface SupplierLoginService {
 	boolean loginvalidation(String username, String password);
 	
 	int getIdFromEmail(String email);
+
+	boolean checkmail(String email);
 	
 //	SupplierDetails saveNew(PendingSupplier ps);
 
