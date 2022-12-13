@@ -11,20 +11,30 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.hibernate.cfg.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.valtech.team18.properties.AppProperties;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class SendMailImpl implements SendMail {
-	@Value("${from.mail}")
-	private String fromId;
-	@Value("${from.password}")
-	private String password;
+	// @Value("${sender.email.id}")
+	// private String fromId;
+	// @Value("${sender.email.password}")
+	// private String password;
+
+	@Autowired
+	AppProperties appProperties;
+	
 
 	@Override
+	@RequestMapping("de")
 	public void sendMail(String email, String subject, String body) {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -38,7 +48,9 @@ public class SendMailImpl implements SendMail {
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(fromId, "Qwertyuiop12#");
+//				System.out.println("ID: "+appProperties.getId());
+//				System.out.println("Password: "+appProperties.getPassword());
+				return new PasswordAuthentication("dartexpresslogistics@outlook.com", "Qwertyuiop12#");
 			}
 		});
 
