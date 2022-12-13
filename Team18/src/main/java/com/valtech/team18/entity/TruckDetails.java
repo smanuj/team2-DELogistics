@@ -20,7 +20,17 @@ public class TruckDetails {
 	private double temp;
 	private String email;
 	private boolean approved;
+	private String otp;
 	
+	
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
 
 	public TruckDetails() {
 		super();

@@ -65,7 +65,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		
 		if(td.getEmail()!=null){
 			String pass=getRandomNumberString();
-			td.setDriverPassword(pass);
+			td.setOtp(pass);
 			truckDetailsRepo.save(td);
 			mailMessage.sendOTP(td.getEmail(),pass,"Driver");
 			return true;
@@ -77,7 +77,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	@Override
 	public boolean checkOTP(int id,String otp) {
 		TruckDetails td=truckDetailsRepo.findByTruckId(id);
-		if(otp.equals(td.getDriverPassword()))
+		if(otp.equals(td.getOtp()))
 			return true;
 		
 		return false;
@@ -88,6 +88,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	public void changePassword(int id, String password) {
 		TruckDetails td=truckDetailsRepo.findByTruckId(id);
 		td.setDriverPassword(password);
+		td.setOtp(null);
 		truckDetailsRepo.save(td);
 		mailMessage.successfulPasswordChange(td.getEmail(),"Driver");
 		

@@ -19,8 +19,17 @@ public class SupplierDetails {
 	private String fromAddress;
 	private long suppContactDetails;
 	private boolean approved;
+	private String otp;
 	
 	
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
 
 	public String getSuppPassword() {
 		return suppPassword;

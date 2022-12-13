@@ -67,11 +67,7 @@
 </div>
 </nav>
 <body>
-
-
-
-</div>           
-      
+   
       
 <!-- <h1 class="display-4 text-white" style="text-align: center;">Forgot Password</h1> -->
 

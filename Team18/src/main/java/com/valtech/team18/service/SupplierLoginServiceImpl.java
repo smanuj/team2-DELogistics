@@ -63,7 +63,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		SupplierDetails sd=supplierDetailsRepo.findByEmail(email);
 		if(sd.getEmail()!=null){
 			String pass=getRandomNumberString();
-			sd.setSuppPassword(pass);
+			sd.setOtp(pass);
 			supplierDetailsRepo.save(sd);
 			mailMessage.sendOTP(sd.getEmail(),pass,"Supplier");
 			return true;
@@ -76,7 +76,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	@Override
 	public boolean checkOTP(int id,String otp) {
 		SupplierDetails sd=supplierDetailsRepo.findBySuppId(id);
-		if(otp.equals(sd.getSuppPassword()))
+		if(otp.equals(sd.getOtp()))
 			return true;
 		
 		return false;
@@ -87,6 +87,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public void changePassword(int id, String password) {
 		SupplierDetails sd=supplierDetailsRepo.findBySuppId(id);
 		sd.setSuppPassword(password);
+		sd.setOtp(null);
 		supplierDetailsRepo.save(sd);
 		mailMessage.successfulPasswordChange(sd.getEmail(),"Supplier");
 		
