@@ -104,7 +104,7 @@
 							</button> --> <!-- <input type="button" value="Alert !"
 							class="btn  btn-md btn-danger" id="Alert" name="Alert"
 							onclick="alertbtn()"></td> -->
-							<form th:action="@{/login}" method="POST" class="form-signin  ">
+							<form action="/alert/${TruckDetails.truckId}" method="POST" class="form-signin  ">
 								<button class="btn btn-dark btn-lg btn-block" name="Alert"
 											value="Alert" type="Submit" text="Alert">Alert</button>
 							</form>

@@ -46,4 +46,11 @@ public class MailMessageImpl implements MailMessage {
 		mm.sendMail(email, subject4, body4);
 	}
 
+	@Override
+	public void notifyRegisteration(String email, String role) {
+		String subject5 = "Registeration form recieved";
+		String body5 = "Hello, Your registeration form is received for the role: "+role+" You will be notified regarding the approval soon. -admin";
+		mm.sendMail(email, subject5, body5);
+	}
+
 }

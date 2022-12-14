@@ -20,8 +20,17 @@ public class SupplierDetails {
 	private long suppContactDetails;
 	private boolean approved;
 	private String otp;
+	private long landLine;
 	
 	
+
+	public long getLandLine() {
+		return landLine;
+	}
+
+	public void setLandLine(long landLine) {
+		this.landLine = landLine;
+	}
 
 	public String getOtp() {
 		return otp;
@@ -96,8 +105,9 @@ public class SupplierDetails {
 
 	
 	
-	public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
-			long suppContactDetails, boolean approved) {
+	
+public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
+			long suppContactDetails, boolean approved, String otp, long landLine) {
 		super();
 		this.suppId = suppId;
 		this.suppName = suppName;
@@ -106,35 +116,35 @@ public class SupplierDetails {
 		this.fromAddress = fromAddress;
 		this.suppContactDetails = suppContactDetails;
 		this.approved = approved;
-		
-	}
-//
-//	public SupplierDetails( String suppName, String suppPassword, String fromAddress,String suppContactDetails) {
-//		super();
-//		this.fromAddress = fromAddress;
-//		this.suppName = suppName;
-//		this.suppPassword = suppPassword;
-//		this.suppContactDetails = suppContactDetails;
-//	}
-
-	public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress,
-			long suppContactDetails, boolean approved) {
-		super();
-		this.suppName = suppName;
-		this.email = email;
-		this.suppPassword = suppPassword;
-		this.fromAddress = fromAddress;
-		this.suppContactDetails = suppContactDetails;
-		this.approved = approved;
-		
+		this.otp = otp;
+		this.landLine = landLine;
 	}
 
-	@Override
-	public String toString() {
-		return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", email=" + email + ", suppPassword="
-				+ suppPassword + ", fromAddress=" + fromAddress + ", suppContactDetails=" + suppContactDetails
-				+ ", approved=" + approved +"]";
-	}
+
+
+
+
+
+public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress, long suppContactDetails,
+		boolean approved, String otp, long landLine) {
+	super();
+	this.suppName = suppName;
+	this.email = email;
+	this.suppPassword = suppPassword;
+	this.fromAddress = fromAddress;
+	this.suppContactDetails = suppContactDetails;
+	this.approved = approved;
+	this.otp = otp;
+	this.landLine = landLine;
+}
+
+@Override
+public String toString() {
+	return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", email=" + email + ", suppPassword="
+			+ suppPassword + ", fromAddress=" + fromAddress + ", suppContactDetails=" + suppContactDetails
+			+ ", approved=" + approved + ", otp=" + otp + ", landLine=" + landLine + "]";
+}
+
 	
 	
 }

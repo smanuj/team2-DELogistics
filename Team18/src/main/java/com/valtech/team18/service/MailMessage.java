@@ -12,4 +12,6 @@ public interface MailMessage {
 
 	void successfulPasswordChange(String email,String role);
 
+	void notifyRegisteration(String email, String role);
+
 }

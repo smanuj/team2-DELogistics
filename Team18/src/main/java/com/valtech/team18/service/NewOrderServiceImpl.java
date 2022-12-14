@@ -16,7 +16,8 @@ public class NewOrderServiceImpl implements NewOrderService {
 	
 	@Override
 	public OrderDetails saveNew(OrderDetails od){
-		return orderDetailsRepo.save(od);
+	  return orderDetailsRepo.save(od);
+	 
 	}
 
 }

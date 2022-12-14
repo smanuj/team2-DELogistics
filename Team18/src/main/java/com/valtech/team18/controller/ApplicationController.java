@@ -60,7 +60,7 @@ public class ApplicationController {
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/supplier/supplierHome/" + id;
 			} else {
-				String message = "Invalid Username and Password";
+				String message = "Invalid supp Username and Password";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "mainHomePage";
