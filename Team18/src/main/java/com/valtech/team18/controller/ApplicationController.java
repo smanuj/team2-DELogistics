@@ -17,7 +17,7 @@ import com.valtech.team18.service.TruckLoginService;
 
 @Controller
 public class ApplicationController {
-	private static final Logger logger=LoggerFactory.getLogger(ApplicationController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ApplicationController.class);
 
 	@Autowired
 	AdminLoginService adminLoginService;
@@ -47,7 +47,7 @@ public class ApplicationController {
 	public String adminLoginVal(@RequestParam("email") String email, @RequestParam("password") String password,
 			@RequestParam("role") String role, ModelMap model) {
 		logger.info("Fetching adminLoginVal for admin");
-		
+
 		System.out.println("test1");
 		if (role.equals("admin")) {
 			System.out.println("test2");
@@ -110,112 +110,109 @@ public class ApplicationController {
 	public String contactUs() {
 		return "contactUs";
 	}
-	
+
 	@GetMapping("/forgotPassword")
 	public String forgotPassword() {
 		return "forgotPassword";
 	}
-	
+
 	@PostMapping("/forgotPassword")
-	public String forgotPass(@RequestParam("email")String email,@RequestParam("role")String role,Model model){
+	public String forgotPass(@RequestParam("email") String email, @RequestParam("role") String role, Model model) {
 		logger.info("Fetching forgotPassword");
-		if(role.equals("supp")){
-			if(supplierLoginService.checkmail(email)){
-//				return "newPassword";
+		if (role.equals("supp")) {
+			if (supplierLoginService.checkmail(email)) {
+				// return "newPassword";
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/newPassword/supp/" + id;
-				
-			}
-			else{
+
+			} else {
 				String message = "Invalid email for Supplier";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "forgotPassword";
 			}
-		}
-		else {
-			if(truckLoginService.checkmail(email)){
+		} else {
+			if (truckLoginService.checkmail(email)) {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/newPassword/driver/" + id;
-			}
-			else{
+			} else {
 				String message = "Invalid email for Driver";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "forgotPassword";
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	@GetMapping("/newPassword/supp/{id}")
 	public String newPasswordForSupp() {
 		logger.info("Fetching newPassword for supplier {}");
-		
+
 		logger.debug("Successfully fetched {} newPassword");
 		return "newPassword";
 	}
-	
+
 	@GetMapping("/newPassword/driver/{id}")
 	public String newPasswordForDriver() {
 		logger.info("Fetching newPassword for driver {}");
-		
+
 		logger.debug("Successfully fetched {} newPassword");
 		return "newPassword";
 	}
-	
+
 	@PostMapping("/newPassword/supp/{id}")
-	public String changeSuppPass(@PathVariable("id")int id,@RequestParam("otp")String otp,@RequestParam("newpassword")String password,@RequestParam("confirmPassword")String cPassword,Model model){
-		logger.info("Fetching changeSuppPassword for supplier {}",id);
-		if(supplierLoginService.checkOTP(id,otp)){
-			if(password==cPassword||password.equals(cPassword)){
-				supplierLoginService.changePassword(id,password);
+	public String changeSuppPass(@PathVariable("id") int id, @RequestParam("otp") String otp,
+			@RequestParam("newpassword") String password, @RequestParam("confirmPassword") String cPassword,
+			Model model) {
+		logger.info("Fetching changeSuppPassword for supplier {}", id);
+		if (supplierLoginService.checkOTP(id, otp)) {
+			if (password == cPassword || password.equals(cPassword)) {
+				supplierLoginService.changePassword(id, password);
 				String message = "Password has been changed";
-//				model.addAttribute("mess", message);
+				// model.addAttribute("mess", message);
 				System.out.println(message);
 				return "redirect:/";
-			}	
-			else{
+			} else {
 				String message = "Enter passwords do not match";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "/newPassword/supp/{id}";
 			}
-		}
-		else {
+		} else {
 			String message = "Invalid OTP enter the correct OTP";
 			System.out.println(message);
 			model.addAttribute("mess", message);
 			return "/newPassword/supp/{id}";
 		}
-		
+
 	}
-	
+
 	@PostMapping("/newPassword/driver/{id}")
-	public String changeDriverPass(@PathVariable("id")int id,@RequestParam("otp")String otp,@RequestParam("newpassword")String password,@RequestParam("confirmPassword")String cPassword,Model model){
-		logger.info("Fetching newPassword for driver {}",id);
-		if(truckLoginService.checkOTP(id,otp)){
-			if(password==cPassword||password.equals(cPassword)){
-				truckLoginService.changePassword(id,password);
+	public String changeDriverPass(@PathVariable("id") int id, @RequestParam("otp") String otp,
+			@RequestParam("newpassword") String password, @RequestParam("confirmPassword") String cPassword,
+			Model model) {
+		logger.info("Fetching newPassword for driver {}", id);
+		if (truckLoginService.checkOTP(id, otp)) {
+			if (password == cPassword || password.equals(cPassword)) {
+				truckLoginService.changePassword(id, password);
 				String message = "Password has been changed";
-//				System.out.println(message);
+				// System.out.println(message);
 				model.addAttribute("mess", message);
 				return "redirect:/";
-			}	
-			else{
+			} else {
 				String message = "Enter passwords do not match";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "/newPassword/supp/{id}";
 			}
-		}
-		else {
+		} else {
 			String message = "Invalid OTP enter the correct OTP";
 			System.out.println(message);
 			model.addAttribute("mess", message);
 			return "/newPassword/supp/{id}";
 		}
 	}
-	
+
 }

@@ -25,8 +25,8 @@ import com.valtech.team18.service.TruckDetailsService;
 
 @Controller
 public class AdminController {
-	
-	private static final Logger logger=LoggerFactory.getLogger(AdminController.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	@Autowired
 	AdminLoginService adminLoginService;
@@ -42,10 +42,9 @@ public class AdminController {
 
 	@Autowired
 	SendMail sm;
-	
+
 	@Autowired
 	MailMessage mm;
-
 
 	@Autowired
 	NewOrderService newOrderService;
@@ -60,7 +59,7 @@ public class AdminController {
 	// Navigate to Order Details page for Admin
 	@GetMapping("/admin/orderDetails")
 	public String orderDetails(Model model) {
-		
+
 		model.addAttribute("OrderDetails", adminService.getAllOrderD());
 		return "admin/orderDetails";
 	}
@@ -79,15 +78,15 @@ public class AdminController {
 		return "admin/truckDetails";
 	}
 
-	 // Navigate to Truck Details page for Admin
-//	 @PostMapping("/admin/truckDetails")
-//	 public String truckDetailsMail(Model model) {
-//	 model.addAttribute("TruckDetails", tdService.getAllTruckD());
-//	 String email = "smanuj007@gmail.com";
-//	 // String email="smanuj007@gmail.com";
-//	 mm.sendAlert(email);
-//	 return "admin/truckDetails";
-//	 }
+	// Navigate to Truck Details page for Admin
+	// @PostMapping("/admin/truckDetails")
+	// public String truckDetailsMail(Model model) {
+	// model.addAttribute("TruckDetails", tdService.getAllTruckD());
+	// String email = "smanuj007@gmail.com";
+	// // String email="smanuj007@gmail.com";
+	// mm.sendAlert(email);
+	// return "admin/truckDetails";
+	// }
 
 	// Navigate to Driver Approval page for Admin so that admin can proceed to
 	// Approve/Reject the pending Driver details
@@ -103,9 +102,8 @@ public class AdminController {
 	// Approve driver credentials with that particular driver_id
 	@PostMapping("/admin/driverApproval/{id}")
 	public String driverAR(@PathVariable("id") int id, Model model) {
-		logger.info("Fetching driverApproval for admin",id);
+		logger.info("Fetching driverApproval for admin", id);
 		System.out.println(id);
-		
 
 		tdService.approvingDriver(id);
 		logger.debug("Successfully fetched {} driverApproval");
@@ -128,7 +126,7 @@ public class AdminController {
 	// Approve supplier credentials with that particular supplier_id
 	@PostMapping("/admin/supplierApproval/{id}")
 	public String supplierAR(@PathVariable("id") int id, Model model) {
-		logger.info("Fetching supplierApproval for admin {}",id);
+		logger.info("Fetching supplierApproval for admin {}", id);
 		System.out.println(id);
 
 		suppService.approvingSupplier(id);
@@ -145,7 +143,7 @@ public class AdminController {
 	// Reject and delete the supplier details for a particular supplier id
 	@PostMapping("/admin/supplierApproval/sdelete/{id}")
 	public String supplierDel(@PathVariable("id") int id, Model model) {
-		logger.info("Fetching supplierApproval for admin {}",id);
+		logger.info("Fetching supplierApproval for admin {}", id);
 		System.out.println(id);
 
 		suppService.deleteRejectedSupplier(id);
@@ -160,7 +158,7 @@ public class AdminController {
 	@PostMapping("/admin/driverApproval/ddelete/{id}")
 	public String driverDel(@PathVariable("id") int id, Model model) {
 		// PendingDriver pd = pendingDriverRepo.findById(id).get();
-		logger.info("Fetching driverApproval for admin {}",id);
+		logger.info("Fetching driverApproval for admin {}", id);
 
 		tdService.deleteRejectedDriver(id);
 		logger.debug("Successfully fetched {} driverApproval");
@@ -184,7 +182,7 @@ public class AdminController {
 	// supplier and driver to each order
 	@PostMapping("/admin/newOrder")
 	public String newOrder(@RequestParam("custName") String custName, @RequestParam("toAddress") String toAddress,
-			
+
 			@RequestParam("phNum") String phNum, @RequestParam("orderType") String orderType,
 			@RequestParam("suppid") int suppid, @RequestParam("driverid") int driverid, ModelMap model)
 			throws Exception, NumberFormatException, MissingServletRequestParameterException {
@@ -228,20 +226,24 @@ public class AdminController {
 
 		} catch (Exception ex) {
 			System.out.println(ex);
-			
+
 			String str = "Enter Fields Correctly";
-			 model.addAttribute("mess", str);
-			 return "/admin/newOrder";
-			
+			model.addAttribute("mess", str);
+			return "/admin/newOrder";
+
 		}
 
 	}
-	
+
 	@PostMapping("/alert/{id}")
-	public String alertt(@PathVariable("id")int id){
+	public String alert(@PathVariable("id") int id) {
 		logger.info("Sending alert to driver");
-		adminService.sendAlertMail(id);
-logger.debug("Alert sent successfully to driver");
+		try {
+			adminService.sendAlertMail(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		logger.debug("Alert sent successfully to driver");
 		return "redirect:/admin/truckDetails";
 	}
 
