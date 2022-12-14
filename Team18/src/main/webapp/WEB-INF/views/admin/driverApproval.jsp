@@ -103,13 +103,13 @@
 								action="/admin/driverApproval/${PendingDriver.truckId}">
 
 								<td><input type="submit" value="Approve"
-									class="btn btn-lg  btn-success" id="Approve" name="Approve">
+									class="btn btn-lg  btn-success" id="Approve" name="Approve" data-toggle="tooltip" data-placement="top" title="Click Here To Approve ">
 									</td>
 							</form>
 							<form method="post"
 								action="/admin/driverApproval/ddelete/${PendingDriver.truckId}">
 								<td><input type="submit" value="Reject"
-									class="btn btn-lg  btn-danger " id="details" name="Reject">
+									class="btn btn-lg  btn-danger " id="details" name="Reject" data-toggle="tooltip" data-placement="top" title="Click Here To Reject ">
 									</td>
 							</form>
 						</tr>

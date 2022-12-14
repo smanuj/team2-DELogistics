@@ -93,20 +93,20 @@
                   <p class="text-black fs-2" style="letter-spacing: 1px;">Sign into your account</p>
 
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example17">Username</label>
-                  <input type="text" id="email" name="email" placeholder="Username"
+                    <label class="form-label" for="form2Example17">Email</label>
+                  <input  pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' type="text" id="email" name="email" placeholder="Username"
 						class="form-control form-control-lg" /> <br /> 
                   </div>
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example27">Password</label>
                   <input
-						type="password" placeholder="Password" id="password"
-						name="password" class="form-control form-control-lg" /> <br />
+						type="password" placeholder="Password" id="password" onCopy="return false;" onCut="return false;" 
+						name="password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" class="form-control form-control-lg" /> <br />
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" name="Submit"
+                    <button class="btn btn-dark btn-lg btn-block" name="Submit" data-toggle="tooltip" data-placement="top" title="Click Here To Login"
 						value="Login" type="Submit" text="Login">Login</button>
                   </div>
                   <!-- <button class="btn btn-lg btn-primary btn-block" name="Submit"
