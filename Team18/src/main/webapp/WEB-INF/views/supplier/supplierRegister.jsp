@@ -73,7 +73,7 @@
         <div class="container h-60"> 
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
-              <div class="card" style="border-radius: 1rem; background-image:url('https://i.pinimg.com/originals/c4/9a/20/c49a207e0f89c9290d98fd43a87a8cb0.gif'); background-size: cover;">
+              <div class="card" style="border-radius: 1rem; background-image:url('https://d33wubrfki0l68.cloudfront.net/b835feb7a4b28209d36a5c8a09d078a2059bbfe9/694e0/assets/imgs/fly.gif'); background-size: cover;">
                 <div class="card-body p-md-5">
                   <div class="row justify-content-left">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -93,7 +93,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Email</label><br>
-                             <input pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' type="text" id="email" required name="email" placeholder="Enter Email" class="form-control" pattern="[.com]" required/>
+                             <input type="email" id="email" required name="email" placeholder="Enter Email" class="form-control" pattern="[.com]" required/>
 					
                           </div>
                         </div>
@@ -102,7 +102,7 @@
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example3c">Password</label><br>
-                            <input type="password" placeholder="Password" id="password" name="password" onCut="return false;" onCopy="return false;" onPaste="return false;"
+                            <input type="password" placeholder="Password" id="password" name="password"
          					   class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Must have atleast 1 uppercase, 1 lowercase, 1 letter and 1 number" required/>
                           </div>
                         </div>
@@ -111,7 +111,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Confirm Password</label><br>
-                            <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" onCut="return false;" onCopy="return false;" onPaste="return false;"
+                            <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword"
                             class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Does not match" required/>
                           </div>
                         </div>

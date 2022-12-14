@@ -24,7 +24,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 		AdminLogin sup=adminLoginRepo.findByUsername(username);
 		
 		//if((username.equals(sup.getUsername())) && (password.equals(sup.getPassword()))){
-		if(username.equals("admin")&&(password.equals("admin"))){
+		if(username.equals("admin@gmail.com")&&(password.equals("admin"))){
 			
 			return true;
 		}
