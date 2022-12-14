@@ -2,6 +2,8 @@ package com.valtech.team18.controller;
 
 import java.time.LocalDateTime;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,8 @@ import com.valtech.team18.service.TruckDetailsService;
 
 @Controller
 public class AdminController {
+	
+	private static final Logger logger=LoggerFactory.getLogger(AdminController.class);
 
 	@Autowired
 	AdminLoginService adminLoginService;
@@ -56,6 +60,7 @@ public class AdminController {
 	// Navigate to Order Details page for Admin
 	@GetMapping("/admin/orderDetails")
 	public String orderDetails(Model model) {
+		
 		model.addAttribute("OrderDetails", adminService.getAllOrderD());
 		return "admin/orderDetails";
 	}
@@ -98,9 +103,12 @@ public class AdminController {
 	// Approve driver credentials with that particular driver_id
 	@PostMapping("/admin/driverApproval/{id}")
 	public String driverAR(@PathVariable("id") int id, Model model) {
+		logger.info("Fetching driverApproval for admin {}",id);
 		System.out.println(id);
+		
 
 		tdService.approvingDriver(id);
+		logger.debug("Successfully fetched {} driverApproval");
 
 		// PendingDriver pd = pendingDriverRepo.findById(id).get();
 		//
@@ -120,9 +128,11 @@ public class AdminController {
 	// Approve supplier credentials with that particular supplier_id
 	@PostMapping("/admin/supplierApproval/{id}")
 	public String supplierAR(@PathVariable("id") int id, Model model) {
+		logger.info("Fetching supplierApproval for admin {}",id);
 		System.out.println(id);
 
 		suppService.approvingSupplier(id);
+		logger.debug("Successfully fetched {} supplierApproval");
 
 		// PendingSupplier ps = pendingSupplierRepo.findById(id).get();
 
@@ -135,9 +145,11 @@ public class AdminController {
 	// Reject and delete the supplier details for a particular supplier id
 	@PostMapping("/admin/supplierApproval/sdelete/{id}")
 	public String supplierDel(@PathVariable("id") int id, Model model) {
+		logger.info("Fetching supplierApproval for admin {}",id);
 		System.out.println(id);
 
 		suppService.deleteRejectedSupplier(id);
+		logger.debug("Successfully fetched {} supplierApproval");
 
 		// PendingSupplier ps = pendingSupplierRepo.findById(id).get();
 		// registerService.deleteSupp(ps);
@@ -148,8 +160,10 @@ public class AdminController {
 	@PostMapping("/admin/driverApproval/ddelete/{id}")
 	public String driverDel(@PathVariable("id") int id, Model model) {
 		// PendingDriver pd = pendingDriverRepo.findById(id).get();
+		logger.info("Fetching driverApproval for admin {}",id);
 
 		tdService.deleteRejectedDriver(id);
+		logger.debug("Successfully fetched {} driverApproval");
 
 		// registerService.deleteDriver(pd);
 		return "redirect:/admin/driverApproval";
@@ -158,6 +172,7 @@ public class AdminController {
 	// Navigate to a page where Admin can add new order details
 	@GetMapping("/admin/newOrder")
 	public String newOrder(Model model) {
+		logger.info("Fetching newOrder for admin {}");
 
 		model.addAttribute("SupplierDetails", suppService.getApprovedSupplier());
 		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
@@ -169,6 +184,7 @@ public class AdminController {
 	// supplier and driver to each order
 	@PostMapping("/admin/newOrder")
 	public String newOrder(@RequestParam("custName") String custName, @RequestParam("toAddress") String toAddress,
+			
 			@RequestParam("phNum") String phNum, @RequestParam("orderType") String orderType,
 			@RequestParam("suppid") int suppid, @RequestParam("driverid") int driverid, ModelMap model)
 			throws Exception, NumberFormatException, MissingServletRequestParameterException {
