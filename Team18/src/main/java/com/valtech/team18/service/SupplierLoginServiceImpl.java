@@ -37,9 +37,10 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public boolean loginvalidation(String email,String password) throws NullPointerException{
 		
 		try{
-		SupplierDetails sup=supplierDetailsRepo.findBySuppName(email);
+		SupplierDetails sup=supplierDetailsRepo.findByEmail(email);
 		
 		if((email.equals(sup.getEmail())) && (password.equals(sup.getSuppPassword()))){
+			System.out.println("test5");
 			return true;
 		}
 		

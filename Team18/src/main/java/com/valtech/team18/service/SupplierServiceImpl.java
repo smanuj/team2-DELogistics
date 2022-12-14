@@ -117,7 +117,7 @@ public class SupplierServiceImpl implements SupplierService {
 		if(sl==null){
 		SupplierDetails sd= new SupplierDetails(username,email,password,fromAddress,contactNumbe,set, null, landLin);
 		supplierDetailsRepo.save(sd);
-		mailMessage.notifyRegi(sd.getEmail(),"Supplier");
+		mailMessage.notifyRegisteration(sd.getEmail(),"Supplier");
 		return true;
 		}
 		

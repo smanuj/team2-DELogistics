@@ -53,7 +53,7 @@ public class SupplierController {
 			boolean check = suppService.register(username, email, password, fromAddress, contactNumber, landLine);
 
 			if (check) {
-				return "/";
+				return "redirect:/";
 
 			} else {
 				String str = "Username already Exists";
