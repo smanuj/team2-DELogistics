@@ -37,7 +37,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	public boolean loginvalidation(String email, String password) throws NullPointerException {
 
 		try {
-			TruckDetails sup = truckDetailsRepo.findByEmail(email);
+			TruckDetails sup = truckDetailsRepo.findByEmailAndApprovedTrue(email);
 
 			if ((email.equals(sup.getEmail())) && (password.equals(sup.getDriverPassword()))) {
 				return true;
