@@ -23,6 +23,11 @@ public interface SupplierService {
 	SupplierDetails approvingSupplier(int id);
 
 	void deleteRejectedSupplier(int id);
+
+	List<TruckDetails> getTruckDetailsFromOrder(int id);
+
+	boolean register(String username, String email, String password, String fromAddress, String contactNumber,
+			String landLine);
 	
 
 }

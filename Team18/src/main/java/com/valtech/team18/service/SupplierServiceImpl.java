@@ -1,5 +1,6 @@
 package com.valtech.team18.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +85,48 @@ public class SupplierServiceImpl implements SupplierService {
 		supplierDetailsRepo.deleteById(id);
 		mailMessage.registerationFailure(sd.getEmail(),"Supplier");
 	}
+
+
+	@Override
+	public List<TruckDetails> getTruckDetailsFromOrder(int id) {
+//		model.addAttribute("OrderDetails", suppService.getAllOrdersBySuppId(id));
+		
+		 List<OrderDetails> od = getAllOrdersBySuppId(id);
+		 List<Integer> driverid = new ArrayList<Integer>();
+		 for (OrderDetails orderDetails : od) {
+		 driverid.add(orderDetails.getDriverId());
+		 }
+		
+		 List<TruckDetails> td = new ArrayList<TruckDetails>();
+		 for (Integer did : driverid) {
+		 td.add(truckDetailsRepo.findById(did).get());
+		 }
+		return td;
+	}
+
+
+	@Override
+	public boolean register(String username, String email, String password, String fromAddress, String contactNumber,
+			String landLine) {
+		// TODO Auto-generated method stub
+		long contactNumbe=Long.valueOf(contactNumber);
+		long landLin=Long.valueOf(landLine);
+//		long landLin1=null;
+		boolean set=false;
+		SupplierDetails sl=supplierDetailsRepo.findByEmail(email);
+		if(sl==null){
+		SupplierDetails sd= new SupplierDetails(username,email,password,fromAddress,contactNumbe,set, null, landLin);
+		supplierDetailsRepo.save(sd);
+		mailMessage.notifyRegi(sd.getEmail(),"Supplier");
+		return true;
+		}
+		
+		return false;
+
+	}
+
+
+	
 
 
 	
