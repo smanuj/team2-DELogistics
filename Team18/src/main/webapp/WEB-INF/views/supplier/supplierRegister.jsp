@@ -93,7 +93,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Email</label><br>
-                             <input type="email" id="email" required name="email" placeholder="Enter Email" class="form-control" pattern="[.com]" required/>
+                             <input type="email" id="email" required name="email" placeholder="Enter Email" class="form-control" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' required/>
 					
                           </div>
                         </div>

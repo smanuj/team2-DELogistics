@@ -48,7 +48,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void sendAlertMail(int tId){
 		TruckDetails td=truckDetailsRepo.findByTruckId(tId);
-		mailMessage.sendAlert(td.getEmail());
+		mailMessage.sendAlert(td.getEmail(),td.getDriverName());
 	}
 	
 }

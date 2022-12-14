@@ -67,7 +67,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 			String pass=getRandomNumberString();
 			td.setOtp(pass);
 			truckDetailsRepo.save(td);
-			mailMessage.sendOTP(td.getEmail(),pass,"Driver");
+			mailMessage.sendOTP(td.getEmail(),pass,"Driver",td.getDriverName());
 			return true;
 			
 		}
@@ -90,7 +90,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		td.setDriverPassword(password);
 		td.setOtp(null);
 		truckDetailsRepo.save(td);
-		mailMessage.successfulPasswordChange(td.getEmail(),"Driver");
+		mailMessage.successfulPasswordChange(td.getEmail(),"Driver",td.getDriverName());
 		
 		
 	}

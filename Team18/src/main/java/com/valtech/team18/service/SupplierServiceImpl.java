@@ -73,7 +73,7 @@ public class SupplierServiceImpl implements SupplierService {
 		
 		SupplierDetails sd=supplierDetailsRepo.findById(id).get();
 		sd.setApproved(true);
-		mailMessage.registeredSuccessfully(sd.getEmail(),"Supplier");
+		mailMessage.registeredSuccessfully(sd.getEmail(),"Supplier",sd.getSuppName());
 		 return supplierDetailsRepo.save(sd);
 		
 	}
@@ -83,7 +83,7 @@ public class SupplierServiceImpl implements SupplierService {
 	public void deleteRejectedSupplier(int id) {
 		SupplierDetails sd=supplierDetailsRepo.findById(id).get();
 		supplierDetailsRepo.deleteById(id);
-		mailMessage.registerationFailure(sd.getEmail(),"Supplier");
+		mailMessage.registerationFailure(sd.getEmail(),"Supplier",sd.getSuppName());
 	}
 
 
@@ -117,7 +117,7 @@ public class SupplierServiceImpl implements SupplierService {
 		if(sl==null){
 		SupplierDetails sd= new SupplierDetails(username,email,password,fromAddress,contactNumbe,set, null, landLin);
 		supplierDetailsRepo.save(sd);
-		mailMessage.notifyRegisteration(sd.getEmail(),"Supplier");
+		mailMessage.notifyRegisteration(sd.getEmail(),"Supplier",sd.getSuppName());
 		return true;
 		}
 		

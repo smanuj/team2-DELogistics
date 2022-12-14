@@ -62,7 +62,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	public TruckDetails approvingDriver(int id) {
 		TruckDetails td=truckDetailsRepo.findById(id).get();
 		td.setApproved(true);
-		mailMessage.registeredSuccessfully(td.getEmail(),"Driver");
+		mailMessage.registeredSuccessfully(td.getEmail(),"Driver",td.getDriverName());
 		return truckDetailsRepo.save(td);
 	}
 
@@ -70,7 +70,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	public void deleteRejectedDriver(int id) {
 		TruckDetails td=truckDetailsRepo.findById(id).get();
 		truckDetailsRepo.deleteById(id);
-		mailMessage.registerationFailure(td.getEmail(),"Driver");
+		mailMessage.registerationFailure(td.getEmail(),"Driver",td.getDriverName());
 		
 	}
 	
@@ -105,7 +105,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 			TruckDetails tdn=new TruckDetails(username, password, contactNumbe, random, email, set, null);
 			
 		truckDetailsRepo.save(tdn);
-		mailMessage.notifyRegisteration(tdn.getEmail(),"Driver");
+		mailMessage.notifyRegisteration(tdn.getEmail(),"Driver",tdn.getDriverName());
 		return true;
 		}
 		
