@@ -1,5 +1,7 @@
 package com.valtech.team18.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import com.valtech.team18.service.TruckLoginService;
 
 @Controller
 public class ApplicationController {
+	private static final Logger logger=LoggerFactory.getLogger(ApplicationController.class);
 
 	@Autowired
 	AdminLoginService adminLoginService;
@@ -43,6 +46,8 @@ public class ApplicationController {
 	@PostMapping("/")
 	public String adminLoginVal(@RequestParam("email") String email, @RequestParam("password") String password,
 			@RequestParam("role") String role, ModelMap model) {
+		logger.info("Fetching adminLoginVal for admin");
+		
 		System.out.println("test1");
 		if (role.equals("admin")) {
 			System.out.println("test2");
@@ -80,6 +85,7 @@ public class ApplicationController {
 			}
 
 		}
+		logger.debug("Successfully fetched adminLoginVal");
 
 		return "mainHomePage";
 
@@ -112,6 +118,7 @@ public class ApplicationController {
 	
 	@PostMapping("/forgotPassword")
 	public String forgotPass(@RequestParam("email")String email,@RequestParam("role")String role,Model model){
+		logger.info("Fetching forgotPassword");
 		if(role.equals("supp")){
 			if(supplierLoginService.checkmail(email)){
 //				return "newPassword";
@@ -144,16 +151,23 @@ public class ApplicationController {
 	
 	@GetMapping("/newPassword/supp/{id}")
 	public String newPasswordForSupp() {
+		logger.info("Fetching newPassword for supplier {}");
+		
+		logger.debug("Successfully fetched {} newPassword");
 		return "newPassword";
 	}
 	
 	@GetMapping("/newPassword/driver/{id}")
 	public String newPasswordForDriver() {
+		logger.info("Fetching newPassword for driver {}");
+		
+		logger.debug("Successfully fetched {} newPassword");
 		return "newPassword";
 	}
 	
 	@PostMapping("/newPassword/supp/{id}")
 	public String changeSuppPass(@PathVariable("id")int id,@RequestParam("otp")String otp,@RequestParam("newpassword")String password,@RequestParam("confirmPassword")String cPassword,Model model){
+		logger.info("Fetching changeSuppPassword for supplier {}",id);
 		if(supplierLoginService.checkOTP(id,otp)){
 			if(password==cPassword||password.equals(cPassword)){
 				supplierLoginService.changePassword(id,password);
@@ -180,6 +194,7 @@ public class ApplicationController {
 	
 	@PostMapping("/newPassword/driver/{id}")
 	public String changeDriverPass(@PathVariable("id")int id,@RequestParam("otp")String otp,@RequestParam("newpassword")String password,@RequestParam("confirmPassword")String cPassword,Model model){
+		logger.info("Fetching newPassword for driver {}",id);
 		if(truckLoginService.checkOTP(id,otp)){
 			if(password==cPassword||password.equals(cPassword)){
 				truckLoginService.changePassword(id,password);

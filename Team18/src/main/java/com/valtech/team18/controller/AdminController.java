@@ -103,7 +103,7 @@ public class AdminController {
 	// Approve driver credentials with that particular driver_id
 	@PostMapping("/admin/driverApproval/{id}")
 	public String driverAR(@PathVariable("id") int id, Model model) {
-		logger.info("Fetching driverApproval for admin {}",id);
+		logger.info("Fetching driverApproval for admin",id);
 		System.out.println(id);
 		
 
@@ -188,6 +188,7 @@ public class AdminController {
 			@RequestParam("phNum") String phNum, @RequestParam("orderType") String orderType,
 			@RequestParam("suppid") int suppid, @RequestParam("driverid") int driverid, ModelMap model)
 			throws Exception, NumberFormatException, MissingServletRequestParameterException {
+		logger.info("Fetching new order");
 		// try {
 		// System.out.println(suppid);
 		// if (custName.equals(null) || toAddress.equals(null) ||
@@ -238,8 +239,9 @@ public class AdminController {
 	
 	@PostMapping("/alert/{id}")
 	public String alertt(@PathVariable("id")int id){
+		logger.info("Sending alert to driver");
 		adminService.sendAlertMail(id);
-
+logger.debug("Alert sent successfully to driver");
 		return "redirect:/admin/truckDetails";
 	}
 
