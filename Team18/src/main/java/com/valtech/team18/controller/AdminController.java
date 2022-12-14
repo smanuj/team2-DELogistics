@@ -75,14 +75,14 @@ public class AdminController {
 	}
 
 	 // Navigate to Truck Details page for Admin
-	 @PostMapping("/admin/truckDetails")
-	 public String truckDetailsMail(Model model) {
-	 model.addAttribute("TruckDetails", tdService.getAllTruckD());
-	 String email = "smanuj007@gmail.com";
-	 // String email="smanuj007@gmail.com";
-	 mm.sendAlert(email);
-	 return "admin/truckDetails";
-	 }
+//	 @PostMapping("/admin/truckDetails")
+//	 public String truckDetailsMail(Model model) {
+//	 model.addAttribute("TruckDetails", tdService.getAllTruckD());
+//	 String email = "smanuj007@gmail.com";
+//	 // String email="smanuj007@gmail.com";
+//	 mm.sendAlert(email);
+//	 return "admin/truckDetails";
+//	 }
 
 	// Navigate to Driver Approval page for Admin so that admin can proceed to
 	// Approve/Reject the pending Driver details
@@ -224,7 +224,7 @@ public class AdminController {
 	public String alertt(@PathVariable("id")int id){
 		adminService.sendAlertMail(id);
 
-		return "admin/truckDetails";
+		return "redirect:/admin/truckDetails";
 	}
 
 }
