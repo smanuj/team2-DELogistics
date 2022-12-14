@@ -2,6 +2,8 @@ package com.valtech.team18.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import com.valtech.team18.service.SupplierService;
 
 @Controller
 public class SupplierController {
+
+	private static final Logger logger = LoggerFactory.getLogger(SupplierController.class);
 
 	@Autowired
 	SupplierService suppService;
@@ -37,9 +41,7 @@ public class SupplierController {
 
 	@GetMapping("/supplier/supplierRegister")
 	public String supplierRegister() {
-
 		return "supplier/supplierRegister";
-
 	}
 
 	@PostMapping("/supplier/supplierRegister")
@@ -47,6 +49,7 @@ public class SupplierController {
 			@RequestParam("password") String password, @RequestParam("confirmpassword") String cpassword,
 			@RequestParam("fromAddress") String fromAddress, @RequestParam("contactNumber") String contactNumber,
 			@RequestParam("phone") String landLine, ModelMap model) {
+		logger.info("Registering a new supplier");
 		if (password.equals(cpassword)) {
 
 			boolean check = suppService.register(username, email, password, fromAddress, contactNumber, landLine);
@@ -56,8 +59,8 @@ public class SupplierController {
 
 			} else {
 				String str = "Username already Exists";
-				 model.addAttribute("mess", str);
-				 return "/supplier/supplierRegister";
+				model.addAttribute("mess", str);
+				return "/supplier/supplierRegister";
 
 			}
 		} else {
@@ -65,10 +68,7 @@ public class SupplierController {
 			model.addAttribute("mess", str);
 			return "/supplier/supplierRegister";
 		}
-//		return "";
+		// return "";
 	}
-	
-
-
 
 }
