@@ -52,12 +52,12 @@ public class DartExpressLogisticsControllerTests {
 			assertEquals(adminServiceImpl.getAllTruckD().size(), adminServiceImpl.getAllTruckD().size());
 	  }
 	 
-	 @Test
-	 public void saveNewOrderDetails(){
-		 LocalDateTime time=LocalDateTime.parse("2022-12-01T18:41:29.065");
-		 OrderDetails ord=new OrderDetails("santhosh",time, "davanagere", 9876543210L,"nonveg",8, 78);
-		 assertEquals("created", newOrderServiceImpl.saveNew(ord));
-	  }
+//	 @Test
+//	 public void saveNewOrderDetails(){
+//		 LocalDateTime time=LocalDateTime.parse("2022-12-01T18:41:29.065");
+//		 OrderDetails ord=new OrderDetails("santhosh",time, "davanagere", 9876543210L,"nonveg",8, 78);
+//		 assertEquals(, newOrderServiceImpl.saveNew(ord));
+//	  }
 	
 	
 //	 @Test

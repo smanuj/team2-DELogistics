@@ -248,6 +248,32 @@
 		</center>
 
 
+		 <div class="table-responsive col-md-7">
+        <table class="table table-hover table-sm table-secondary table-striped">
+			<thead>
+                <tr>
+                    <td>Order Id</td>
+                    <td>Customer Name</td>
+                    <td>To address</td>
+                    <td>Date & Time</td>
+                    <td>Contact number</td>
+                    <td>Order Type</td>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${OrderDetails}" var="OrderDetails">
+                    <tr>
+                        <td>${OrderDetails.orderId}</td>
+                        <td>${OrderDetails.custName}</td>
+                        <td><a href="https://www.google.com/maps/place/${OrderDetails.toAddress}">${OrderDetails.toAddress}</a></td>
+                        <td>${OrderDetails.time}</td>
+                        <td>${OrderDetails.phNum}</td>
+                        <td>${OrderDetails.orderType}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table> 
+    </div>
         
         <div class="row">
             <div class="table-responsive col-md-5">
@@ -275,32 +301,7 @@
     </div>
 
 
-    <div class="table-responsive col-md-7">
-        <table class="table table-hover table-sm table-secondary table-striped">
-			<thead>
-                <tr>
-                    <td>Order Id</td>
-                    <td>Customer Name</td>
-                    <td>To address</td>
-                    <td>Date & Time</td>
-                    <td>Contact number</td>
-                    <td>Order Type</td>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${OrderDetails}" var="OrderDetails">
-                    <tr>
-                        <td>${OrderDetails.orderId}</td>
-                        <td>${OrderDetails.custName}</td>
-                        <td><a href="https://www.google.com/maps/place/${OrderDetails.toAddress}">${OrderDetails.toAddress}</a></td>
-                        <td>${OrderDetails.time}</td>
-                        <td>${OrderDetails.phNum}</td>
-                        <td>${OrderDetails.orderType}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table> 
-    </div>
+   
         </div>
 </body>
 
