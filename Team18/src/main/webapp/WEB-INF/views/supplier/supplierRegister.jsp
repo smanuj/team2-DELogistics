@@ -102,7 +102,7 @@
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example3c">Password</label><br>
-                            <input type="password" placeholder="Password" id="password" name="password"
+                            <input type="password" placeholder="Password" id="password" name="password" onCopy="return false;" onCut="return false;" onPaste="return false;"
          					   class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Must have atleast 1 uppercase, 1 lowercase, 1 letter and 1 number" required/>
                           </div>
                         </div>
@@ -111,7 +111,7 @@
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">Confirm Password</label><br>
-                            <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword"
+                            <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" onCopy="return false;" onCut="return false;" onPaste="return false;"
                             class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Does not match" required/>
                           </div>
                         </div>
@@ -149,7 +149,7 @@
                           <div class="form-outline flex-fill mb-0">
       
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                         <button class="btn btn-lg btn-primary btn-block" name="SignUp" value="SignUp" type="Submit"
+                         <button class="btn btn-lg btn-primary btn-block" name="SignUp" value="SignUp" type="Submit" data-toggle="tooltip" data-placement="top" title="Click Here To Register"
             text="Registration">SignUp</button>
                         </div>
                         <div >

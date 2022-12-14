@@ -81,7 +81,7 @@
 					class="row d-flex justify-content-center align-items-center h-100">
 					<div class="col-lg-12 col-xl-11">
 						<div class="card"
-							style="border-radius: 1rem; background-image: url('https://d33wubrfki0l68.cloudfront.net/b835feb7a4b28209d36a5c8a09d078a2059bbfe9/694e0/assets/imgs/fly.gif'); background-size: cover;">
+							style="border-radius: 1rem; background-image: url('https://i.pinimg.com/originals/c4/9a/20/c49a207e0f89c9290d98fd43a87a8cb0.gif'); background-size: cover;">
 							<div class="card-body p-md-5">
 								<div class="row justify-content-left">
 									<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">

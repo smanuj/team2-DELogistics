@@ -213,19 +213,19 @@
 
 										<div class="form-outline mb-4">
 											<label class="form-label" for="form2Example17">E-mail</label>
-											<input type="text" id="email" name="email" required pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+											<input required type="text" id="email" name="email"  pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
 												placeholder="E-mail " class="form-control form-control-lg" />
 											
 										</div>
 
 										<div class="form-outline mb-4">
 											<label class="form-label" for="form2Example27">Password</label>
-											<input type="password" placeholder="Password" id="password" onCut="return false;" onCopy="return false;"
+											<input required  type="password" placeholder="Password" id="password" onCut="return false;" onCopy="return false;"
 												name="password" class="form-control form-control-lg" /> 
 										</div>
 
 										<div class="pt-1 mb-4">
-											<button class="btn btn-dark btn-lg btn-block" name="Submit"
+											<button class="btn btn-dark btn-lg btn-block" name="Submit" data-toggle="tooltip" data-placement="top" title="Click Here To Login"
 												value="Login" type="Submit">Login</button>
 										</div>
 									

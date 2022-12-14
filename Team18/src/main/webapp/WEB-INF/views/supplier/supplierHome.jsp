@@ -297,9 +297,13 @@
 						<td>${td.truckId}</td>
 						<td>${td.driverName}</td>
 						<td>${td.driverPhNum}</td>
-						<td>${td.temp}</td>
+						<td>${td.temp}<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Optimum temperature for Food items is 14 C , Medicines/Icecreams is -4C  ">
+
+                            <i class="fa fa-thermometer-full" ></i>
+
+                          </button></td>
 						<td><a
-							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn btn-sm btn-md btn-warning">
+							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn btn-sm btn-md btn-warning" data-toggle="tooltip" data-placement="top" title="Click here to view the live location ">
 								<i class="fa fa-location-arrow"></i>Current 
 								Location</a></td>
 					</tr>

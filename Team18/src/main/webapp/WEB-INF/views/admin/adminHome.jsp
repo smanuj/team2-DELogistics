@@ -122,7 +122,7 @@
 						<!-- <p>---------------------------------------------</p> -->
 						<p class="card-text">View and monitor order details.</p>
 						<a href="/admin/orderDetails" class="card-link btn btn-secondary">
-							<button type="button" value="ordersRecieved"
+							<button type="button" value="ordersRecieved" data-toggle="tooltip" data-placement="top" title="Click Here To open "
 								name="ordersRecieved" class="btn btn-elegant">
 								<i class="far fa fa-info-circle" aria-hidden="true"></i>
 							</button>
@@ -143,7 +143,7 @@
 					<!-- <p>---------------------------------------------</p> -->
 					<p class="card-text">View and monitor truck details</p>
 					<a href="/admin/truckDetails" class="card-link btn btn-secondary">
-						<button type="button" value="truckDetails" name="truckDetails"
+						<button type="button" value="truckDetails" name="truckDetails" data-toggle="tooltip" data-placement="top" title="Click Here To open "
 							class="btn btn-elegant">
 							<i class="far fa fa-info-circle" aria-hidden="true"></i>
 						</button>
@@ -165,7 +165,7 @@
 					<p class="card-text">View details of associated suppliers.</p>
 					<a href="/admin/supplierDetails"
 						class="card-link btn btn-secondary">
-						<button type="button" value="supDetails" name="supDetails"
+						<button type="button" value="supDetails" name="supDetails" data-toggle="tooltip" data-placement="top" title="Click Here To open "
 							class="btn btn-elegant">
 							<i class="far fa fa-info-circle" aria-hidden="true"></i>
 						</button>
@@ -187,7 +187,7 @@
 						supplier.</p>
 					<a href="/admin/supplierApproval"
 						class="card-link btn btn-secondary">
-						<button type="button" value="supDetails" name="supDetails"
+						<button type="button" value="supDetails" name="supDetails" data-toggle="tooltip" data-placement="top" title="Click Here To open "
 							class="btn btn-elegant ">
 							<i class="fa fa-thumbs-up" aria-hidden="true"></i>
 						</button>
@@ -208,7 +208,7 @@
 					<p class="card-text text-white">Approve/Reject order to a Truck
 						driver.</p>
 					<a href="/admin/driverApproval" class="card-link btn btn-secondary">
-						<button type="button" value="supDetails" name="supDetails"
+						<button type="button" value="supDetails" name="supDetails" data-toggle="tooltip" data-placement="top" title="Click Here To open "
 							class="btn btn-elegant">
 							<i class="fa fa-thumbs-up" aria-hidden="true"></i>
 						</button>
