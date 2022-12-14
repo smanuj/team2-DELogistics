@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.valtech.team18.entity.SupplierDetails;
+//import com.valtech.team18.entity.SupplierDetails;
 //import com.valtech.team18.entity.PendingDriver;
 import com.valtech.team18.entity.TruckDetails;
 import com.valtech.team18.repo.TruckDetailsRepo;

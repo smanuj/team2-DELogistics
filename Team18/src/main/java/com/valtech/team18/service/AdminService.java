@@ -17,4 +17,6 @@ public interface AdminService {
 	// Get all Supplier details in a list
 	List<SupplierDetails> getAllSuppplierD();
 
+	void sendAlertMail(int tId);
+
 }

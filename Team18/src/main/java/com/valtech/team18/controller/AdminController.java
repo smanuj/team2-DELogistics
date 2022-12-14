@@ -219,5 +219,12 @@ public class AdminController {
 		}
 
 	}
+	
+	@PostMapping("/alert/{id}")
+	public String alertt(@PathVariable("id")int id){
+		adminService.sendAlertMail(id);
+
+		return "admin/truckDetails";
+	}
 
 }

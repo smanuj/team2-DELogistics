@@ -27,6 +27,9 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private SupplierDetailsRepo supplierDetailsRepo;
 	
+	@Autowired
+	private MailMessage mailMessage;
+	
 	@Override
 	public List<OrderDetails> getAllOrderD(){
 		return orderDetailsRepo.findAll();
@@ -40,6 +43,12 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<SupplierDetails> getAllSuppplierD(){
 		return supplierDetailsRepo.findAll();
+	}
+	
+	@Override
+	public void sendAlertMail(int tId){
+		TruckDetails td=truckDetailsRepo.findByTruckId(tId);
+		mailMessage.sendAlert(td.getEmail());
 	}
 	
 }

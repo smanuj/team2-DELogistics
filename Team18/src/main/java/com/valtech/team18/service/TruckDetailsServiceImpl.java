@@ -67,4 +67,8 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		
 	}
 	
+	public TruckDetails getTruckDetailsById(int truckId){
+		return truckDetailsRepo.findByTruckId(truckId);
+	}
+	
 }
