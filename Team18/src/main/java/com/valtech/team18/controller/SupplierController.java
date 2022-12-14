@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.valtech.team18.entity.TruckDetails;
-import com.valtech.team18.repo.SupplierDetailsRepo;
 import com.valtech.team18.service.SupplierService;
 
 @Controller
@@ -70,37 +69,6 @@ public class SupplierController {
 	}
 	
 
-	// Navigate to orderDetails page containing all the orders related to the
-	// supplier currently logged in
-	// @GetMapping("/supplier/orderDetails/{id}")
-	// public String suppOrderDetails(Model model, @PathVariable("id") int id) {
-	//
-	// suppService.getAllOrdersBySuppId(id);
-	// // model.addAttribute("OrderDetails", adminService.getAllOrderD());
-	// model.addAttribute("OrderDetails", suppService.getAllOrdersBySuppId(id));
-	//
-	// return "supplier/orderDetails";
-	// }
 
-	// Navigate to truckDetails page containing all the truck information
-	// related to the supplier currently logged in
-	// @GetMapping("/supplier/truckDetails/{id}")
-	// public String suppTruckDetails(Model model, @PathVariable("id") int id) {
-	// model.addAttribute("OrderDetails", suppService.getAllOrdersBySuppId(id));
-	//
-	// List<OrderDetails> od = suppService.getAllOrdersBySuppId(id);
-	// List<Integer> driverid = new ArrayList<Integer>();
-	// for (OrderDetails orderDetails : od) {
-	// driverid.add(orderDetails.getDriverId());
-	// }
-	//
-	// List<TruckDetails> td = new ArrayList<TruckDetails>();
-	// for (Integer did : driverid) {
-	// td.add(truckDetailsRepo.findById(did).get());
-	// }
-	// model.addAttribute("td", td);
-	//
-	// return "supplier/truckDetails";
-	// }
 
 }

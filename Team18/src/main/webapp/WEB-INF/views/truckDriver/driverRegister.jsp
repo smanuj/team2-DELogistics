@@ -37,7 +37,7 @@
 						alt="" width="75" height="75"
 						class="d-inline-block align-items-center "
 						style="font: size 10px;">
-					<h3 class="display-4"
+						<h3 class="display-4"
 							style="font-size: 25px; color: white; display: inline-block;">Dart
 							Express Logistics</h3>
 				</div>
@@ -111,21 +111,25 @@
 													</div>
 												</div>
 
- <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example4c">Email</label><br>
-                             <input pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' type="text" id="email" required name="email" placeholder="Enter Email" class="form-control" required/>
-					
-                          </div>
-                        </div>
+												<div class="d-flex flex-row align-items-center mb-4">
+													<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+													<div class="form-outline flex-fill mb-0">
+														<label class="form-label" for="form3Example4c">Email</label><br>
+														<input
+															pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+															type="text" id="email" required name="email"
+															placeholder="Enter Email" class="form-control" required />
+
+													</div>
+												</div>
 
 												<div class="d-flex flex-row align-items-center mb-4">
 													<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example3c">Password</label><br>
 														<input type="password" placeholder="Password"
-															id="password" name="password" onCut="return false;" onCopy="return false;" onPaste="return false;"
+															id="password" name="password" onCut="return false;"
+															onCopy="return false;" onPaste="return false;"
 															class="form-control form-control-lg"
 															pattern="[A-Za-z0-9#@$&]{3,10}"
 															title="Password strength too weak" />
@@ -138,7 +142,8 @@
 														<label class="form-label" for="form3Example4c">Confirm
 															Password</label><br> <input type="password"
 															placeholder="Confirm Password" id="confirmpassword"
-															name="confirmpassword" onCut="return false;" onCopy="return false;" onPaste="return false;"
+															name="confirmpassword" onCut="return false;"
+															onCopy="return false;" onPaste="return false;"
 															class="form-control form-control-lg"
 															pattern="[A-Za-z0-9#@$&]{3,10}"
 															title="Password strength too weak" />
@@ -210,6 +215,6 @@
 </body>
 
 
-	
+
 
 </html>

@@ -36,23 +36,20 @@ public class TruckDetails {
 		super();
 	}
 
-	public TruckDetails(String driverName, String driverPassword, long driverPhNum) {
+	
+
+
+	public TruckDetails(String driverName, String driverPassword, long driverPhNum, double temp, String email,
+			boolean approved, String otp) {
 		super();
 		this.driverName = driverName;
 		this.driverPassword = driverPassword;
 		this.driverPhNum = driverPhNum;
+		this.temp = temp;
+		this.email = email;
+		this.approved = approved;
+		this.otp = otp;
 	}
-
-//	public TruckDetails(String driverName, String driverPassword, long driverPhNum, double temp) {
-//		super();
-//		this.driverName = driverName;
-//		this.driverPassword = driverPassword;
-//		this.driverPhNum = driverPhNum;
-//		this.temp = temp;
-//	}
-
-	
-
 
 	public TruckDetails(int truckId, String driverName, String driverPassword, long driverPhNum, double temp, String email,
 		boolean approved, boolean pending) {

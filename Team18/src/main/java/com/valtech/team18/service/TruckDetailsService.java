@@ -3,6 +3,7 @@ package com.valtech.team18.service;
 import java.util.List;
 
 import com.valtech.team18.entity.OrderDetails;
+import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
 
 public interface TruckDetailsService {
@@ -20,6 +21,10 @@ public interface TruckDetailsService {
 	TruckDetails approvingDriver(int id);
 
 	void deleteRejectedDriver(int id);
+
+	List<SupplierDetails> getSupplierFromOrder(int id);
+
+	boolean register(String username, String password, String email, String contactNumber);
 	
 
 }
