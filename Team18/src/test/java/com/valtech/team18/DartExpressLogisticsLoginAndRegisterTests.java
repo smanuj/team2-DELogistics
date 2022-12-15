@@ -28,7 +28,7 @@ import com.valtech.team18.service.TruckLoginService;
 @SpringBootTest
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @AutoConfigureMockMvc
-public class DartExpressLogisticsServiceTests {
+public class DartExpressLogisticsLoginAndRegisterTests {
 	
 	@Autowired
 	  private MockMvc mvc;
@@ -66,12 +66,12 @@ public class DartExpressLogisticsServiceTests {
 	       assertEquals(false, adminLoginService.loginvalidation("admin","user"));
      }
 	 
-	 @Test
-	 public void AdminOrderDetails() throws Exception{
-			assertEquals(adminService.getAllOrderD().size(), adminService.getAllOrderD().size());
-			assertEquals(adminService.getAllSuppplierD().size(), adminService.getAllSuppplierD().size());
-			assertEquals(adminService.getAllTruckD().size(), adminService.getAllTruckD().size());
-	  }
+//	 @Test
+//	 public void AdminOrderDetails() throws Exception{
+//			assertEquals(adminService.getAllOrderD().size(), adminService.getAllOrderD().size());
+//			assertEquals(adminService.getAllSuppplierD().size(), adminService.getAllSuppplierD().size());
+//			assertEquals(adminService.getAllTruckD().size(), adminService.getAllTruckD().size());
+//	  }
 	 
 	 @Test
      public void testSupplierLoginValidation() throws Exception{
@@ -87,7 +87,7 @@ public class DartExpressLogisticsServiceTests {
 	 public void testSupplierRegistration() throws Exception{
 		 List<SupplierDetails> sd=supplierDetailsRepo.findAll();
 		 int a=sd.size();
-		 supplierService.register("username", "email", "password", "fromAddress", "636174", "25358");
+		 supplierService.register("username", "email", "password", "fromAddress", "6361748785", "25358698967");
 		 sd=supplierDetailsRepo.findAll();
 		 int b=sd.size();
 		 SupplierDetails sd2=supplierDetailsRepo.findByEmail("email");
@@ -102,7 +102,7 @@ public class DartExpressLogisticsServiceTests {
 		 List<TruckDetails> td = truckDetailsRepo.findAll();
 		 int x =td.size();
 		 System.out.println("x= "+x);
-		 truckDetailsService.register("Test", "password", "anujsm112345@gmail.com", "789");
+		 truckDetailsService.register("Test", "password", "anujsm112345@gmail.com", "7896998962");
 		  td = truckDetailsRepo.findAll();
 		 int y = td.size();
 		 System.out.println("y= "+y);
