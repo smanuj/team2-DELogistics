@@ -19,5 +19,10 @@ public class NewOrderServiceImpl implements NewOrderService {
 	  return orderDetailsRepo.save(od);
 	 
 	}
+	
+	@Override
+	public void deleteOrder(int id){
+		orderDetailsRepo.deleteByOrderId(id);
+	}
 
 }

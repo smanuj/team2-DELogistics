@@ -18,4 +18,8 @@ public interface OrderDetailsRepo extends JpaRepository<OrderDetails, Integer> {
 
 	// Retrieve a list of driver ids related to that supplier id
 	List<Integer> getDriverIdBySuppId(int suppId);
+	
+	void deleteByCustName(String name);
+	
+	void deleteByOrderId(int id);
 }

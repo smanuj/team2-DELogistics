@@ -101,11 +101,11 @@ public class DartExpressLogisticsLoginAndRegisterTests {
      public void testDriverRegisteration() throws Exception{
 		 List<TruckDetails> td = truckDetailsRepo.findAll();
 		 int x =td.size();
-		 System.out.println("x= "+x);
+//		 System.out.println("x= "+x);
 		 truckDetailsService.register("Test", "password", "anujsm112345@gmail.com", "7896998962");
 		  td = truckDetailsRepo.findAll();
 		 int y = td.size();
-		 System.out.println("y= "+y);
+//		 System.out.println("y= "+y);
 		 TruckDetails td2 = truckDetailsRepo.findByEmail("anujsm112345@gmail.com");
 	       assertEquals(x+1, y);
 	     truckDetailsRepo.deleteById(td2.getTruckId());

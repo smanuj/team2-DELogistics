@@ -7,4 +7,6 @@ public interface NewOrderService {
 	//Save new order information into the database
 	OrderDetails saveNew(OrderDetails od);
 
+	void deleteOrder(int id);
+
 }
