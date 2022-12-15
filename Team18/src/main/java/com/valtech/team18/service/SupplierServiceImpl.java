@@ -81,11 +81,12 @@ public class SupplierServiceImpl implements SupplierService {
 	public SupplierDetails approvingSupplier(int id) {
 		// TruckDetails td=truckDetailsRepo.findById(id).get();
 		// td.setApproved(true);
-
+		logger.info("Approving Supplier " + id);
 		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		sd.setApproved(true);
 		try {
 			mailMessage.registeredSuccessfully(sd.getEmail(), "Supplier", sd.getSuppName());
+			logger.debug("Successfully Approved Supplier! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -100,6 +101,7 @@ public class SupplierServiceImpl implements SupplierService {
 		supplierDetailsRepo.deleteById(id);
 		try {
 			mailMessage.registerationFailure(sd.getEmail(), "Supplier", sd.getSuppName());
+			logger.debug("Deleted Rejected Supplier! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -109,7 +111,7 @@ public class SupplierServiceImpl implements SupplierService {
 	public List<TruckDetails> getTruckDetailsFromOrder(int id) {
 		// model.addAttribute("OrderDetails",
 		// suppService.getAllOrdersBySuppId(id));
-
+		logger.info("Loading Truck Details for Order " + id);
 		List<OrderDetails> od = getAllOrdersBySuppId(id);
 		List<Integer> driverid = new ArrayList<Integer>();
 		for (OrderDetails orderDetails : od) {
@@ -120,12 +122,14 @@ public class SupplierServiceImpl implements SupplierService {
 		for (Integer did : driverid) {
 			td.add(truckDetailsRepo.findById(did).get());
 		}
+		logger.debug("Successfully Loaded Truck Details for Order!");
 		return td;
 	}
 
 	@Override
 	public boolean register(String username, String email, String password, String fromAddress, String contactNumber,
 			String landLine) {
+		logger.info("Registering user....");
 		// TODO Auto-generated method stub
 		long contactNumbe = Long.valueOf(contactNumber);
 		long landLin = Long.valueOf(landLine);
@@ -138,6 +142,7 @@ public class SupplierServiceImpl implements SupplierService {
 			supplierDetailsRepo.save(sd);
 			try {
 				mailMessage.notifyRegisteration(sd.getEmail(), "Supplier", sd.getSuppName());
+				logger.debug("Registration Successfully Recieved!");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -150,6 +155,8 @@ public class SupplierServiceImpl implements SupplierService {
 	
 	@Override
 	public void deleteSupplier(int id){
+		logger.info("Deleting Supplier " + id);
+		logger.debug("Successfully Deleted Supplier!");
 		supplierDetailsRepo.deleteBySuppId(id);
 	}
 

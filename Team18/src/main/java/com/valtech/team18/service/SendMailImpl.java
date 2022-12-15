@@ -62,6 +62,7 @@ public class SendMailImpl implements SendMail {
 		});
 
 		try {
+			logger.info("Sending mail....");
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("dartexpresslogistics@outlook.com"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
@@ -69,7 +70,7 @@ public class SendMailImpl implements SendMail {
 			// message.setText("This email was sent with JavaMail.");
 			message.setText(body);
 			Transport.send(message);
-			System.out.println("Email sent.");
+			logger.debug("Mail Sent Successfully!");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}

@@ -25,7 +25,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 	// Login Validation for admin
 	@Override
 	public boolean loginvalidation(String username, String password) throws NullPointerException {
-
+		logger.info("Validating Login Credentials....");
 		try {
 			AdminLogin b = adminLoginRepo.findByUsername("admin@gmail.com");
 			if (b == null) {
