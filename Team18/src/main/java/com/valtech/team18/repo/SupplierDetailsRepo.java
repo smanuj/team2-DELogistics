@@ -9,20 +9,15 @@ import com.valtech.team18.entity.SupplierDetails;
 
 @Repository
 public interface SupplierDetailsRepo extends JpaRepository<SupplierDetails, Integer> {
-	
-	// Search Supplier info based on username
-	SupplierDetails findBySuppName(String suppName);
-	
+
 	List<SupplierDetails> findAllByApprovedFalse();
+
 	List<SupplierDetails> findAllByApprovedTrue();
 
 	SupplierDetails findByEmailAndApprovedTrue(String Email);
-	
-	SupplierDetails findByEmail(String email);
-	
-	SupplierDetails findBySuppId(int id);
 
-//	boolean existsByEmail(String email);
-	
+	SupplierDetails findByEmail(String email);
+
+	SupplierDetails findBySuppId(int id);
 
 }

@@ -194,7 +194,7 @@
 
                                             <label class="form-label" for="form3Example4c">Choose
                                                 Your profile</label><br> <select class="btn  btn-warning"
-                                                name="role" id="role">
+                                                name="role" id="role" required>
                                                 
                                                     <option value = ""disabled selected>Select</option>
 
@@ -213,8 +213,8 @@
 
 										<div class="form-outline mb-4">
 											<label class="form-label" for="form2Example17">E-mail</label>
-											<input required type="text" id="email" name="email"  pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
-												placeholder="E-mail " class="form-control form-control-lg" />
+											<input type="text" id="email" name="email"  pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+												placeholder="E-mail " class="form-control form-control-lg" required/>
 											
 										</div>
 

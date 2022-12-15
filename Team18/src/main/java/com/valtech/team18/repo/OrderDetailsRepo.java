@@ -9,11 +9,13 @@ import com.valtech.team18.entity.OrderDetails;
 
 @Repository
 public interface OrderDetailsRepo extends JpaRepository<OrderDetails, Integer> {
-	
-	//Retrieve a list of all orders assigned to that supplier
+
+	// Retrieve a list of all orders assigned to that supplier
 	List<OrderDetails> getAllOrdersBySuppId(int suppId);
-	//Retrieve a list of all orders assigned to that driver
+
+	// Retrieve a list of all orders assigned to that driver
 	List<OrderDetails> getAllOrdersByDriverId(int driverId);
-	//Retrieve a list of driver ids related to that supplier id
+
+	// Retrieve a list of driver ids related to that supplier id
 	List<Integer> getDriverIdBySuppId(int suppId);
 }
