@@ -21,12 +21,11 @@
 		alert('Alert Sent Succesfully');
 	}
 	 function display_c() {
-         var refresh = 10000; // Refresh rate in milli seconds
+         var refresh = 1000; // Refresh rate in milli seconds
          mytime = setTimeout('display_ct()', refresh)
      }
      function display_ct() {
-    	 var num = Math.round((Math.random()*45),1) ; // this will get a number between 1 and 99;
-    	// var num = (Math.random()*45)/10 ; // this will get a number between 1 and 99;
+    	 var num = Math.floor(Math.random()*45) + 1; // this will get a number between 1 and 99;
     	 num *= Math.round(Math.random(),1) ? 1 : -1;
          /* var x = Math.random() ; */
     	 
@@ -93,45 +92,54 @@
 
 		<center>
 			<h2>Truck Details</h2>
-		</center>
-
+		
+            <div class="card" style="width: 39rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Note <i class="fa fa-exclamation-circle" aria-hidden="true"></i></h5>
+                  
+                  <p class="card-text">Optimum temperature for Food items between 14 C to 25 C, Medicines/Icecreams between -10 C to 5 C   </p>
+                  
+                </div>
+              </div>
+        
+        </center> <br>
 		<!-- Table to display Truck details -->
-
+    <div class="table-responsive">
 		<table class="table table-hover table-secondary table-striped">
-			<thead>
+			<thead >
 				<tr>
 					<td>Truck Id</td>
 					<td>Driver Name</td>
 					<td>Driver Contact number</td>
-					<td>Ideal Temperature</td>
+					<td data-toggle="tooltip" data-placement="top" title="Optimum temperature for Food items between 14 C to 25 C, Medicines/Icecreams between -10 C to 5 C  " >Live  Temperature    </td>
+                    <td>Send Alerts </td>
 					<td>Live Location</td>
 				</tr>
-			</thead>
+			</thead> 
 			<tbody>
 				<c:forEach items="${TruckDetails}" var="TruckDetails">
 					<tr>
 						<td>${TruckDetails.truckId}</td>
 						<td>${TruckDetails.driverName}</td>
 						<td>${TruckDetails.driverPhNum}</td>
-						<td><span class="text-white"  id="ct"></span>
+                        <td id="ct"><%-- <div class="text-dark" id="ct" value="${TruckDetails}"></div> --%></td>
+                        
+<!--                         <td><div class="text-dark" id="ct"></div></td> -->
+						<td>
 							<form action="/alert/${TruckDetails.truckId}" method="POST" class="form-signin  ">
-								<button class="btn btn-dark btn-lg btn-block" name="Alert"
-											value="Alert" type="Submit" text="Alert">Alert</button>
-							</form>
-							<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Optimum temperature for Food items is 14 C , Medicines/Icecreams is -4C  ">
-
-                            <i class="fa fa-thermometer-full" ></i>
-
-                          </button>
-						
+								<button class="btn btn-dark  btn-block" name="Alert"
+											value="Alert" type="Submit" data-toggle="tooltip" data-placement="top" title="Send Alerts to the driver">Alert</button>
+                          
+						</form></td>
 						<td><a
-							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn btn-lg btn-md btn-warning">
-								<i class="fa fa-location-arrow"></i>Current 
+							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn  btn-md btn-warning" data-toggle="tooltip" data-placement="top" title="View Current Location">
+								<i class="fa fa-location-arrow" ></i>Current 
 								Location</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+    </div>
 </body>
 
 <!-- Footer -->
@@ -143,9 +151,8 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>
-
 
