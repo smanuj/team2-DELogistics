@@ -88,7 +88,7 @@
 
 										<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">New
 											Order</p>
-<!-- Form for new order  -->
+										<!-- Form for new order  -->
 										<form class="mx-1 mx-md-4">
 
 											<div class="d-flex flex-row align-items-center mb-4">
@@ -140,9 +140,9 @@
 														Supplier</label><br> <select class="btn  btn-warning"
 														id="suppid" name="suppid"
 														placeholder="choose the supplier">
+														<option value="" disabled selected>Select</option>
 														<c:forEach items="${SupplierDetails}"
 															var="SupplierDetails">
-
 															<option value="${SupplierDetails.suppId }">
 																${SupplierDetails.suppName}</option>
 
@@ -159,6 +159,7 @@
 													<label class="form-label" for="form3Example4c">Choose
 														Driver</label><br> <select class="btn  btn-warning"
 														name="driverid" id="driverid">
+														<option value="" disabled selected>Select</option>
 														<c:forEach items="${TruckDetails}" var="TruckDetails">
 
 
@@ -191,7 +192,7 @@
 									<div
 										class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-		
+
 									</div>
 								</div>
 							</div>
