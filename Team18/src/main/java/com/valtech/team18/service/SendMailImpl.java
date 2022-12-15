@@ -11,17 +11,23 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.valtech.team18.controller.AdminController;
 import com.valtech.team18.properties.AppProperties;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class SendMailImpl implements SendMail {
+	
+	private static final Logger logger = LoggerFactory.getLogger(SendMailImpl.class);
+	
 	// @Value("${sender.email.id}")
 	// private String fromId;
 	// @Value("${sender.email.password}")
@@ -34,6 +40,7 @@ public class SendMailImpl implements SendMail {
 	@Override
 	@RequestMapping("de")
 	public void sendMail(String email, String subject, String body) {
+		logger.info("Sending mail....");
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
@@ -46,8 +53,10 @@ public class SendMailImpl implements SendMail {
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
+				logger.info("Getting Password Authenticated....");
 //				System.out.println("ID: "+appProperties.getId());
 //				System.out.println("Password: "+appProperties.getPassword());
+				logger.debug("Successfully Authenticated Password!");
 				return new PasswordAuthentication("dartexpresslogistics@outlook.com", "Qwertyuiop12#");
 			}
 		});

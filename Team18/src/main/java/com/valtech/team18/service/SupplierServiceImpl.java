@@ -3,6 +3,8 @@ package com.valtech.team18.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,6 +21,8 @@ import com.valtech.team18.repo.TruckDetailsRepo;
 @Transactional(propagation = Propagation.REQUIRED)
 public class SupplierServiceImpl implements SupplierService {
 
+	private static final Logger logger= LoggerFactory.getLogger(SupplierServiceImpl.class);	
+
 	@Autowired
 	private OrderDetailsRepo orderDetailsRepo;
 
@@ -33,31 +37,43 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public List<TruckDetails> getAllTruckD() {
+		logger.info("Loading Truck Details....");
+		logger.debug("Successfully Loaded Truck Details! " + truckDetailsRepo.findAll());
 		return truckDetailsRepo.findAll();
 	}
 
 	@Override
 	public List<SupplierDetails> getAllSuppplierD() {
+		logger.info("Loading Supplier Details....");
+		logger.debug("Successfully Loaded Supplier Details! " + supplierDetailsRepo.findAll());
 		return supplierDetailsRepo.findAll();
 	}
 
 	@Override
 	public List<OrderDetails> getAllOrdersBySuppId(int suppId) {
+		logger.info("Loading Order Details for Supplier " + suppId);
+		logger.debug("Successfully Loaded Order Details for Supplier! " + orderDetailsRepo.getAllOrdersBySuppId(suppId));
 		return orderDetailsRepo.getAllOrdersBySuppId(suppId);
 	}
 
 	@Override
 	public List<Integer> getAllDriverIdFromOrderDetails(OrderDetails od) {
+		logger.info("Loading Driver ID for Order " + od);
+		logger.debug("Successfully Loaded Driver ID for Order! " + orderDetailsRepo.getDriverIdBySuppId(od.getSuppId()));
 		return orderDetailsRepo.getDriverIdBySuppId(od.getSuppId());
 	}
 
 	@Override
 	public List<SupplierDetails> getPendingSupplier() {
+		logger.info("Loading Pending Supplier Details....");
+		logger.debug("Successfully Loaded Pending Supplier Details! " + supplierDetailsRepo.findAllByApprovedFalse());
 		return supplierDetailsRepo.findAllByApprovedFalse();
 	}
 
 	@Override
 	public List<SupplierDetails> getApprovedSupplier() {
+		logger.info("Loading Approved Supplier Details....");
+		logger.debug("Successfully Loaded Approved Supplier Details! " + supplierDetailsRepo.findAllByApprovedTrue());
 		return supplierDetailsRepo.findAllByApprovedTrue();
 	}
 
@@ -79,6 +95,7 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public void deleteRejectedSupplier(int id) {
+		logger.info("Deleting Rejected Supplier " + id);
 		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		supplierDetailsRepo.deleteById(id);
 		try {
