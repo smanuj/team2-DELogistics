@@ -2,6 +2,8 @@ package com.valtech.team18.service;
 
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -14,6 +16,8 @@ import com.valtech.team18.repo.SupplierDetailsRepo;
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class SupplierLoginServiceImpl implements SupplierLoginService {
+	
+	private static final Logger logger= LoggerFactory.getLogger(SupplierLoginServiceImpl.class);
 
 	@Autowired
 	private SupplierDetailsRepo supplierDetailsRepo;
