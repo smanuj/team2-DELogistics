@@ -13,29 +13,21 @@ import javax.mail.internet.MimeMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.valtech.team18.controller.AdminController;
-import com.valtech.team18.properties.AppProperties;
-
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class SendMailImpl implements SendMail {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(SendMailImpl.class);
-	
+
 	// @Value("${sender.email.id}")
 	// private String fromId;
 	// @Value("${sender.email.password}")
 	// private String password;
-
-	@Autowired
-	AppProperties appProperties;
-	
 
 	@Override
 	@RequestMapping("de")
@@ -54,8 +46,8 @@ public class SendMailImpl implements SendMail {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				logger.info("Getting Password Authenticated....");
-//				System.out.println("ID: "+appProperties.getId());
-//				System.out.println("Password: "+appProperties.getPassword());
+				// System.out.println("ID: "+appProperties.getId());
+				// System.out.println("Password: "+appProperties.getPassword());
 				logger.debug("Successfully Authenticated Password!");
 				return new PasswordAuthentication("dartexpresslogistics@outlook.com", "Qwertyuiop12#");
 			}
