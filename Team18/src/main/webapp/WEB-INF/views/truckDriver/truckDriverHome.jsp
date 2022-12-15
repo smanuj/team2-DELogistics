@@ -7,7 +7,7 @@
 
 
 <head>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <!-- JavaScript to prevent going back to the previous page after logging out -->
 <script type="text/javascript">
 	function preventBack() {

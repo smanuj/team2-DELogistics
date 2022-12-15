@@ -1,5 +1,6 @@
 package com.valtech.team18.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.valtech.team18.entity.OrderDetails;
 import com.valtech.team18.entity.TruckDetails;
+import com.valtech.team18.repo.TruckDetailsRepo;
 import com.valtech.team18.service.SupplierService;
 
 @Controller
@@ -24,12 +27,17 @@ public class SupplierController {
 	@Autowired
 	SupplierService suppService;
 
+	@Autowired
+	TruckDetailsRepo truckDetailsRepo;
+
 	// Navigate to supplier home page for a particular supplier id
 	@GetMapping("/supplier/supplierHome/{id}")
 	public String suppHome(@PathVariable("id") int id, Model model) {
-		model.addAttribute("id", id);
+		// model.addAttribute("id", id);
 		// suppService.getAllOrdersBySuppId(id);
-		model.addAttribute("OrderDetails", suppService.getAllOrdersBySuppId(id));
+
+		List<OrderDetails> od = suppService.getAllOrdersBySuppId(id);
+		model.addAttribute("OrderDetails", od);
 		List<TruckDetails> td = suppService.getTruckDetailsFromOrder(id);
 		model.addAttribute("td", td);
 
