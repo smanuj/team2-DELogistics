@@ -17,7 +17,7 @@ import com.valtech.team18.repo.SupplierDetailsRepo;
 import com.valtech.team18.repo.TruckDetailsRepo;
 
 @Service
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.REQUIRED)
 public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Autowired
@@ -120,6 +120,10 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 			return true;
 		}
 		return false;
+	}
+	@Override
+	public void deleteTruckDriver(int id){
+		truckDetailsRepo.deleteByTruckId(id);
 	}
 
 }

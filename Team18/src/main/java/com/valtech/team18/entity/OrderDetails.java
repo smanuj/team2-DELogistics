@@ -1,5 +1,4 @@
 
-
 package com.valtech.team18.entity;
 
 import java.time.LocalDateTime;
@@ -21,12 +20,11 @@ public class OrderDetails {
 	private String toAddress;
 	private long phNum;
 	private String orderType;
-	private int suppId; 
-	private int driverId; 
+	private int suppId;
+	private int driverId;
 
-
-	public OrderDetails(String custName, LocalDateTime time, String toAddress, long phNum, String orderType,
-			int suppId, int driverId) {
+	public OrderDetails(String custName, LocalDateTime time, String toAddress, long phNum, String orderType, int suppId,
+			int driverId) {
 		super();
 		this.custName = custName;
 		this.time = time;
@@ -75,26 +73,6 @@ public class OrderDetails {
 
 	public OrderDetails() {
 		super();
-	}
-
-	public OrderDetails(int orderId, String custName, LocalDateTime time, String toAddress, long phNum,
-			String orderType) {
-		super();
-		this.orderId = orderId;
-		this.custName = custName;
-		this.time = time;
-		this.toAddress = toAddress;
-		this.phNum = phNum;
-		this.orderType = orderType;
-	}
-
-	public OrderDetails(String custName, LocalDateTime time, String toAddress, long phNum, String orderType) {
-		super();
-		this.custName = custName;
-		this.time = time;
-		this.toAddress = toAddress;
-		this.phNum = phNum;
-		this.orderType = orderType;
 	}
 
 	public int getOrderId() {

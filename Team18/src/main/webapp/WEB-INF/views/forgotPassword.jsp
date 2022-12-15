@@ -83,11 +83,11 @@
             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
               <!-- <label class="form-label" for="form3Example1c">E-Mail</label><br> -->
-              <input pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' type="text" id="email" name="email" placeholder="Registered Mail Id" class="form-control" />
+              <input pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' type="text" id="email" name="email" placeholder="Registered Mail Id" class="form-control" required />
             </div><br>
             <label class="form-label text-white" for="form3Example4c">Choose
                 User role</label><br> <select class="btn  btn-warning"
-                name="role" id="role">
+                name="role" id="role" required>
               
 
 

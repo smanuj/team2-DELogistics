@@ -28,6 +28,8 @@ public interface SupplierService {
 
 	boolean register(String username, String email, String password, String fromAddress, String contactNumber,
 			String landLine);
+
+	void deleteSupplier(int id);
 	
 
 }

@@ -12,7 +12,8 @@ public class SupplierDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int suppId;
-	//suppName and suppPassword strings are used to save supplier login credentials
+	// suppName and suppPassword strings are used to save supplier login
+	// credentials
 	private String suppName;
 	private String email;
 	private String suppPassword;
@@ -21,8 +22,6 @@ public class SupplierDetails {
 	private boolean approved;
 	private String otp;
 	private long landLine;
-	
-	
 
 	public long getLandLine() {
 		return landLine;
@@ -48,8 +47,6 @@ public class SupplierDetails {
 		this.suppPassword = suppPassword;
 	}
 
-
-	
 	public String getEmail() {
 		return email;
 	}
@@ -103,10 +100,7 @@ public class SupplierDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
-	
-public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
+	public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
 			long suppContactDetails, boolean approved, String otp, long landLine) {
 		super();
 		this.suppId = suppId;
@@ -120,31 +114,24 @@ public SupplierDetails(int suppId, String suppName, String email, String suppPas
 		this.landLine = landLine;
 	}
 
+	public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress,
+			long suppContactDetails, boolean approved, String otp, long landLine) {
+		super();
+		this.suppName = suppName;
+		this.email = email;
+		this.suppPassword = suppPassword;
+		this.fromAddress = fromAddress;
+		this.suppContactDetails = suppContactDetails;
+		this.approved = approved;
+		this.otp = otp;
+		this.landLine = landLine;
+	}
 
+	@Override
+	public String toString() {
+		return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", email=" + email + ", suppPassword="
+				+ suppPassword + ", fromAddress=" + fromAddress + ", suppContactDetails=" + suppContactDetails
+				+ ", approved=" + approved + ", otp=" + otp + ", landLine=" + landLine + "]";
+	}
 
-
-
-
-public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress, long suppContactDetails,
-		boolean approved, String otp, long landLine) {
-	super();
-	this.suppName = suppName;
-	this.email = email;
-	this.suppPassword = suppPassword;
-	this.fromAddress = fromAddress;
-	this.suppContactDetails = suppContactDetails;
-	this.approved = approved;
-	this.otp = otp;
-	this.landLine = landLine;
-}
-
-@Override
-public String toString() {
-	return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", email=" + email + ", suppPassword="
-			+ suppPassword + ", fromAddress=" + fromAddress + ", suppContactDetails=" + suppContactDetails
-			+ ", approved=" + approved + ", otp=" + otp + ", landLine=" + landLine + "]";
-}
-
-	
-	
 }

@@ -14,6 +14,8 @@ public interface TruckLoginService {
 	boolean checkOTP(int id, String otp);
 
 	void changePassword(int id, String password);
+
+	
 	
 	
 //	TruckDetails saveNew(PendingDriver pd);

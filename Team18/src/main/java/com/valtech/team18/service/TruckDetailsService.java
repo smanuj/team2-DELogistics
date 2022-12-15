@@ -25,6 +25,8 @@ public interface TruckDetailsService {
 	List<SupplierDetails> getSupplierFromOrder(int id);
 
 	boolean register(String username, String password, String email, String contactNumber);
+
+	void deleteTruckDriver(int id);
 	
 
 }

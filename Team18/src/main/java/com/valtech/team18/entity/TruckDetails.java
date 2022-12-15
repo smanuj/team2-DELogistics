@@ -21,23 +21,11 @@ public class TruckDetails {
 	private String email;
 	private boolean approved;
 	private String otp;
-	
-	
 
-	public String getOtp() {
-		return otp;
-	}
-
-	public void setOtp(String otp) {
-		this.otp = otp;
-	}
 
 	public TruckDetails() {
 		super();
 	}
-
-	
-
 
 	public TruckDetails(String driverName, String driverPassword, long driverPhNum, double temp, String email,
 			boolean approved, String otp) {
@@ -51,22 +39,31 @@ public class TruckDetails {
 		this.otp = otp;
 	}
 
-	public TruckDetails(int truckId, String driverName, String driverPassword, long driverPhNum, double temp, String email,
-		boolean approved, boolean pending) {
-	super();
-	this.truckId = truckId;
-	this.driverName = driverName;
-	this.driverPassword = driverPassword;
-	this.driverPhNum = driverPhNum;
-	this.temp = temp;
-	this.email = email;
-	this.approved = approved;
-	
-}
+	public TruckDetails(int truckId, String driverName, String driverPassword, long driverPhNum, double temp,
+			String email, boolean approved, boolean pending) {
+		super();
+		this.truckId = truckId;
+		this.driverName = driverName;
+		this.driverPassword = driverPassword;
+		this.driverPhNum = driverPhNum;
+		this.temp = temp;
+		this.email = email;
+		this.approved = approved;
+
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
 
 	public int getTruckId() {
 		return truckId;
 	}
+
 	public void setTruckId(int truckId) {
 		this.truckId = truckId;
 	}
@@ -119,14 +116,11 @@ public class TruckDetails {
 		this.approved = approved;
 	}
 
-
 	@Override
 	public String toString() {
 		return "TruckDetails [truckId=" + truckId + ", driverName=" + driverName + ", driverPassword=" + driverPassword
 				+ ", driverPhNum=" + driverPhNum + ", temp=" + temp + ", email=" + email + ", approved=" + approved
-				+  "]";
+				+ "]";
 	}
 
-	
-	
 }

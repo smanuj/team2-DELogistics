@@ -112,5 +112,6 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	// TruckDetails td = new TruckDetails(username, password, driverNumber);
 	// return truckDetailsRepo.save(td);
 	// }
+	
 
 }

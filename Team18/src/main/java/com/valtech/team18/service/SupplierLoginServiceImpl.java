@@ -12,7 +12,7 @@ import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.repo.SupplierDetailsRepo;
 
 @Service
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.REQUIRED)
 public class SupplierLoginServiceImpl implements SupplierLoginService {
 
 	@Autowired
