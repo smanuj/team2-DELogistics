@@ -26,24 +26,27 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	private MailMessage mailMessage;
 
 	public static String getRandomNumberString() {
+		logger.info("Generating Random String....");
 		// It will generate 6 digit random Number.
 		// from 0 to 999999
 		Random rnd = new Random();
 		int number = rnd.nextInt(999999);
 
 		// this will convert any number sequence into 6 character.
+		logger.debug("Successfully Generated Random String!");
 		return String.format("%06d", number);
 	}
 
 	// Login Validation by checking given username and password in the database
 	@Override
 	public boolean loginvalidation(String email, String password) throws NullPointerException {
+		logger.info("Validating Login Credentials....");
 
 		try {
 			SupplierDetails sup = supplierDetailsRepo.findByEmailAndApprovedTrue(email);
 
 			if ((email.equals(sup.getEmail())) && (password.equals(sup.getSuppPassword()))) {
-				System.out.println("test5");
+				logger.info("Successfully Validated Login Credentials!");
 				return true;
 			}
 
@@ -58,11 +61,14 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 
 	@Override
 	public int getIdFromEmail(String email) {
+		logger.info("Retreiving Id assoicated with mail " + email);
+		logger.debug("Successfully Retreived Id assoicated with mail " + email);
 		return supplierDetailsRepo.findByEmail(email).getSuppId();
 	}
 
 	@Override
 	public boolean checkmail(String email) {
+		logger.info("Confirming Mail....");
 		SupplierDetails sd = supplierDetailsRepo.findByEmail(email);
 		if (sd.getEmail() != null) {
 			String pass = getRandomNumberString();
@@ -70,9 +76,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 			supplierDetailsRepo.save(sd);
 			try {
 				mailMessage.sendOTP(sd.getEmail(), pass, "Supplier", sd.getSuppName());
-				System.out.println("OTP Sent");
+				logger.debug("Mail Confirmed and Sent!");
 			} catch (Exception e) {
-				System.out.println("OTP not sent");
+				logger.debug("Mail Confirmation Unsuccessfull!");
 				e.printStackTrace();
 			}
 			return true;
@@ -84,22 +90,28 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 
 	@Override
 	public boolean checkOTP(int id, String otp) {
+		logger.info("Confirming OTP....");
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
-		if (otp.equals(sd.getOtp()))
+		if (otp.equals(sd.getOtp())){
+			logger.debug("OTP Confirmed!");
 			return true;
-
+		}
+		logger.debug("OTP Failed!");
 		return false;
 	}
 
 	@Override
 	public void changePassword(int id, String password) {
+		logger.info("Changing password....");
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
 		sd.setSuppPassword(password);
 		sd.setOtp(null);
 		supplierDetailsRepo.save(sd);
 		try {
 			mailMessage.successfulPasswordChange(sd.getEmail(), "Supplier", sd.getSuppName());
+			logger.info("Password Changed Successfully!");
 		} catch (Exception e) {
+			logger.debug("Password Changed Failed!");
 			e.printStackTrace();
 		}
 

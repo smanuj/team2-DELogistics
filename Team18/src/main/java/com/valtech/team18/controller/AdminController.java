@@ -52,15 +52,20 @@ public class AdminController {
 	// Navigate to Home page for Admin
 	@GetMapping("/admin/adminHome")
 	public String adminHome() {
-
+		logger.info("Fetching Home for Admin....");
+		
+		logger.debug("Successfully Fetched Home for Admin!");
 		return "admin/adminHome";
 	}
 
 	// Navigate to Order Details page for Admin
 	@GetMapping("/admin/orderDetails")
 	public String orderDetails(Model model) {
+		logger.info("Fetching Order Details for Admin....");
 
 		model.addAttribute("OrderDetails", adminService.getAllOrderD());
+		
+		logger.debug("Successfully Fetched Order Details for Admin!");
 		return "admin/orderDetails";
 	}
 
