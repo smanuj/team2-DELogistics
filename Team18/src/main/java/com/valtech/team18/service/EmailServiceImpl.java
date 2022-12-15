@@ -19,7 +19,7 @@ public class EmailServiceImpl implements EmailService {
 	public void SendMail(String from,String to,String subject,String text){
     SimpleMailMessage message = new SimpleMailMessage();
 
-    message.setFrom(from);
+//    message.setFrom(from);
     message.setTo(to);
     message.setSubject(subject);
     message.setText(text);
