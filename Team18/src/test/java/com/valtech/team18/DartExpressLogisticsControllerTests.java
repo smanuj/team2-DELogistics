@@ -1,5 +1,9 @@
 package com.valtech.team18;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,18 +12,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.valtech.team18.entity.OrderDetails;
-import com.valtech.team18.service.AdminLoginServiceImpl;
-import com.valtech.team18.service.AdminServiceImpl;
-import com.valtech.team18.service.NewOrderServiceImpl;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import java.time.LocalDateTime;
+import com.valtech.team18.entity.TruckDetails;
+import com.valtech.team18.repo.TruckDetailsRepo;
+import com.valtech.team18.service.AdminLoginService;
+import com.valtech.team18.service.AdminService;
+import com.valtech.team18.service.NewOrderService;
+import com.valtech.team18.service.SupplierLoginService;
+import com.valtech.team18.service.TruckDetailsService;
+import com.valtech.team18.service.TruckLoginService;
 
 
 @SpringBootTest
@@ -31,26 +31,64 @@ public class DartExpressLogisticsControllerTests {
 	  private MockMvc mvc;
 	
 	@Autowired
-	private AdminLoginServiceImpl adminLoginServiceImpl;
+	private AdminLoginService adminLoginServiceImpl;
 	
 	@Autowired
-	private AdminServiceImpl adminServiceImpl;
+	private AdminService adminServiceImpl;
 	
 	@Autowired
-	private NewOrderServiceImpl newOrderServiceImpl;
+	private NewOrderService newOrderServiceImpl;
 	
-	 @Test
-     public void testAdminLoginValidation() throws Exception{
-	       assertEquals(true, adminLoginServiceImpl.loginvalidation("admin@gmail.com","admin"));
-	       assertEquals(false, adminLoginServiceImpl.loginvalidation("admin","user"));
-     }
+	@Autowired
+	private SupplierLoginService supplierLoginServiceImpl;
+	@Autowired
+	private TruckLoginService truckLoginServiceImpl;
+	
+	@Autowired
+	private TruckDetailsRepo truckDetailsRepo;
+	
+	@Autowired
+	private TruckDetailsService truckDetailsService;
+	
+//	 @Test
+//     public void testAdminLoginValidation() throws Exception{
+//	       assertEquals(true, adminLoginServiceImpl.loginvalidation("admin@gmail.com","admin"));
+//	       assertEquals(false, adminLoginServiceImpl.loginvalidation("admin","user"));
+//     }
+//	 
+//	 @Test
+//	 public void AdminOrderDetails() throws Exception{
+//			assertEquals(adminServiceImpl.getAllOrderD().size(), adminServiceImpl.getAllOrderD().size());
+//			assertEquals(adminServiceImpl.getAllSuppplierD().size(), adminServiceImpl.getAllSuppplierD().size());
+//			assertEquals(adminServiceImpl.getAllTruckD().size(), adminServiceImpl.getAllTruckD().size());
+//	  }
+//	 
+//	 @Test
+//     public void testSupplierLoginValidation() throws Exception{
+//	       assertEquals(true, supplierLoginServiceImpl.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+//	       assertEquals(false, supplierLoginServiceImpl.loginvalidation("supplier","user"));
+//     }
+//	 @Test
+//     public void testDriverLoginValidation() throws Exception{
+//	       assertEquals(true, truckLoginServiceImpl.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+//	       assertEquals(false, truckLoginServiceImpl.loginvalidation("truck","user"));
+//     }
 	 
 	 @Test
-	 public void AdminOrderDetails() throws Exception{
-			assertEquals(adminServiceImpl.getAllOrderD().size(), adminServiceImpl.getAllOrderD().size());
-			assertEquals(adminServiceImpl.getAllSuppplierD().size(), adminServiceImpl.getAllSuppplierD().size());
-			assertEquals(adminServiceImpl.getAllTruckD().size(), adminServiceImpl.getAllTruckD().size());
-	  }
+     public void testDriverRegisteration() throws Exception{
+		 List<TruckDetails> td = truckDetailsRepo.findAll();
+		 int x =td.size();
+		 System.out.println("x= "+x);
+		 truckDetailsService.register("Test", "password", "anujsm112345@gmail.com", "789");
+		  td = truckDetailsRepo.findAll();
+		 int y = td.size();
+		 System.out.println("y= "+y);
+		 TruckDetails td2 = truckDetailsRepo.findByEmail("anujsm112345@gmail.com");
+	       assertEquals(x+1, y);
+	     truckDetailsRepo.deleteById(td2.getTruckId());
+	     assertEquals(y-1, x);
+     }
+	
 	 
 //	 @Test
 //	 public void saveNewOrderDetails(){

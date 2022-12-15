@@ -50,12 +50,12 @@ public class OrderDetails {
 		this.driverId = driverId;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "OrderDetails [orderId=" + orderId + ", custName=" + custName + ", time=" + time + ", toAddress="
-//				+ toAddress + ", phNum=" + phNum + ", orderType=" + orderType + ", suppId=" + suppId + ", driverId="
-//				+ driverId + "]";
-//	}
+	@Override
+	public String toString() {
+		return "OrderDetails [orderId=" + orderId + ", custName=" + custName + ", time=" + time + ", toAddress="
+				+ toAddress + ", phNum=" + phNum + ", orderType=" + orderType + ", suppId=" + suppId + ", driverId="
+				+ driverId + "]";
+	}
 
 	public int getSuppId() {
 		return suppId;

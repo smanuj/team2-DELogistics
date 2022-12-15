@@ -119,7 +119,6 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 			}
 			return true;
 		}
-
 		return false;
 	}
 
