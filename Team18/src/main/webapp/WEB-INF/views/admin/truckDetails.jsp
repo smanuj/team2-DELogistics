@@ -20,6 +20,19 @@
 	function alertbtn() {
 		alert('Alert Sent Succesfully');
 	}
+	 function display_c() {
+         var refresh = 10000; // Refresh rate in milli seconds
+         mytime = setTimeout('display_ct()', refresh)
+     }
+     function display_ct() {
+    	 var num = Math.floor(Math.random()*45) + 1; // this will get a number between 1 and 99;
+    	 num *= Math.round(Math.random(),1) ? 1 : -1;
+         /* var x = Math.random() ; */
+    	 
+         /* var x = new Date() */
+         document.getElementById('ct').innerHTML = num;
+         display_c();
+     }
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -62,7 +75,7 @@
 </head>
 
 
-<body>
+<body onload=display_ct();>
 	<div class="bg-image"
 		style="background-image: url('https://images.pexels.com/photos/3760081/pexels-photo-3760081.jpeg?auto=compress&cs=tinysrgb&w=1600'); height: 100vh; background-size: cover;">
 
@@ -99,15 +112,16 @@
 						<td>${TruckDetails.truckId}</td>
 						<td>${TruckDetails.driverName}</td>
 						<td>${TruckDetails.driverPhNum}</td>
-						<td>${TruckDetails.temp}<!-- <button class="btn btn-lg btn-md btn-warning">
-								<i class="fa fa-thermometer-full"></i> Alert!
-							</button> --> <!-- <input type="button" value="Alert !"
-							class="btn  btn-md btn-danger" id="Alert" name="Alert"
-							onclick="alertbtn()"></td> -->
+						<td><span class="text-white"  id="ct"></span>
 							<form action="/alert/${TruckDetails.truckId}" method="POST" class="form-signin  ">
 								<button class="btn btn-dark btn-lg btn-block" name="Alert"
 											value="Alert" type="Submit" text="Alert">Alert</button>
 							</form>
+							<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Optimum temperature for Food items is 14 C , Medicines/Icecreams is -4C  ">
+
+                            <i class="fa fa-thermometer-full" ></i>
+
+                          </button>
 						
 						<td><a
 							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn btn-lg btn-md btn-warning">
