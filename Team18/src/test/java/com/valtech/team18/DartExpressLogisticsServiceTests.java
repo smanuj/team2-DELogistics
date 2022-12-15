@@ -12,12 +12,15 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
+import com.valtech.team18.repo.SupplierDetailsRepo;
 import com.valtech.team18.repo.TruckDetailsRepo;
 import com.valtech.team18.service.AdminLoginService;
 import com.valtech.team18.service.AdminService;
 import com.valtech.team18.service.NewOrderService;
 import com.valtech.team18.service.SupplierLoginService;
+import com.valtech.team18.service.SupplierService;
 import com.valtech.team18.service.TruckDetailsService;
 import com.valtech.team18.service.TruckLoginService;
 
@@ -25,24 +28,31 @@ import com.valtech.team18.service.TruckLoginService;
 @SpringBootTest
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @AutoConfigureMockMvc
-public class DartExpressLogisticsControllerTests {
+public class DartExpressLogisticsServiceTests {
 	
 	@Autowired
 	  private MockMvc mvc;
 	
 	@Autowired
-	private AdminLoginService adminLoginServiceImpl;
+	private AdminLoginService adminLoginService;
 	
 	@Autowired
-	private AdminService adminServiceImpl;
+	private AdminService adminService;
 	
 	@Autowired
-	private NewOrderService newOrderServiceImpl;
+	private NewOrderService newOrderService;
 	
 	@Autowired
-	private SupplierLoginService supplierLoginServiceImpl;
+	private SupplierLoginService supplierLoginService;
+	
 	@Autowired
-	private TruckLoginService truckLoginServiceImpl;
+	private SupplierDetailsRepo supplierDetailsRepo;
+	
+	@Autowired
+	private SupplierService supplierService;
+	
+	@Autowired
+	private TruckLoginService truckLoginService;
 	
 	@Autowired
 	private TruckDetailsRepo truckDetailsRepo;
@@ -50,29 +60,42 @@ public class DartExpressLogisticsControllerTests {
 	@Autowired
 	private TruckDetailsService truckDetailsService;
 	
-//	 @Test
-//     public void testAdminLoginValidation() throws Exception{
-//	       assertEquals(true, adminLoginServiceImpl.loginvalidation("admin@gmail.com","admin"));
-//	       assertEquals(false, adminLoginServiceImpl.loginvalidation("admin","user"));
-//     }
-//	 
-//	 @Test
-//	 public void AdminOrderDetails() throws Exception{
-//			assertEquals(adminServiceImpl.getAllOrderD().size(), adminServiceImpl.getAllOrderD().size());
-//			assertEquals(adminServiceImpl.getAllSuppplierD().size(), adminServiceImpl.getAllSuppplierD().size());
-//			assertEquals(adminServiceImpl.getAllTruckD().size(), adminServiceImpl.getAllTruckD().size());
-//	  }
-//	 
-//	 @Test
-//     public void testSupplierLoginValidation() throws Exception{
-//	       assertEquals(true, supplierLoginServiceImpl.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
-//	       assertEquals(false, supplierLoginServiceImpl.loginvalidation("supplier","user"));
-//     }
-//	 @Test
-//     public void testDriverLoginValidation() throws Exception{
-//	       assertEquals(true, truckLoginServiceImpl.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
-//	       assertEquals(false, truckLoginServiceImpl.loginvalidation("truck","user"));
-//     }
+	 @Test
+     public void testAdminLoginValidation() throws Exception{
+	       assertEquals(true, adminLoginService.loginvalidation("admin@gmail.com","admin"));
+	       assertEquals(false, adminLoginService.loginvalidation("admin","user"));
+     }
+	 
+	 @Test
+	 public void AdminOrderDetails() throws Exception{
+			assertEquals(adminService.getAllOrderD().size(), adminService.getAllOrderD().size());
+			assertEquals(adminService.getAllSuppplierD().size(), adminService.getAllSuppplierD().size());
+			assertEquals(adminService.getAllTruckD().size(), adminService.getAllTruckD().size());
+	  }
+	 
+	 @Test
+     public void testSupplierLoginValidation() throws Exception{
+	       assertEquals(true, supplierLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+	       assertEquals(false, supplierLoginService.loginvalidation("supplier","user"));
+     }
+	 @Test
+     public void testDriverLoginValidation() throws Exception{
+	       assertEquals(true, truckLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+	       assertEquals(false, truckLoginService.loginvalidation("truck","user"));
+     }
+	 @Test
+	 public void testSupplierRegistration() throws Exception{
+		 List<SupplierDetails> sd=supplierDetailsRepo.findAll();
+		 int a=sd.size();
+		 supplierService.register("username", "email", "password", "fromAddress", "636174", "25358");
+		 sd=supplierDetailsRepo.findAll();
+		 int b=sd.size();
+		 SupplierDetails sd2=supplierDetailsRepo.findByEmail("email");
+		 assertEquals(a+1, b);
+		 supplierDetailsRepo.deleteById(sd2.getSuppId());
+		 assertEquals(b-1, a);
+		 
+	 }
 	 
 	 @Test
      public void testDriverRegisteration() throws Exception{
@@ -89,6 +112,7 @@ public class DartExpressLogisticsControllerTests {
 	     assertEquals(y-1, x);
      }
 	
+	 
 	 
 //	 @Test
 //	 public void saveNewOrderDetails(){
