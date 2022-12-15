@@ -66,16 +66,21 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 	       assertEquals(false, adminLoginService.loginvalidation("admin","user"));
      }
 	 
-//	 @Test
-//	 public void AdminOrderDetails() throws Exception{
-//			assertEquals(adminService.getAllOrderD().size(), adminService.getAllOrderD().size());
-//			assertEquals(adminService.getAllSuppplierD().size(), adminService.getAllSuppplierD().size());
-//			assertEquals(adminService.getAllTruckD().size(), adminService.getAllTruckD().size());
-//	  }
+
 	 
 	 @Test
      public void testSupplierLoginValidation() throws Exception{
-	       assertEquals(true, supplierLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+		 List<SupplierDetails> suppD=supplierDetailsRepo.findAllByApprovedTrue();
+		 
+		 SupplierDetails sp=  new SupplierDetails("test", "test@test.com", "testpass", "Davangere", 63637878L, true, "", 9693685L);
+		 for (SupplierDetails supplierDetails : suppD) {
+			 if(supplierDetails.getEmail().equals(sp.getEmail())){
+			 }
+			 else{
+				 supplierDetailsRepo.save(sp);
+			 }
+		}
+	       assertEquals(true, supplierLoginService.loginvalidation("test@test.com","testpass"));
 	       assertEquals(false, supplierLoginService.loginvalidation("supplier","user"));
      }
 	 @Test

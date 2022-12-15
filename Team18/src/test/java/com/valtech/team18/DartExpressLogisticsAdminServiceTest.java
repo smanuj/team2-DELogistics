@@ -14,11 +14,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.valtech.team18.entity.OrderDetails;
+import com.valtech.team18.entity.SupplierDetails;
+import com.valtech.team18.entity.TruckDetails;
 import com.valtech.team18.repo.OrderDetailsRepo;
 import com.valtech.team18.repo.SupplierDetailsRepo;
 import com.valtech.team18.repo.TruckDetailsRepo;
 import com.valtech.team18.service.AdminService;
 import com.valtech.team18.service.NewOrderService;
+import com.valtech.team18.service.SupplierService;
+import com.valtech.team18.service.TruckDetailsService;
 
 @SpringBootTest
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
@@ -42,6 +46,12 @@ public class DartExpressLogisticsAdminServiceTest {
 	@Autowired
 	private NewOrderService newOrderService;
 	
+	@Autowired
+	private SupplierService supplierService;
+	
+	@Autowired
+	private TruckDetailsService truckDetailsService;
+	
 	@Test
 	public void testAdminServiceOrderDetails() throws Exception{
 		List<OrderDetails> od=orderDetailsRepo.findAll();
@@ -59,37 +69,42 @@ public class DartExpressLogisticsAdminServiceTest {
 		od=orderDetailsRepo.findAll();
 		int z=od.size();
 		System.out.println("z= "+z);
-//		assertEquals(y-1, z);
+		assertEquals(y-1, z);
 		
 		
 		
 	}
 	
-//	@Test
-//	public void testAdminServiceSupplierDetails() throws Exception{
-//		List<SupplierDetails> sd=supplierDetailsRepo.findAll();
-//		int x=sd.size();
-//		SupplierDetails sd2=new SupplierDetails(12, "santhu", "santhu@gmail.com", "password", "Davangere", 9880821607L, true, "2565", 98988589967L);
-//		supplierDetailsRepo.save(sd2);
-//		sd=supplierDetailsRepo.findAll();
-//		int y=sd.size();
-//		assertEquals(x+1, y);
-////		supplierDetailsRepo.delete(sd2);
-////		sd=supplierDetailsRepo.findAll();
-////		int z=sd.size();
-////		assertEquals(x, z);
-//	}
+	@Test
+	public void testAdminServiceSupplierDetails() throws Exception{
+		List<SupplierDetails> sd=supplierDetailsRepo.findAll();
+		int x=sd.size();
+		SupplierDetails sd2=new SupplierDetails("santhu11", "santhu@gmail.com", "password", "Davangere", 9880821607L, true, "2565", 98988589967L);
+		supplierDetailsRepo.save(sd2);
+		sd=supplierDetailsRepo.findAll();
+		int y=sd.size();
+		assertEquals(x+1, y);
+		supplierService.deleteSupplier(sd2.getSuppId());
+		sd=supplierDetailsRepo.findAll();
+		int z=sd.size();
+		assertEquals(y-1, z);
+	}
 
-//	@Test
-//	public void testAdminServiceTruckDetails() throws Exception{
-//		List<TruckDetails> td=truckDetailsRepo.findAll();
-//		int x=td.size();
-//		TruckDetails td2=new TruckDetails(3, "santhu", "santhu12", 6361748785L, 7.90, "santhu@gmail.com", true, true);
-//		truckDetailsRepo.save(td2);
-//		td=truckDetailsRepo.findAll();
-//		int y=td.size();
-//		assertEquals(x+1, y);
-//		
-//	}
-//	
+	@Test
+	public void testAdminServiceTruckDetails() throws Exception{
+		List<TruckDetails> td=truckDetailsRepo.findAll();
+		int x=td.size();
+		TruckDetails td2=new TruckDetails("santhu1234", "santhu12", 6361748785L, 7.90, "santhu@gmail.com", true, "2458");
+		truckDetailsRepo.save(td2);
+		td=truckDetailsRepo.findAll();
+		int y=td.size();
+		assertEquals(x+1, y);
+		truckDetailsService.deleteTruckDriver(td2.getTruckId());
+		td= truckDetailsRepo.findAll();
+		int z=td.size();
+		assertEquals(y-1, z);
+		
+		
+	}
+	
 }
