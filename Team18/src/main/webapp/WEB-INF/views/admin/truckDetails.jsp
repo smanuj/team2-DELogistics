@@ -25,7 +25,8 @@
          mytime = setTimeout('display_ct()', refresh)
      }
      function display_ct() {
-    	 var num = Math.floor(Math.random()*45) + 1; // this will get a number between 1 and 99;
+    	 var num = Math.round((Math.random()*45),1) ; // this will get a number between 1 and 99;
+    	// var num = (Math.random()*45)/10 ; // this will get a number between 1 and 99;
     	 num *= Math.round(Math.random(),1) ? 1 : -1;
          /* var x = Math.random() ; */
     	 
