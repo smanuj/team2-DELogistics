@@ -65,21 +65,21 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 	       assertEquals(true, adminLoginService.loginvalidation("admin@gmail.com","admin"));
 	       assertEquals(false, adminLoginService.loginvalidation("admin","user"));
      }
-//	 
+	 
 	 @Test
      public void testSupplierLoginValidation() throws Exception{
-	       assertEquals(true, supplierLoginService.loginvalidation("admin@gmail.com","admin"));
-	       assertEquals(false, supplierLoginService.loginvalidation("admin","user"));
+	       assertEquals(true, supplierLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+	       assertEquals(false, supplierLoginService.loginvalidation("supp","supp"));
      }
 	 @Test
      public void testTruckDriverLoginValidation() throws Exception{
-	       assertEquals(true, truckLoginService.loginvalidation("admin@gmail.com","admin"));
-	       assertEquals(false, truckLoginService.loginvalidation("admin","user"));
+	       assertEquals(true, truckLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+	       assertEquals(false, truckLoginService.loginvalidation("truck","truck"));
      }
 
-	 
+//	 
 //	 @Test
-//     public void testSupplierLoginValidation() throws Exception{
+//     public void testSupplierLogin1Validation() throws Exception{
 //		 List<SupplierDetails> suppD=supplierDetailsRepo.findAllByApprovedTrue();
 //		 
 //		 SupplierDetails sp=  new SupplierDetails("test", "test@test.com", "testpass", "Davangere", 63637878L, true, "", 9693685L);
@@ -100,7 +100,7 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 //		 TruckDetails td=new TruckDetails("santhosh", "Santhu12", 9698985852L, 8.25, "driver@gmail.com", true, "5285");
 //		 for(TruckDetails truckDetails : truckD){
 //			 if(truckDetails.getEmail().equals(td.getEmail())){
-//				 
+//				 System.out.println("exists");
 //			 }else{
 //				 truckDetailsRepo.save(td);
 //			 }
@@ -138,16 +138,10 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 //	     truckDetailsRepo.deleteById(td2.getTruckId());
 //	     assertEquals(y-1, x);
 //     }
-	
+//	
+//	 
 	 
-	 
-//	 @Test
-//	 public void saveNewOrderDetails(){
-//		 LocalDateTime time=LocalDateTime.parse("2022-12-01T18:41:29.065");
-//		 OrderDetails ord=new OrderDetails("santhosh",time, "davanagere", 9876543210L,"nonveg",8, 78);
-//		 assertEquals(, newOrderServiceImpl.saveNew(ord));
-//	  }
-	
+
 	
 //	 @Test
 //     public void testAdminLoginPage() throws Exception{
