@@ -1,3 +1,4 @@
+                                      
 package com.valtech.team18;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -68,13 +69,14 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 	 
 	 @Test
      public void testSupplierLoginValidation() throws Exception{
-	       assertEquals(true, supplierLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
+	       assertEquals(true, supplierLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu123"));
 	       assertEquals(false, supplierLoginService.loginvalidation("supp","supp"));
      }
 	 @Test
      public void testTruckDriverLoginValidation() throws Exception{
 	       assertEquals(true, truckLoginService.loginvalidation("santhoshkumara1204@gmail.com","$Santhu12"));
 	       assertEquals(false, truckLoginService.loginvalidation("truck","truck"));
+	       
      }
 
 //	 
