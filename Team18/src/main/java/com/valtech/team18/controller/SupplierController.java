@@ -66,13 +66,13 @@ public class SupplierController {
 				return "redirect:/";
 
 			} else {
-				String str = "Username already Exists";
+				String str = "Email already in use";
 				model.addAttribute("mess", str);
 				return "/supplier/supplierRegister";
 
 			}
 		} else {
-			String str = "Entered Password do not Match";
+			String str = "Entered Passwords do not Match";
 			model.addAttribute("mess", str);
 			return "/supplier/supplierRegister";
 		}

@@ -32,16 +32,19 @@
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/contactUs">Contact Us</a></li>
+			aria-current="page" href="/contactUs" data-toggle="tooltip" data-placement="top"
+						title="Go to Contact us">Contact Us</a></li>
 
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/aboutUs">About Us</a></li>
+			aria-current="page" href="/aboutUs" data-toggle="tooltip" data-placement="top"
+						title="Go About Us">About Us</a></li>
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/admin/adminHome">Home</a></li>
+			aria-current="page" href="/admin/adminHome" data-toggle="tooltip" data-placement="top"
+						title="Go back to Home">Home</a></li>
 	</div>
 </div>
 
