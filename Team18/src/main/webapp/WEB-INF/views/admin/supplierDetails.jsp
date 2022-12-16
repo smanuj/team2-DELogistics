@@ -32,7 +32,8 @@
 
 			<li class="nav-item"><a
 						class="nav-link active d-inline-block align-top text-white "
-						aria-current="page" href="/contactUs">Contact Us</a></li>
+						aria-current="page" href="/contactUs" data-toggle="tooltip" data-placement="top"
+						title="Go back to Login">Contact Us</a></li>
 			
 
 					<li class="nav-item"><a

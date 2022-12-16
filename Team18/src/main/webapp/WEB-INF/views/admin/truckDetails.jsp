@@ -122,7 +122,7 @@
 						<td>${TruckDetails.truckId}</td>
 						<td>${TruckDetails.driverName}</td>
 						<td>${TruckDetails.driverPhNum}</td>
-                        <td id="ct"><%-- <div class="text-dark" id="ct" value="${TruckDetails}"></div> --%></td>
+                        <td > <div class="text-dark" id="ct" value="${TruckDetails}"></div> </td>
                         
 <!--                         <td><div class="text-dark" id="ct"></div></td> -->
 						<td>

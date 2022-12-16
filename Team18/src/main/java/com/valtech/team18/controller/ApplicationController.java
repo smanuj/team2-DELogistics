@@ -55,7 +55,7 @@ public class ApplicationController {
 				System.out.println("test3");
 				return "redirect:/admin/adminHome";
 			} else {
-				String message = "Invalid Username and Password";
+				String message = "Invalid Email-Id and Password";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "mainHomePage";
@@ -65,7 +65,7 @@ public class ApplicationController {
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/supplier/supplierHome/" + id;
 			} else {
-				String message = "Invalid supp Username and Password";
+				String message = "Invalid supp Email-Id and Password";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "mainHomePage";
@@ -78,7 +78,7 @@ public class ApplicationController {
 				return "redirect:/truckDriver/truckDriverHome/" + id;
 			} else {
 
-				String message = "Invalid driver Username and Password";
+				String message = "Invalid driver Email-Id and Password";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "mainHomePage";
@@ -126,7 +126,7 @@ public class ApplicationController {
 				return "redirect:/newPassword/supp/" + id;
 
 			} else {
-				String message = "Invalid email for Supplier";
+				String message = "Invalid Email-Id for Supplier";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "forgotPassword";
@@ -136,7 +136,7 @@ public class ApplicationController {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/newPassword/driver/" + id;
 			} else {
-				String message = "Invalid email for Driver";
+				String message = "Invalid Email-Id for Driver";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "forgotPassword";
@@ -175,13 +175,13 @@ public class ApplicationController {
 				System.out.println(message);
 				return "redirect:/";
 			} else {
-				String message = "Enter passwords do not match";
+				String message = "Entered passwords do not match";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "/newPassword/supp/{id}";
 			}
 		} else {
-			String message = "Invalid OTP enter the correct OTP";
+			String message = "Invalid OTP, enter the correct OTP";
 			System.out.println(message);
 			model.addAttribute("mess", message);
 			return "/newPassword/supp/{id}";
@@ -202,13 +202,13 @@ public class ApplicationController {
 				model.addAttribute("mess", message);
 				return "redirect:/";
 			} else {
-				String message = "Enter passwords do not match";
+				String message = "Entered passwords do not match";
 				System.out.println(message);
 				model.addAttribute("mess", message);
 				return "/newPassword/supp/{id}";
 			}
 		} else {
-			String message = "Invalid OTP enter the correct OTP";
+			String message = "Invalid OTP, enter the correct OTP";
 			System.out.println(message);
 			model.addAttribute("mess", message);
 			return "/newPassword/supp/{id}";

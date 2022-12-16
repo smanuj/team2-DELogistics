@@ -64,18 +64,12 @@
 
 <div class="bg-image"
 	style="background-image: url('https://images.pexels.com/photos/3760081/pexels-photo-3760081.jpeg?auto=compress&cs=tinysrgb&w=1600'); height: 89vh; background-size: cover;">
+	
+	
+	
 	<body>
-
-
-
-
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
-
 		</div>
-
-		
 			<center>
 				<h2>Pending Driver Login Credentials</h2>
 			</center>
