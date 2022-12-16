@@ -110,9 +110,10 @@
 													<i class="fas fa-user fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example1c">Your
-															Name</label><br> <input type="text" id="username"
+															Name</label><br> <!-- <input type="text" id="username"
 															name="username" placeholder="Username"
-															class="form-control" />
+															class="form-control" /> -->
+															<input type="text" id="username" name="username" placeholder="Username" class="form-control" pattern="[a-zA-Z]+" title="Enter Characters only" required />
 													</div>
 												</div>
 
@@ -132,11 +133,13 @@
 													<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example3c">Password</label><br>
-														<input type="password" placeholder="Password"
+														<!-- <input type="password" placeholder="Password"
 															id="password" name="password" onCut="return false;"
 															onCopy="return false;" onPaste="return false;"
 															class="form-control form-control-lg"
-															pattern="[A-Za-z0-9#@$&]{3,10}" />
+															pattern="[A-Za-z0-9#@$&]{3,10}" /> -->
+															 <input type="password" placeholder="Password" id="password" name="password" onCopy="return false;" onCut="return false;" onPaste="return false;"
+         					  							 class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Must have atleast 1 uppercase, 1 lowercase, 1 letter and 1 number" required/>
 													</div>
 												</div>
 
@@ -144,13 +147,15 @@
 													<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example4c">Confirm
-															Password</label><br> <input type="password"
+															Password</label><br><!--  <input type="password"
 															placeholder="Confirm Password" id="confirmpassword"
 															name="confirmpassword" onCut="return false;"
 															onCopy="return false;" onPaste="return false;"
 															class="form-control form-control-lg"
 															pattern="[A-Za-z0-9#@$&]{3,10}"
-															title="Password strength too weak" />
+															title="Password strength too weak" /> -->
+															<input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" onCopy="return false;" onCut="return false;" onPaste="return false;"
+                            class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Does not match" required/>
 													</div>
 												</div>
 
@@ -177,7 +182,7 @@
 																data-placement="top" title="Sign Up">SignUp</button>
 														</div>
 														<div>
-															<a href="/truckDriver/driverLogin" data-toggle="tooltip"
+															<a href="/" data-toggle="tooltip"
 																data-placement="top" title="Go back to Login">Go
 																Back to Login</a>
 														</div>

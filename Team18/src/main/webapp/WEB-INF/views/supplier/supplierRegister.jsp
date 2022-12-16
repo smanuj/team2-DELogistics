@@ -157,7 +157,7 @@
 						data-placement="top" title="Click here to sign up">SignUp</button>
                         </div>
                         <div >
-                          <a class="text-primary fs-3" href="/supplier/supplierLogin" data-toggle="tooltip"
+                          <a class="text-primary fs-3" href="/" data-toggle="tooltip"
 						data-placement="top" title="Go back to login">Go Back to Login</a>
                         </div>
           

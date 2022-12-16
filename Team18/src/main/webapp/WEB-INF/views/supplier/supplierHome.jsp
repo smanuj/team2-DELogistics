@@ -74,7 +74,7 @@
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/supplier/supplierHome/${id}">Home</a></li>
+			aria-current="page" href="/">Home</a></li>
 	</div>
 </div>
 
