@@ -21,5 +21,5 @@ public interface SupplierDetailsRepo extends JpaRepository<SupplierDetails, Inte
 	SupplierDetails findBySuppId(int id);
 
 	void deleteBySuppId(int id);
-	
+
 }

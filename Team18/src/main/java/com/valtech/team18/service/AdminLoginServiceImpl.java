@@ -13,8 +13,8 @@ import com.valtech.team18.repo.AdminLoginRepo;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class AdminLoginServiceImpl implements AdminLoginService {
-	
-	private static final Logger logger= LoggerFactory.getLogger(AdminLoginServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(AdminLoginServiceImpl.class);
 
 	@Autowired
 	private AdminLoginRepo adminLoginRepo;
@@ -30,14 +30,13 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 			AdminLogin b = adminLoginRepo.findByUsername("admin@gmail.com");
 			logger.debug("Valdating for " + b);
 			if (b == null) {
-				
+
 				AdminLogin a = new AdminLogin("admin@gmail.com", "admin");
 				adminLoginRepo.save(a);
 				logger.debug("Validating for " + a);
 			}
 
 			AdminLogin sup = adminLoginRepo.findByUsername(username);
-			
 
 			if ((username.equals(sup.getUsername())) && (password.equals(sup.getPassword()))) {
 				// if(username.equals("admin@gmail.com")&&(password.equals("admin"))){

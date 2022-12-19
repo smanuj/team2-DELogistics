@@ -133,7 +133,7 @@
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c">LandLine Number</label><br>
                             <input type = "text" id= "phone" name= "phone" 
-						placeholder="Contact Number" class="form-control form-control-lg"  pattern="[0-9]{11}"  title="Invalid number!!"	/>
+						placeholder="Contact Number" class="form-control form-control-lg"  pattern="[0-9]{11}"  title="Invalid number!!" required/>
                           </div>
                         </div>
                         

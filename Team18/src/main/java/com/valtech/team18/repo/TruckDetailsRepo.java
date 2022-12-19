@@ -19,7 +19,7 @@ public interface TruckDetailsRepo extends JpaRepository<TruckDetails, Integer> {
 	TruckDetails findByEmail(String email);
 
 	TruckDetails findByTruckId(int id);
-	
+
 	void deleteByTruckId(int id);
 
 }

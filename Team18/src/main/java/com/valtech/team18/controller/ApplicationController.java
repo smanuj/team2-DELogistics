@@ -89,14 +89,6 @@ public class ApplicationController {
 
 		return "mainHomePage";
 
-		// if (adminLoginService.loginvalidation(email, password) == true) {
-		// return "redirect:/admin/adminHome";
-		// } else {
-		// String message = "Invalid Username and Password";
-		// System.out.println(message);
-		// model.addAttribute("mess", message);
-		// return "admin/adminLogin";
-		// }
 	}
 
 	// Navigate to the About Us page

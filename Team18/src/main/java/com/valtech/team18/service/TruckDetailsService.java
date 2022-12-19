@@ -27,6 +27,5 @@ public interface TruckDetailsService {
 	boolean register(String username, String password, String email, String contactNumber);
 
 	void deleteTruckDriver(int id);
-	
 
 }

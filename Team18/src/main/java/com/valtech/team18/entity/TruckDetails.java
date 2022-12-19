@@ -22,7 +22,6 @@ public class TruckDetails {
 	private boolean approved;
 	private String otp;
 
-
 	public TruckDetails() {
 		super();
 	}

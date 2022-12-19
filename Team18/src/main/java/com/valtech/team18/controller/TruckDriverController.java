@@ -37,38 +37,6 @@ public class TruckDriverController {
 		return "truckDriver/truckDriverHome";
 	}
 
-	// Navigate to orderDetails page containing all the order information
-	// assigned to the driver currently logged in
-	// @GetMapping("/truckDriver/ordersRecieved/{id}")
-	// public String driverOrdersRecieved(Model model, @PathVariable("id") int
-	// id) {
-	// model.addAttribute("OrderDetails", tdService.getAllOrdersByDriverId(id));
-	//
-	// return "truckDriver/ordersRecieved";
-	// }
-
-	// Navigate to supplierDetails page containing all the Supplier related
-	// information required by the driver currently logged in
-	// @GetMapping("/truckDriver/supplierDetails/{id}")
-	// public String driverSupplierDetails(Model model, @PathVariable("id") int
-	// id) {
-	// model.addAttribute("OrderDetails", tdService.getAllOrdersByDriverId(id));
-	// List<OrderDetails> od = tdService.getAllOrdersByDriverId(id);
-	// List<Integer> suppId = new ArrayList<Integer>();
-	// for (OrderDetails orderDetails : od) {
-	// suppId.add(orderDetails.getSuppId());
-	//
-	// }
-	// List<SupplierDetails> sd = new ArrayList<SupplierDetails>();
-	// for (Integer sid : suppId) {
-	// // sd.add(supplierDetailsRepo.findById(sid).get());
-	//
-	// }
-	// model.addAttribute("sd", sd);
-	//
-	// return "truckDriver/supplierDetails";
-	// }
-
 	@GetMapping("/truckDriver/driverRegister")
 	public String supplierRegister() {
 
@@ -99,7 +67,6 @@ public class TruckDriverController {
 			model.addAttribute("mess", str);
 			return "/truckDriver/driverRegisterr";
 		}
-		// return "";
 	}
 
 }

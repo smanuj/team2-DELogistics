@@ -33,17 +33,11 @@ public class SupplierController {
 	// Navigate to supplier home page for a particular supplier id
 	@GetMapping("/supplier/supplierHome/{id}")
 	public String suppHome(@PathVariable("id") int id, Model model) {
-		// model.addAttribute("id", id);
-		// suppService.getAllOrdersBySuppId(id);
 
 		List<OrderDetails> od = suppService.getAllOrdersBySuppId(id);
 		model.addAttribute("OrderDetails", od);
 		List<TruckDetails> td = suppService.getTruckDetailsFromOrder(id);
 		model.addAttribute("td", td);
-
-		// String supplierName =
-		// supplierDetailsRepo.findById(id).get().getSuppName();
-		// model.addAttribute("sName", supplierName);
 		return "supplier/supplierHome";
 	}
 
@@ -76,7 +70,6 @@ public class SupplierController {
 			model.addAttribute("mess", str);
 			return "/supplier/supplierRegister";
 		}
-		// return "";
 	}
 
 }

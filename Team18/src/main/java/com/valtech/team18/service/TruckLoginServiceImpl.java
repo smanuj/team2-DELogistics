@@ -17,8 +17,8 @@ import com.valtech.team18.repo.TruckDetailsRepo;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class TruckLoginServiceImpl implements TruckLoginService {
-	
-	private static final Logger logger= LoggerFactory.getLogger(TruckLoginServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(TruckLoginServiceImpl.class);
 
 	@Autowired
 	private TruckDetailsRepo truckDetailsRepo;
@@ -130,6 +130,5 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	// TruckDetails td = new TruckDetails(username, password, driverNumber);
 	// return truckDetailsRepo.save(td);
 	// }
-	
 
 }

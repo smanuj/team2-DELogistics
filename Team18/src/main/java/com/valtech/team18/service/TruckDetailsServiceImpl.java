@@ -21,8 +21,8 @@ import com.valtech.team18.repo.TruckDetailsRepo;
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class TruckDetailsServiceImpl implements TruckDetailsService {
-	
-	private static final Logger logger= LoggerFactory.getLogger(TruckDetailsServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(TruckDetailsServiceImpl.class);
 
 	@Autowired
 	private OrderDetailsRepo orderDetailsRepo;
@@ -53,7 +53,8 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	@Override
 	public List<OrderDetails> getAllOrdersByDriverId(int truckId) {
 		logger.info("Loading Order Details for Driver " + truckId);
-		logger.debug("Successfully Loaded Order Details for Driver! " + orderDetailsRepo.getAllOrdersByDriverId(truckId));
+		logger.debug(
+				"Successfully Loaded Order Details for Driver! " + orderDetailsRepo.getAllOrdersByDriverId(truckId));
 		return orderDetailsRepo.getAllOrdersByDriverId(truckId);
 	}
 
@@ -73,7 +74,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Override
 	public TruckDetails approvingDriver(int id) {
-		
+
 		logger.info("Approving Driver " + id);
 		TruckDetails td = truckDetailsRepo.findById(id).get();
 		td.setApproved(true);
@@ -145,8 +146,9 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		}
 		return false;
 	}
+
 	@Override
-	public void deleteTruckDriver(int id){
+	public void deleteTruckDriver(int id) {
 		logger.info("Deleting Truck Driver " + id);
 		logger.debug("Successfully Deleted Truck Driver!");
 		truckDetailsRepo.deleteByTruckId(id);

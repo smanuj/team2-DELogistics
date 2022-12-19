@@ -16,8 +16,8 @@ import com.valtech.team18.repo.SupplierDetailsRepo;
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class SupplierLoginServiceImpl implements SupplierLoginService {
-	
-	private static final Logger logger= LoggerFactory.getLogger(SupplierLoginServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(SupplierLoginServiceImpl.class);
 
 	@Autowired
 	private SupplierDetailsRepo supplierDetailsRepo;
@@ -92,7 +92,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public boolean checkOTP(int id, String otp) {
 		logger.info("Confirming OTP....");
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
-		if (otp.equals(sd.getOtp())){
+		if (otp.equals(sd.getOtp())) {
 			logger.debug("OTP Confirmed!");
 			return true;
 		}

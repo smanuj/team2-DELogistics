@@ -21,7 +21,7 @@ import com.valtech.team18.repo.TruckDetailsRepo;
 @Transactional(propagation = Propagation.REQUIRED)
 public class SupplierServiceImpl implements SupplierService {
 
-	private static final Logger logger= LoggerFactory.getLogger(SupplierServiceImpl.class);	
+	private static final Logger logger = LoggerFactory.getLogger(SupplierServiceImpl.class);
 
 	@Autowired
 	private OrderDetailsRepo orderDetailsRepo;
@@ -52,14 +52,16 @@ public class SupplierServiceImpl implements SupplierService {
 	@Override
 	public List<OrderDetails> getAllOrdersBySuppId(int suppId) {
 		logger.info("Loading Order Details for Supplier " + suppId);
-		logger.debug("Successfully Loaded Order Details for Supplier! " + orderDetailsRepo.getAllOrdersBySuppId(suppId));
+		logger.debug(
+				"Successfully Loaded Order Details for Supplier! " + orderDetailsRepo.getAllOrdersBySuppId(suppId));
 		return orderDetailsRepo.getAllOrdersBySuppId(suppId);
 	}
 
 	@Override
 	public List<Integer> getAllDriverIdFromOrderDetails(OrderDetails od) {
 		logger.info("Loading Driver ID for Order " + od);
-		logger.debug("Successfully Loaded Driver ID for Order! " + orderDetailsRepo.getDriverIdBySuppId(od.getSuppId()));
+		logger.debug(
+				"Successfully Loaded Driver ID for Order! " + orderDetailsRepo.getDriverIdBySuppId(od.getSuppId()));
 		return orderDetailsRepo.getDriverIdBySuppId(od.getSuppId());
 	}
 
@@ -152,9 +154,9 @@ public class SupplierServiceImpl implements SupplierService {
 		return false;
 
 	}
-	
+
 	@Override
-	public void deleteSupplier(int id){
+	public void deleteSupplier(int id) {
 		logger.info("Deleting Supplier " + id);
 		logger.debug("Successfully Deleted Supplier!");
 		supplierDetailsRepo.deleteBySuppId(id);

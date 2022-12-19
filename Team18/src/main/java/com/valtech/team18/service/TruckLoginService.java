@@ -15,9 +15,4 @@ public interface TruckLoginService {
 
 	void changePassword(int id, String password);
 
-	
-	
-	
-//	TruckDetails saveNew(PendingDriver pd);
-
 }

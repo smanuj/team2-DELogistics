@@ -53,7 +53,7 @@ public class AdminController {
 	@GetMapping("/admin/adminHome")
 	public String adminHome() {
 		logger.info("Fetching Home for Admin....");
-		
+
 		logger.debug("Successfully Fetched Home for Admin!");
 		return "admin/adminHome";
 	}
@@ -64,7 +64,7 @@ public class AdminController {
 		logger.info("Fetching Order Details for Admin....");
 
 		model.addAttribute("OrderDetails", adminService.getAllOrderD());
-		
+
 		logger.debug("Successfully Fetched Order Details for Admin!");
 		return "admin/orderDetails";
 	}
@@ -82,16 +82,6 @@ public class AdminController {
 		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
 		return "admin/truckDetails";
 	}
-
-	// Navigate to Truck Details page for Admin
-	// @PostMapping("/admin/truckDetails")
-	// public String truckDetailsMail(Model model) {
-	// model.addAttribute("TruckDetails", tdService.getAllTruckD());
-	// String email = "smanuj007@gmail.com";
-	// // String email="smanuj007@gmail.com";
-	// mm.sendAlert(email);
-	// return "admin/truckDetails";
-	// }
 
 	// Navigate to Driver Approval page for Admin so that admin can proceed to
 	// Approve/Reject the pending Driver details
@@ -113,10 +103,6 @@ public class AdminController {
 		tdService.approvingDriver(id);
 		logger.debug("Successfully fetched {} driverApproval");
 
-		// PendingDriver pd = pendingDriverRepo.findById(id).get();
-		//
-		// truckLoginService.saveNew(pd);
-		// registerService.deleteDriver(pd);
 		return "redirect:/admin/driverApproval";
 	}
 
@@ -137,11 +123,6 @@ public class AdminController {
 		suppService.approvingSupplier(id);
 		logger.debug("Successfully fetched {} supplierApproval");
 
-		// PendingSupplier ps = pendingSupplierRepo.findById(id).get();
-
-		// suppLoginService.saveNew(ps);
-		// registerService.deleteSupp(ps);
-
 		return "redirect:/admin/supplierApproval";
 	}
 
@@ -153,9 +134,6 @@ public class AdminController {
 
 		suppService.deleteRejectedSupplier(id);
 		logger.debug("Successfully fetched {} supplierApproval");
-
-		// PendingSupplier ps = pendingSupplierRepo.findById(id).get();
-		// registerService.deleteSupp(ps);
 		return "redirect:/admin/supplierApproval";
 	}
 
@@ -192,34 +170,6 @@ public class AdminController {
 			@RequestParam("suppid") int suppid, @RequestParam("driverid") int driverid, ModelMap model)
 			throws Exception, NumberFormatException, MissingServletRequestParameterException {
 		logger.info("Fetching new order");
-		// try {
-		// System.out.println(suppid);
-		// if (custName.equals(null) || toAddress.equals(null) ||
-		// orderType.equals(null) || (phNum == "")
-		// || phNum.equals(null) || (custName == "") || (toAddress == "") ||
-		// (orderType == "")) {
-		// String str = "Fields cannot be Empty";
-		// model.addAttribute("mess", str);
-		// return "/admin/newOrder";
-		// } else {
-		// long phno = Long.parseLong(phNum);
-		//
-		// LocalDateTime time = LocalDateTime.now();
-		// OrderDetails od = new OrderDetails(custName, time, toAddress, phno,
-		// orderType, suppid, driverid);
-		// newOrderService.saveNew(od);
-		// return "redirect:/admin/orderDetails";
-		//
-		// }
-		// } catch (NumberFormatException nfe) {
-		// String str = "Enter Fileds Correctly";
-		// model.addAttribute("mess", str);
-		// return "/admin/newOrder";
-		// } catch (Exception nfe) {
-		// String str = "Enter Fileds Correctly";
-		// model.addAttribute("mess", str);
-		// return "/admin/newOrder";
-		// }
 
 		try {
 
