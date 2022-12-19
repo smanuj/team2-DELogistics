@@ -62,9 +62,8 @@
 					<li class="nav-item"
 						style="margin-top: 6px; list-style-type: none;"><a
 						class="nav-link active d-inline-block  text-white "
-						aria-current="page" href="/"
-						data-toggle="tooltip" data-placement="top"
-						title="Go back to Login">Login</a></li>
+						aria-current="page" href="/" data-toggle="tooltip"
+						data-placement="top" title="Go back to Login">Login</a></li>
 				</div>
 			</div>
 	</div>
@@ -83,12 +82,12 @@
 
 	<!-- Form to register as a truck driver -->
 
-	
-	
 
 
 
-		<div class="position-absolute top-50 start-50 translate-middle">
+
+
+	<div class="position-absolute top-50 start-50 translate-middle">
 		<form th:action="@{/login}" method="POST" class="form-signin  ">
 			<section class="vh-75">
 				<div class="container h-60">
@@ -110,8 +109,10 @@
 													<i class="fas fa-user fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example1c">Your
-															Name</label><br>
-															<input type="text" id="username" name="username" placeholder="Username" class="form-control" pattern="[a-zA-Z]+" title="Enter Characters only" required />
+															Name</label><br> <input type="text" id="username"
+															name="username" placeholder="Username"
+															class="form-control" pattern="[a-zA-Z]+"
+															title="Enter Characters only" required />
 													</div>
 												</div>
 
@@ -131,9 +132,14 @@
 													<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example3c">Password</label><br>
-														
-															 <input type="password" placeholder="Password" id="password" name="password" onCopy="return false;" onCut="return false;" onPaste="return false;"
-         					  							 class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Must have atleast 1 uppercase, 1 lowercase, 1 letter and 1 number" required/>
+
+														<input type="password" placeholder="Password"
+															id="password" name="password" onCopy="return false;"
+															onCut="return false;" onPaste="return false;"
+															class="form-control form-control-lg"
+															pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}"
+															title="Password Must have atleast 1 uppercase, 1 lowercase, 1 letter and 1 number"
+															required />
 													</div>
 												</div>
 
@@ -141,9 +147,13 @@
 													<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
 														<label class="form-label" for="form3Example4c">Confirm
-															Password</label><br>
-															<input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" onCopy="return false;" onCut="return false;" onPaste="return false;"
-                            class="form-control form-control-lg" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}" title="Password Does not match" required/>
+															Password</label><br> <input type="password"
+															placeholder="Confirm Password" id="confirmpassword"
+															name="confirmpassword" onCopy="return false;"
+															onCut="return false;" onPaste="return false;"
+															class="form-control form-control-lg"
+															pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}"
+															title="Password Does not match" required />
 													</div>
 												</div>
 
@@ -170,9 +180,8 @@
 																data-placement="top" title="Sign Up">SignUp</button>
 														</div>
 														<div>
-															<a href="/" data-toggle="tooltip"
-																data-placement="top" title="Go back to Login">Go
-																Back to Login</a>
+															<a href="/" data-toggle="tooltip" data-placement="top"
+																title="Go back to Login">Go Back to Login</a>
 														</div>
 
 														<div class="text-danger p-3">
@@ -193,8 +202,7 @@
 					</div>
 				</div>
 			</section>
-
-		</div>
+	</div>
 </body>
 <footer>
 	<div class="text-align-right p-3 text-white"

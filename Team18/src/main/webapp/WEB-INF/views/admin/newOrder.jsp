@@ -97,7 +97,7 @@
 													<label class="form-label" for="form3Example1c">Customer
 														Name</label><br> <input type="text" id="custName"
 														name="custName" placeholder="Customer Name"
-														class="form-control form-control-lg" required/> <br />
+														class="form-control form-control-lg" required /> <br />
 												</div>
 											</div>
 
@@ -107,8 +107,8 @@
 													<label class="form-label" for="form3Example3c">Delivery
 														Address</label><br> <input type="text"
 														placeholder="Delivery Address" id="toAddress"
-														name="toAddress" class="form-control form-control-lg" required/>
-													<br />
+														name="toAddress" class="form-control form-control-lg"
+														required /> <br />
 												</div>
 											</div>
 
@@ -119,7 +119,7 @@
 														Number</label><br> <input type="text"
 														placeholder="Phone Number" id="phNum" name="phNum"
 														class="form-control form-control-lg" pattern="^\d{10}$"
-														title="Invalid Phone number!!" required/><br>
+														title="Invalid Phone number!!" required /><br>
 												</div>
 											</div>
 
@@ -129,7 +129,7 @@
 													<label class="form-label" for="form3Example4c">Order
 														Type</label><br> <input type="text" id="orderType"
 														name="orderType" placeholder="Order Type"
-														class="form-control form-control-lg" required/><br />
+														class="form-control form-control-lg" required /><br />
 												</div>
 											</div>
 
