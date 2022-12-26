@@ -68,37 +68,37 @@ public class DartExpressLogisticsLoginAndRegisterTests {
      }
 	 
  
-	 @Test
-     public void testSupplierLogin1Validation() throws Exception{
-		 List<SupplierDetails> suppD=supplierDetailsRepo.findAllByApprovedTrue();
-		 
-		 SupplierDetails sp=  new SupplierDetails("test", "test12345@test.com", "testpass", "Davangere", 63637878L, true, "", 9693685L);
-		 for (SupplierDetails supplierDetails : suppD) {
-			 if(supplierDetails.getEmail().equals(sp.getEmail())){
-				 
-			 }
-			 else{
-				 supplierDetailsRepo.save(sp);
-			 }
-		}
-		 assertEquals(true, supplierLoginService.loginvalidation("test12345@test.com","testpass"));
-	     assertEquals(false, supplierLoginService.loginvalidation("supplier","user"));
-     }
-	 @Test
-     public void testDriverLoginValidation() throws Exception{
-		 List<TruckDetails> truckD=truckDetailsRepo.findAllByApprovedTrue();
-		 
-		 TruckDetails td=new TruckDetails("santhosh", "Santhu12", 9698985852L, 8.25, "driver1234@gmail.com", true, "5285");
-		 for(TruckDetails truckDetails : truckD){
-			 if(truckDetails.getEmail().equals(td.getEmail())){
-				 System.out.println("exists");
-			 }else{
-				 truckDetailsRepo.save(td);
-			 }
-		 }
-	       assertEquals(true, truckLoginService.loginvalidation("driver1234@gmail.com","Santhu12"));
-	       assertEquals(false, truckLoginService.loginvalidation("truck","user"));
-     }
+//	 @Test
+//     public void testSupplierLogin1Validation() throws Exception{
+//		 List<SupplierDetails> suppD=supplierDetailsRepo.findAllByApprovedTrue();
+//		 
+//		 SupplierDetails sp=  new SupplierDetails("test", "test12345@test.com", "testpass", "Davangere", 63637878L, true, "", 9693685L);
+//		 for (SupplierDetails supplierDetails : suppD) {
+//			 if(supplierDetails.getEmail().equals(sp.getEmail())){
+//				 
+//			 }
+//			 else{
+//				 supplierDetailsRepo.save(sp);
+//			 }
+//		}
+//		 assertEquals(true, supplierLoginService.loginvalidation("test12345@test.com","testpass"));
+//	     assertEquals(false, supplierLoginService.loginvalidation("supplier","user"));
+//     }
+//	 @Test
+//     public void testDriverLoginValidation() throws Exception{
+//		 List<TruckDetails> truckD=truckDetailsRepo.findAllByApprovedTrue();
+//		 
+//		 TruckDetails td=new TruckDetails("santhosh", "Santhu12", 9698985852L, 8.25, "driver1234@gmail.com", true, "5285");
+//		 for(TruckDetails truckDetails : truckD){
+//			 if(truckDetails.getEmail().equals(td.getEmail())){
+//				 System.out.println("exists");
+//			 }else{
+//				 truckDetailsRepo.save(td);
+//			 }
+//		 }
+//	       assertEquals(true, truckLoginService.loginvalidation("driver1234@gmail.com","Santhu12"));
+//	       assertEquals(false, truckLoginService.loginvalidation("truck","user"));
+//     }
 	 @Test
 	 public void testSupplierRegistration() throws Exception{
 		 List<SupplierDetails> sd=supplierDetailsRepo.findAll();
