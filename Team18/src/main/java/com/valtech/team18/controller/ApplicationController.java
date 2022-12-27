@@ -111,7 +111,7 @@ public class ApplicationController {
 	@PostMapping("/forgotPassword")
 	public String forgotPass(@RequestParam("email") String email, @RequestParam("role") String role, Model model) {
 		logger.info("Fetching forgotPassword");
-		if (role.equals("supp")) {
+		if (role.equals("SUPPLIER")) {
 			if (supplierLoginService.generateOtp(email)) {
 				// return "newPassword";
 				int id = supplierLoginService.getIdFromEmail(email);
@@ -124,6 +124,7 @@ public class ApplicationController {
 				return "forgotPassword";
 			}
 		} else {
+			System.out.println(role);
 			if (truckLoginService.generateOtp(email)) {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/newPassword/driver/" + id;

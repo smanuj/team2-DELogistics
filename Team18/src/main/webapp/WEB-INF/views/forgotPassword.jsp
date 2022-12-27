@@ -101,8 +101,8 @@
 						<option value="" disabled selected>Select</option>
 
 
-						<option value="supp">Supplier</option>
-						<option value="driver">Truck Driver</option>
+						<option value="SUPPLIER">Supplier</option>
+						<option value="TRUCKDRIVER">Truck Driver</option>
 
 					</select><br>
 					<center>

@@ -88,6 +88,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		if (usr.getEmail() != null) {
 			String pass = getRandomNumberString();
 			Otps otp = new Otps(pass);
+			System.out.println("otp1=   "+otp);
+			otp= otpRepo.save(otp);
+			System.out.println("otp2=   "+otp);
 			usr.setOtpId(otp.getOtpId());
 //			supplierDetailsRepo.save(sd);
 			userRepo.save(usr);
@@ -110,9 +113,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		logger.info("Confirming OTP....");
 		User usr=userRepo.findById(id).get();
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
-		String tempOtpId = usr.getOtpId();
-		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp10 = otpRepo.findByOtpId(otpId);
+		int tempOtpId = usr.getOtpId();
+//		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(tempOtpId);
 //		Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
 		if (otp.equals(otp10.getOtp())) {
 			logger.debug("OTP Confirmed!");
@@ -130,9 +133,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		
 		usr.setPassword(password);
 //		usr.setOtp(null);
-		String tempOtpId = usr.getOtpId();
-		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp = otpRepo.findByOtpId(otpId);
+		int tempOtpId = usr.getOtpId();
+//		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp = otpRepo.findByOtpId(tempOtpId);
 		otp.setOtp(null);
 		supplierDetailsRepo.save(sd);
 		try {

@@ -124,10 +124,19 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
-					<c:forEach items="${TruckDetails.truckId}" var="Details">
-						<tr>
+					<tr>
 							<td>${TruckDetails.id}</td>
-							<td><c:out value="${Details.driverName}"/></td>
+  <fieldset name="${TruckDetails.suppId}">
+      <legend>
+        <c:forEach items="${TruckDetails.truckId}" var="supp">
+         <td> <c:out value="${supp.driverName}" /></td>
+        </c:forEach>
+      </legend>
+     
+  </fieldset>
+
+						
+							
 							
 							<td>${TruckDetails.email}</td>
 							<td>
@@ -166,7 +175,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	� 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	  2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

@@ -33,13 +33,12 @@ public class User {
 	private boolean approval;
 	@OneToOne(targetEntity = Otps.class)
 	@JoinColumn(name = "otpId", referencedColumnName = "otpId")
-	private String otpId;
+	private int otpId;
 
-    @ManyToMany(cascade = CascadeType.MERGE,fetch=FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	
 
-	private Set<Role> roles=new HashSet<Role>();
+	private Set<Role> roles = new HashSet<Role>();
 
 	public User() {
 		super();
@@ -56,9 +55,8 @@ public class User {
 		this.truckId = truckId;
 		this.approval = approval;
 		this.roles = roles;
-		this.otpId = "1";
+		this.otpId = 1;
 	}
-	
 
 	public User(String email, String password, SupplierDetails suppId) {
 		this.email = email;
@@ -66,12 +64,14 @@ public class User {
 		this.suppId = suppId;
 		this.approval = false;
 	}
-	public User(String email, String password,TruckDetails truckId) {
+
+	public User(String email, String password, TruckDetails truckId) {
 		this.email = email;
 		this.password = password;
 		this.truckId = truckId;
 		this.approval = false;
 	}
+
 	public User(String email, String password, SupplierDetails suppId, TruckDetails truckId, boolean approval,
 			Set<Role> roles) {
 		super();
@@ -81,10 +81,10 @@ public class User {
 		this.truckId = truckId;
 		this.approval = approval;
 		this.roles = roles;
-		this.otpId = "1";
+		this.otpId = 1;
 	}
 
-	public String getOtpId() {
+	public int getOtpId() {
 		return otpId;
 	}
 
@@ -95,7 +95,7 @@ public class User {
 		this.roles = roles;
 	}
 
-	public void setOtpId(String otpId) {
+	public void setOtpId(int otpId) {
 		this.otpId = otpId;
 	}
 
@@ -160,10 +160,5 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", suppId=" + suppId + ", truckId="
 				+ truckId + ", approval=" + approval + ", otpId=" + otpId + ", roles=" + roles + "]";
 	}
-	
-	
-	
-
-
 
 }

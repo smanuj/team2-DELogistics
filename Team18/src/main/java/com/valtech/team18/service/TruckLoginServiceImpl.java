@@ -89,7 +89,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 
 		if (usr.getEmail() != null) {
 			String pass = getRandomNumberString();
-			Otps otp = new Otps(pass);
+			Otps otp = new Otps(1,pass);
 			usr.setOtpId(otp.getOtpId());
 			userRepo.save(usr);
 			try {
@@ -110,9 +110,9 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		logger.info("Confirming OTP....");
 		User usr=userRepo.findById(id).get();
 		TruckDetails td = truckDetailsRepo.findByTruckId(id);
-		String tempOtpId = usr.getOtpId();
-		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp10 = otpRepo.findByOtpId(otpId);
+		int tempOtpId = usr.getOtpId();
+//		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(tempOtpId);
 		//Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
 		if (otp.equals(otp10.getOtp())) {
 			logger.debug("OTP Confirmed!");
@@ -129,9 +129,9 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		User usr=userRepo.findById(id).get();
 		TruckDetails td = truckDetailsRepo.findByTruckId(id);
 		usr.setPassword(password);
-		String tempOtpId = usr.getOtpId();
-		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp10 = otpRepo.findByOtpId(otpId);
+		int tempOtpId = usr.getOtpId();
+//		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(tempOtpId);
 		//Otps otp = otpRepo.findById(usr.getOtpId()).get();
 		otp10.setOtp(null);
 		truckDetailsRepo.save(td);

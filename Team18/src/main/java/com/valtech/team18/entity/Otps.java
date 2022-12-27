@@ -10,16 +10,16 @@ public class Otps {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private String otpId;
+//	@Id @GeneratedValue(generator="system-uuid")
+//	@GenericGenerator(name="system-uuid", strategy = "uuid")
+	private int otpId;
 	private String otp;
 
-	
-
-	public String getOtpId() {
+	public int getOtpId() {
 		return otpId;
 	}
 
-	public void setOtpId(String otpId) {
+	public void setOtpId(int otpId) {
 		this.otpId = otpId;
 	}
 
@@ -31,7 +31,7 @@ public class Otps {
 		this.otp = otp;
 	}
 
-	public Otps(String otpId, String otp) {
+	public Otps(int otpId, String otp) {
 		super();
 		this.otpId = otpId;
 		this.otp = otp;

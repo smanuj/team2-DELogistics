@@ -157,7 +157,7 @@ public class SupplierServiceImpl implements SupplierService {
 		long contactNumbe = Long.valueOf(contactNumber);
 		long landLin = Long.valueOf(landLine);
 		// long landLin1=null;
-		boolean set = false;
+//		boolean set = false;
 		//SupplierDetails sl = supplierDetailsRepo.findByEmail(email);
 		User usr=userRepo.findByEmail(email);
 		if (usr == null) {
