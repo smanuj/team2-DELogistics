@@ -177,6 +177,7 @@ public class ApplicationController {
 			System.out.println(message);
 			model.addAttribute("mess", message);
 			return "/newPassword/supp/{id}";
+			
 		}
 
 	}
