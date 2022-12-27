@@ -112,6 +112,14 @@
 					<div class="text-danger p-3">
 						<strong>${mess}</strong>
 					</div>
+					
+					<div class="position-absolute top-0 start-0">
+					<div class="text-danger fs-3">
+					<strong>${mess}</strong>
+					</div>
+					</div>
+					
+					
 				</form>
 			</div>
 
