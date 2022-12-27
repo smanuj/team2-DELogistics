@@ -33,7 +33,7 @@ public class User {
 	private boolean approval;
 	@OneToOne(targetEntity = Otps.class)
 	@JoinColumn(name = "otpId", referencedColumnName = "otpId")
-	private int otpId;
+	private Otps otpId;
 
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -55,7 +55,6 @@ public class User {
 		this.truckId = truckId;
 		this.approval = approval;
 		this.roles = roles;
-		this.otpId = 1;
 	}
 
 	public User(String email, String password, SupplierDetails suppId) {
@@ -81,10 +80,9 @@ public class User {
 		this.truckId = truckId;
 		this.approval = approval;
 		this.roles = roles;
-		this.otpId = 1;
 	}
 
-	public int getOtpId() {
+	public Otps getOtpId() {
 		return otpId;
 	}
 
@@ -95,7 +93,7 @@ public class User {
 		this.roles = roles;
 	}
 
-	public void setOtpId(int otpId) {
+	public void setOtpId(Otps otpId) {
 		this.otpId = otpId;
 	}
 

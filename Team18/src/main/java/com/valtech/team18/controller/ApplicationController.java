@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.valtech.team18.repo.UserRepo;
 import com.valtech.team18.service.AdminLoginService;
 import com.valtech.team18.service.SupplierLoginService;
 import com.valtech.team18.service.TruckLoginService;
@@ -27,6 +28,9 @@ public class ApplicationController {
 
 	@Autowired
 	TruckLoginService truckLoginService;
+	
+	@Autowired
+	UserRepo userRepo;
 
 	// Navigate to Login Page
 	@GetMapping("/login")
@@ -114,7 +118,7 @@ public class ApplicationController {
 		if (role.equals("SUPPLIER")) {
 			if (supplierLoginService.generateOtp(email)) {
 				// return "newPassword";
-				int id = supplierLoginService.getIdFromEmail(email);
+				int id = userRepo.findByEmailAndSuppIdNotNull(email).getId();
 				return "redirect:/newPassword/supp/" + id;
 
 			} else {
@@ -126,7 +130,7 @@ public class ApplicationController {
 		} else {
 			System.out.println(role);
 			if (truckLoginService.generateOtp(email)) {
-				int id = truckLoginService.getIdFromEmail(email);
+				int id = userRepo.findByEmailAndTruckIdNotNull(email).getId();
 				return "redirect:/newPassword/driver/" + id;
 			} else {
 				String message = "Invalid Email-Id for Driver";

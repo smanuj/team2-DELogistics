@@ -44,8 +44,8 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 //				AdminLogin a = new AdminLogin("admin@gmail.com", "admin");
 //				adminLoginRepo.save(a);
 				String email = "admin@gmail.com";
-				String example = "12345";
-				Otps otp1 = new Otps(example);
+//				String example = "12345";
+//				Otps otp1 = new Otps(example);
 				
 			    Role role=	roleRepo.findByName("ADMIN");
 				
@@ -53,7 +53,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 				roles.add(role);
 				
 				
-				System.out.println(otp1.getOtpId());
+//				System.out.println(otp1.getOtpId());
 //				int otp2 = otp1.getOtpId();
 				System.out.println(email+password+roles);
 				User a = new User(email, password, true, roles);

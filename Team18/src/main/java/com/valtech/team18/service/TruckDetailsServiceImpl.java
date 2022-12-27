@@ -149,7 +149,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		Random r = new Random();
 		float random = -10 + r.nextFloat() * (45 - (-10));
 		// TruckDetails td = truckDetailsRepo.findByEmail(email);
-		User usr = userRepo.findByEmail(email);
+		User usr = userRepo.findByEmailAndTruckIdNotNull(email);
 		if (usr == null) {
 			TruckDetails tdn = new TruckDetails(username, contactNumbe, random);
 

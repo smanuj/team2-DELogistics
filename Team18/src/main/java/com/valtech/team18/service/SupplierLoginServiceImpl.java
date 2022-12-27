@@ -83,7 +83,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public boolean generateOtp(String email) {
 		logger.info("Confirming Mail....");
 		
-		User usr=userRepo.findByEmail(email);
+		User usr=userRepo.findByEmailAndSuppIdNotNull(email);
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(usr.getSuppId().getSuppId());
 		if (usr.getEmail() != null) {
 			String pass = getRandomNumberString();
@@ -91,7 +91,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 			System.out.println("otp1=   "+otp);
 			otp= otpRepo.save(otp);
 			System.out.println("otp2=   "+otp);
-			usr.setOtpId(otp.getOtpId());
+			usr.setOtpId(otp);
 //			supplierDetailsRepo.save(sd);
 			userRepo.save(usr);
 			try {
@@ -112,12 +112,12 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public boolean checkOTP(int id, String otp) {
 		logger.info("Confirming OTP....");
 		User usr=userRepo.findById(id).get();
-		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
-		int tempOtpId = usr.getOtpId();
+//		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
+//		int tempOtpId = usr.getOtpId();
 //		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp10 = otpRepo.findByOtpId(tempOtpId);
+//		Otps otp10 = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
 //		Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
-		if (otp.equals(otp10.getOtp())) {
+		if (otp.equals(usr.getOtpId().getOtp())) {
 			logger.debug("OTP Confirmed!");
 			return true;
 		}
@@ -129,17 +129,18 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public void changePassword(int id, String password) {
 		logger.info("Changing password....");
 		User usr=userRepo.findById(id).get();
-		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
+//		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
 		
 		usr.setPassword(password);
+		usr.setOtpId(null);
 //		usr.setOtp(null);
-		int tempOtpId = usr.getOtpId();
+//		int tempOtpId = usr.getOtpId();
 //		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp = otpRepo.findByOtpId(tempOtpId);
-		otp.setOtp(null);
-		supplierDetailsRepo.save(sd);
+//		Otps otp = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
+//		supplierDetailsRepo.save(sd);
+		userRepo.save(usr);
 		try {
-			mailMessage.successfulPasswordChange(usr.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.successfulPasswordChange(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.info("Password Changed Successfully!");
 		} catch (Exception e) {
 			logger.debug("Password Changed Failed!");
