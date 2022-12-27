@@ -1,0 +1,225 @@
+2022-12-27 16:03:11.094  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 1.8.0_121 on VDC01LTC2180 with PID 26116 (D:\Mock Project\team2-DELogistics\Team18\target\classes started by Moyukh.Saha in D:\Mock Project\team2-DELogistics\Team18)
+2022-12-27 16:03:11.094 DEBUG 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 16:03:11.094  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 16:03:11.358  INFO 26116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 16:03:11.398  INFO 26116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
+2022-12-27 16:03:11.561  INFO 26116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6969 (http)
+2022-12-27 16:03:11.561  INFO 26116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 16:03:11.561  INFO 26116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 16:03:11.661  INFO 26116 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 16:03:11.671  INFO 26116 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 16:03:11.671  INFO 26116 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 577 ms
+2022-12-27 16:03:11.701  INFO 26116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 16:03:11.701  INFO 26116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-12-27 16:03:11.701  WARN 26116 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-12-27 16:03:11.786  INFO 26116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-12-27 16:03:11.790  INFO 26116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-27 16:03:12.604  INFO 26116 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 16:03:12.604  INFO 26116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:12.855  WARN 26116 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 16:03:12.955  INFO 26116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-27 16:03:12.973  INFO 26116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6969 (http) with context path ''
+2022-12-27 16:03:12.975  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 1.923 seconds (JVM running for 11677.249)
+2022-12-27 16:03:12.975  INFO 26116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-27 16:03:19.721  INFO 40824 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 1.8.0_121 on VDC01LTC2180 with PID 40824 (D:\Mock Project\team2-DELogistics\Team18\target\classes started by Moyukh.Saha in D:\Mock Project\team2-DELogistics\Team18)
+2022-12-27 16:03:19.721 DEBUG 40824 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 16:03:19.721  INFO 40824 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 16:03:19.783  INFO 40824 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\moyukh.saha\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/moyukh.saha/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2022-12-27 16:03:19.783  INFO 40824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-27 16:03:19.783  INFO 40824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-27 16:03:20.484  INFO 40824 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 16:03:20.585  INFO 40824 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 6 JPA repository interfaces.
+2022-12-27 16:03:21.337  INFO 40824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6969 (http)
+2022-12-27 16:03:21.352  INFO 40824 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 16:03:21.352  INFO 40824 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 16:03:21.916  INFO 40824 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 16:03:21.926  INFO 40824 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 16:03:21.927  INFO 40824 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2144 ms
+2022-12-27 16:03:22.179  INFO 40824 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 16:03:22.250  INFO 40824 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-27 16:03:22.461  INFO 40824 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 16:03:22.571  INFO 40824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-27 16:03:22.581  WARN 40824 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-12-27 16:03:23.173  INFO 40824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-27 16:03:23.198  INFO 40824 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-27 16:03:25.111  INFO 40824 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 16:03:25.126  INFO 40824 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:25.770  WARN 40824 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 16:03:26.223  WARN 40824 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-12-27 16:03:26.243  WARN 40824 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 6969 is already in use
+2022-12-27 16:03:26.243  INFO 40824 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:26.251  INFO 40824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-27 16:03:26.314  INFO 40824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-27 16:03:26.314  INFO 40824 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 16:03:26.334  INFO 40824 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-27 16:03:26.394 ERROR 40824 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 6969 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 6969 or configure this application to listen on another port.
+
+2022-12-27 16:03:45.876  INFO 26116 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-27 16:03:45.969  INFO 26116 --- [Thread-16] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 16:03:45.969  INFO 26116 --- [Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:45.969  INFO 26116 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-12-27 16:03:46.013  INFO 26116 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2022-12-27 16:03:46.245  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 1.8.0_121 on VDC01LTC2180 with PID 26116 (D:\Mock Project\team2-DELogistics\Team18\target\classes started by Moyukh.Saha in D:\Mock Project\team2-DELogistics\Team18)
+2022-12-27 16:03:46.245 DEBUG 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 16:03:46.245  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 16:03:46.511  INFO 26116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 16:03:46.542  INFO 26116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 6 JPA repository interfaces.
+2022-12-27 16:03:46.688  INFO 26116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7979 (http)
+2022-12-27 16:03:46.688  INFO 26116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 16:03:46.688  INFO 26116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 16:03:46.763  INFO 26116 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 16:03:46.763  INFO 26116 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 16:03:46.763  INFO 26116 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 502 ms
+2022-12-27 16:03:46.800  INFO 26116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 16:03:46.800  INFO 26116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2022-12-27 16:03:46.800  WARN 26116 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-12-27 16:03:46.862  INFO 26116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2022-12-27 16:03:46.862  INFO 26116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-27 16:03:47.649  INFO 26116 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 16:03:47.649  INFO 26116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:47.818  WARN 26116 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 16:03:47.916  INFO 26116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-27 16:03:47.926  INFO 26116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7979 (http) with context path ''
+2022-12-27 16:03:47.929  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 1.721 seconds (JVM running for 11712.201)
+2022-12-27 16:03:47.930  INFO 26116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-27 16:03:51.442  INFO 24592 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 1.8.0_121 on VDC01LTC2180 with PID 24592 (D:\Mock Project\team2-DELogistics\Team18\target\classes started by Moyukh.Saha in D:\Mock Project\team2-DELogistics\Team18)
+2022-12-27 16:03:51.442 DEBUG 24592 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 16:03:51.458  INFO 24592 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 16:03:51.511  INFO 24592 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\moyukh.saha\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/moyukh.saha/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2022-12-27 16:03:51.511  INFO 24592 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-27 16:03:51.511  INFO 24592 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-27 16:03:52.195  INFO 24592 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 16:03:52.296  INFO 24592 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 6 JPA repository interfaces.
+2022-12-27 16:03:53.028  INFO 24592 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7979 (http)
+2022-12-27 16:03:53.035  INFO 24592 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 16:03:53.035  INFO 24592 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 16:03:53.366  INFO 24592 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 16:03:53.378  INFO 24592 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 16:03:53.378  INFO 24592 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1867 ms
+2022-12-27 16:03:53.619  INFO 24592 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 16:03:53.677  INFO 24592 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-27 16:03:53.850  INFO 24592 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 16:03:53.954  INFO 24592 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-27 16:03:53.969  WARN 24592 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-12-27 16:03:54.520  INFO 24592 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-27 16:03:54.540  INFO 24592 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-27 16:03:56.432  INFO 24592 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 16:03:56.470  INFO 24592 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:57.160  WARN 24592 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 16:03:57.535  WARN 24592 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-12-27 16:03:57.551  WARN 24592 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 7979 is already in use
+2022-12-27 16:03:57.551  INFO 24592 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:03:57.566  INFO 24592 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-27 16:03:57.667  INFO 24592 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-27 16:03:57.667  INFO 24592 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 16:03:57.682  INFO 24592 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-27 16:03:57.714 ERROR 24592 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 7979 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 7979 or configure this application to listen on another port.
+
+2022-12-27 16:04:08.785  INFO 26116 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-27 16:04:08.901  INFO 26116 --- [Thread-21] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 16:04:08.932  INFO 26116 --- [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:04:08.932  INFO 26116 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2022-12-27 16:04:08.954  INFO 26116 --- [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2022-12-27 16:04:09.155  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 1.8.0_121 on VDC01LTC2180 with PID 26116 (D:\Mock Project\team2-DELogistics\Team18\target\classes started by Moyukh.Saha in D:\Mock Project\team2-DELogistics\Team18)
+2022-12-27 16:04:09.170 DEBUG 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 16:04:09.170  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 16:04:09.383  INFO 26116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 16:04:09.425  INFO 26116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
+2022-12-27 16:04:09.498  INFO 26116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 1111 (http)
+2022-12-27 16:04:09.498  INFO 26116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 16:04:09.498  INFO 26116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 16:04:09.734  INFO 26116 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 16:04:09.734  INFO 26116 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 16:04:09.734  INFO 26116 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 564 ms
+2022-12-27 16:04:09.772  INFO 26116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 16:04:09.772  INFO 26116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2022-12-27 16:04:09.772  WARN 26116 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-12-27 16:04:09.835  INFO 26116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2022-12-27 16:04:09.837  INFO 26116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-27 16:04:10.536  INFO 26116 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 16:04:10.536  INFO 26116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:04:10.721  WARN 26116 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 16:04:10.821  INFO 26116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-27 16:04:10.821  INFO 26116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 1111 (http) with context path ''
+2022-12-27 16:04:10.836  INFO 26116 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 1.713 seconds (JVM running for 11735.112)
+2022-12-27 16:04:10.841  INFO 26116 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-27 16:04:13.133  INFO 1248 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 1.8.0_121 on VDC01LTC2180 with PID 1248 (D:\Mock Project\team2-DELogistics\Team18\target\classes started by Moyukh.Saha in D:\Mock Project\team2-DELogistics\Team18)
+2022-12-27 16:04:13.133 DEBUG 1248 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 16:04:13.133  INFO 1248 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 16:04:13.195  INFO 1248 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\moyukh.saha\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/moyukh.saha/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2022-12-27 16:04:13.195  INFO 1248 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-27 16:04:13.195  INFO 1248 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-27 16:04:13.913  INFO 1248 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 16:04:14.017  INFO 1248 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 6 JPA repository interfaces.
+2022-12-27 16:04:14.799  INFO 1248 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 1111 (http)
+2022-12-27 16:04:14.811  INFO 1248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 16:04:14.811  INFO 1248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 16:04:15.162  INFO 1248 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 16:04:15.162  INFO 1248 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 16:04:15.162  INFO 1248 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1967 ms
+2022-12-27 16:04:15.394  INFO 1248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 16:04:15.463  INFO 1248 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-27 16:04:15.659  INFO 1248 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 16:04:15.794  INFO 1248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-27 16:04:15.810  WARN 1248 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-12-27 16:04:16.364  INFO 1248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-27 16:04:16.380  INFO 1248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-12-27 16:04:18.130  INFO 1248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 16:04:18.152  INFO 1248 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:04:18.782  WARN 1248 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 16:04:19.264  WARN 1248 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-12-27 16:04:19.284  WARN 1248 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 1111 is already in use
+2022-12-27 16:04:19.284  INFO 1248 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:04:19.284  INFO 1248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-27 16:04:19.363  INFO 1248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-27 16:04:19.365  INFO 1248 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 16:04:19.375  INFO 1248 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-27 16:04:19.416 ERROR 1248 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 1111 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 1111 or configure this application to listen on another port.
+
+2022-12-27 16:04:41.154  INFO 26116 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-27 16:04:41.270  INFO 26116 --- [Thread-26] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 16:04:41.285  INFO 26116 --- [Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 16:04:41.285  INFO 26116 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2022-12-27 16:04:41.317  INFO 26116 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.

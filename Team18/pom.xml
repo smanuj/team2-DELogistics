@@ -23,7 +23,7 @@
 			<version>1.6.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-		<dependency>
+ 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>javax.mail-api</artifactId>
 			<version>1.6.2</version>
@@ -49,6 +49,10 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -92,6 +96,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+ 		<configuration>
+              	<verbose>true</verbose>
+              	<fork>true</fork>
+              	<executable>${JAVA_HOME}/bin/javac</executable>
+            	</configuration>
 			</plugin>
 
 			<!-- <plugin> <artifactId>maven-war-plugin</artifactId> <version>3.3.1</version> 

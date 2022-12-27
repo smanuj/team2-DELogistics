@@ -13,5 +13,11 @@ public interface UserDetailService {
 	List<User> getPendingSupplier();
 
 	List<User> getApprovedSupplier();
+	
+	void deleteSupplier(int id);
+
+	void deleteTruck(int id);
+
+	void deleteSupplierRegister(int id);
 
 }

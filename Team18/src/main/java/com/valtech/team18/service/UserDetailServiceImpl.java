@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.valtech.team18.entity.SupplierDetails;
@@ -18,6 +19,9 @@ public class UserDetailServiceImpl implements UserDetailService  {
 	private static final Logger logger = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 	
 	@Override
 	public List<User> getPendingSupplier() {
@@ -50,6 +54,25 @@ public class UserDetailServiceImpl implements UserDetailService  {
 //		logger.debug("Successfully Loaded Approved Driver Details! " + supplierDetailsRepo.findAllByApprovedTrue());
 		return userRepo.findAllByApprovalTrueAndTruckIdNotNull();
 	}
+	
+	@Override
+	public void deleteSupplier(int id) {
+		logger.info("Deleting Supplier " + id);
+		logger.debug("Successfully Deleted Supplier!");
+		userRepo.deleteById(id);
+	}
+	@Override
+	public void deleteTruck(int id) {
+		logger.info("Deleting Supplier " + id);
+		logger.debug("Successfully Deleted Driver!");
+		userRepo.deleteById(id);
+	}
+	@Override
+	public void deleteSupplierRegister(int id){
+		String sql = "delete products where id = ?";
+        jdbcTemplate.update(sql, id);
+	}
+	
 	
 
 	

@@ -17908,3 +17908,8 @@ javax.servlet.ServletException: JSP file [&#47;WEB-INF&#47;views&#47;error.jsp] 
 2022-12-27 18:30:46.134  INFO 39956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6969 (http) with context path ''
 2022-12-27 18:30:46.137  INFO 39956 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 1.171 seconds (JVM running for 457.51)
 2022-12-27 18:30:46.138  INFO 39956 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-27 18:39:59.502  INFO 39956 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2022-12-27 18:39:59.636  INFO 39956 --- [Thread-13] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 18:39:59.648  INFO 39956 --- [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 18:39:59.650  INFO 39956 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-12-27 18:39:59.883  INFO 39956 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
