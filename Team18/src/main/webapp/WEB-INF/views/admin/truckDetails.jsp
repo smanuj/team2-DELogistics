@@ -124,12 +124,14 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
+					<c:forEach items="${TruckDetails.truckId}" var="Details">
 						<tr>
 							<td>${TruckDetails.id}</td>
-							<td>${TruckDetails.email}</td>
+							<td><c:out value="${Details.driverName}"/></td>
+							
 							<td>${TruckDetails.email}</td>
 							<td>
-								<div class="text-dark" id="ct" value="${TruckDetails}"></div>
+								<div class="text-dark" id="ct" "></div>
 							</td>
 
 							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
