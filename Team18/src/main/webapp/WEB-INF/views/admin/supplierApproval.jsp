@@ -92,13 +92,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${PendingSupplier}" var="PendingSupplier">
+					<c:forEach var="PendingSupplier" items="${PendingSupplier }" >
 						<tr>
-							<td>${PendingSupplier.suppId}</td>
-							<td>${PendingSupplier.suppName}</td>
-							<td>${PendingSupplier.email}</td>
-							<td>${PendingSupplier.suppContactDetails}</td>
-							<td>${PendingSupplier.fromAddress}</td>
+							<td>${PendingSupplier.suppId }</td>
+							<td>${PendingSupplier.suppName }</td>
+							<td>${PendingSupplier.email }</td>
+							<td>${PendingSupplier.suppContactDetails }</td>
+							<td>${PendingSupplier.fromAddress }</td>
 							<form method="post"
 								action="/admin/supplierApproval/${PendingSupplier.suppId}">
 								<td><input type="submit" value="Approve"

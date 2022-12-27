@@ -1,6 +1,7 @@
 package com.valtech.team18.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.valtech.team18.entity.OrderDetails;
+import com.valtech.team18.entity.User;
+import com.valtech.team18.repo.UserRepo;
 import com.valtech.team18.service.AdminLoginService;
 import com.valtech.team18.service.AdminService;
 import com.valtech.team18.service.MailMessage;
@@ -48,6 +51,9 @@ public class AdminController {
 
 	@Autowired
 	NewOrderService newOrderService;
+	
+	@Autowired
+	UserRepo userRepo;
 
 	// Navigate to Home page for Admin
 	@GetMapping("/admin/adminHome")
@@ -88,7 +94,11 @@ public class AdminController {
 	@GetMapping("/admin/driverApproval")
 	public String driverApp(Model model) {
 		// model.addAttribute("PendingDriver", registerService.getDriverList());
-		model.addAttribute("PendingDriver", tdService.getPendingDriver());
+		List<User> user=userRepo.findAllByApprovalFalseAndTruckIdNotNull();
+		for (User user2 : user) {
+			System.out.print(user2);
+		}
+		model.addAttribute("PendingDriver", user);
 		System.out.println(tdService.getPendingDriver());
 
 		return "admin/driverApproval";
@@ -110,7 +120,12 @@ public class AdminController {
 	// Approve/Reject the pending Supplier details
 	@GetMapping("/admin/supplierApproval")
 	public String supplierApp(Model model) {
-		model.addAttribute("PendingSupplier", suppService.getPendingSupplier());
+		
+		List<User> user=userRepo.findAllByApprovalFalseAndSuppIdNotNull();
+		for (User user2 : user) {
+			System.out.print(user2);
+		}
+		model.addAttribute("PendingSupplier", user);
 		return "admin/supplierApproval";
 	}
 

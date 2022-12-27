@@ -19,37 +19,38 @@ public class UserDetailServiceImpl implements UserDetailService  {
 	@Autowired
 	private UserRepo userRepo;
 	
-	
-	
-	@Override
-	public List<User> getPendingDriver() {
-		logger.info("Loading Pending Driver Details....");
-//		logger.debug("Successfully Loaded Pending Driver Details! " + supplierDetailsRepo.findAllByApprovedFalse());
-		return userRepo.findAllByApprovalFalse();
-	}
-
-	
-
-	@Override
-	public List<User> getApprovedDriver() {
-		logger.info("Loading Approved Driver Details....");
-//		logger.debug("Successfully Loaded Approved Driver Details! " + supplierDetailsRepo.findAllByApprovedTrue());
-		return userRepo.findAllByApprovalTrue();
-	}
-	
 	@Override
 	public List<User> getPendingSupplier() {
 		logger.info("Loading Pending Supplier Details....");
 		//logger.debug("Successfully Loaded Pending Supplier Details! " + supplierDetailsRepo.findAllByApprovedFalse());
-		return userRepo.findAllByApprovalFalse();
+		return userRepo.findAllByApprovalFalseAndSuppIdNotNull();
 	}
 
 	@Override
 	public List<User> getApprovedSupplier() {
 		logger.info("Loading Approved Supplier Details....");
 		//logger.debug("Successfully Loaded Approved Supplier Details! " + supplierDetailsRepo.findAllByApprovedTrue());
-		return userRepo.findAllByApprovalTrue();
+		return userRepo.findAllByApprovalTrueAndSuppIdNotNull();
 	}
 	
+	
+	@Override
+	public List<User> getPendingDriver() {
+		logger.info("Loading Pending Driver Details....");
+//		logger.debug("Successfully Loaded Pending Driver Details! " + supplierDetailsRepo.findAllByApprovedFalse());
+		return userRepo.findAllByApprovalFalseAndTruckIdNotNull();
+	}
+
+	
+	
+
+	@Override
+	public List<User> getApprovedDriver() {
+		logger.info("Loading Approved Driver Details....");
+//		logger.debug("Successfully Loaded Approved Driver Details! " + supplierDetailsRepo.findAllByApprovedTrue());
+		return userRepo.findAllByApprovalTrueAndTruckIdNotNull();
+	}
+	
+
 	
 }
