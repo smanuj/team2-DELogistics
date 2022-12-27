@@ -2501,3 +2501,373 @@ delete from supplier_details where supp_id=? [23503-214]
 2022-12-27 20:17:33.351  INFO 29352 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
 2022-12-27 20:17:33.434  INFO 29352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6969 (http) with context path ''
 2022-12-27 20:17:33.467  INFO 29352 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 6.072 seconds (JVM running for 6.686)
+2022-12-27 22:12:38.251  INFO 5756 --- [main] .DartExpressLogisticsAdminControllerTest : Starting DartExpressLogisticsAdminControllerTest using Java 17.0.4 on ctOS with PID 5756 (started by Anuj in E:\Project\Team18)
+2022-12-27 22:12:38.252 DEBUG 5756 --- [main] .DartExpressLogisticsAdminControllerTest : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 22:12:38.253  INFO 5756 --- [main] .DartExpressLogisticsAdminControllerTest : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 22:12:39.195  INFO 5756 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 22:12:39.278  INFO 5756 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
+2022-12-27 22:12:40.025  INFO 5756 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 22:12:40.090  INFO 5756 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-27 22:12:40.266  INFO 5756 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 22:12:40.451  INFO 5756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-27 22:12:40.794  INFO 5756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-27 22:12:40.816  INFO 5756 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-12-27 22:12:41.693  INFO 5756 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 22:12:41.703  INFO 5756 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 22:12:42.796  WARN 5756 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 22:12:43.109  INFO 5756 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/data/DartExpress'
+2022-12-27 22:12:43.441  INFO 5756 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-12-27 22:12:43.442  INFO 5756 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-12-27 22:12:43.445  INFO 5756 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-12-27 22:12:43.469  INFO 5756 --- [main] .DartExpressLogisticsAdminControllerTest : Started DartExpressLogisticsAdminControllerTest in 5.654 seconds (JVM running for 6.971)
+2022-12-27 22:12:43.717  INFO 5756 --- [main] c.v.team18.controller.AdminController    : Fetching newOrder for admin {}
+2022-12-27 22:12:44.048  INFO 5756 --- [main] c.v.team18.controller.AdminController    : Fetching Home for Admin....
+2022-12-27 22:12:44.048 DEBUG 5756 --- [main] c.v.team18.controller.AdminController    : Successfully Fetched Home for Admin!
+2022-12-27 22:12:44.225  INFO 5756 --- [main] c.v.team18.controller.AdminController    : Fetching Order Details for Admin....
+2022-12-27 22:12:44.245  INFO 5756 --- [main] c.v.team18.service.AdminServiceImpl      : Loading Order Details....
+2022-12-27 22:12:44.286 DEBUG 5756 --- [main] c.v.team18.service.AdminServiceImpl      : Successfully Loaded Order Details! []
+2022-12-27 22:12:44.292 DEBUG 5756 --- [main] c.v.team18.controller.AdminController    : Successfully Fetched Order Details for Admin!
+2022-12-27 22:12:44.306  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.valtech.team18.DartExpressLogisticsAdminServiceTest], using SpringBootContextLoader
+2022-12-27 22:12:44.307  INFO 5756 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.valtech.team18.DartExpressLogisticsAdminServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-12-27 22:12:44.307  INFO 5756 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.valtech.team18.DartExpressLogisticsAdminServiceTest]: DartExpressLogisticsAdminServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-12-27 22:12:44.314  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.valtech.team18.DartExpressLogisticsApplication for test class com.valtech.team18.DartExpressLogisticsAdminServiceTest
+2022-12-27 22:12:44.315  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-12-27 22:12:44.316  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@69b436a7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5dfd4fac, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d2aa638, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2f08e6d3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@67c1fc9b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@50f65fe0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@18a538a0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@70736b19, org.springframework.test.context.event.EventPublishingTestExecutionListener@183e64a8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7a553110, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4b8466c2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2044f708, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4bb4cc8c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@18bab95b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@70e07ef8]
+2022-12-27 22:12:44.508  INFO 5756 --- [main] c.v.t.service.UserDetailServiceImpl      : Deleting Supplier 2
+2022-12-27 22:12:44.509 DEBUG 5756 --- [main] c.v.t.service.UserDetailServiceImpl      : Successfully Deleted Driver!
+2022-12-27 22:12:44.561  INFO 5756 --- [main] c.v.t.service.UserDetailServiceImpl      : Deleting Supplier 4
+2022-12-27 22:12:44.561 DEBUG 5756 --- [main] c.v.t.service.UserDetailServiceImpl      : Successfully Deleted Supplier!
+2022-12-27 22:12:44.584  INFO 5756 --- [main] c.v.team18.service.NewOrderServiceImpl   : Loading New Order Details....
+2022-12-27 22:12:44.586 DEBUG 5756 --- [main] c.v.team18.service.NewOrderServiceImpl   : Successfully Received New Order Details! OrderDetails [orderId=5, custName=test1234, time=2022-12-27T22:12:44.581418600, toAddress=Davangere, phNum=789456120, orderType=Qwerty2, suppId=12, driverId=12]
+2022-12-27 22:12:44.599  INFO 5756 --- [main] c.v.team18.service.NewOrderServiceImpl   : Deleting Order 5
+2022-12-27 22:12:44.630 DEBUG 5756 --- [main] c.v.team18.service.NewOrderServiceImpl   : Deleting Order 5
+2022-12-27 22:12:44.635  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.valtech.team18.DartExpressLogisticsApplicationControllerTest], using SpringBootContextLoader
+2022-12-27 22:12:44.636  INFO 5756 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.valtech.team18.DartExpressLogisticsApplicationControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-12-27 22:12:44.636  INFO 5756 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.valtech.team18.DartExpressLogisticsApplicationControllerTest]: DartExpressLogisticsApplicationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-12-27 22:12:44.642  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.valtech.team18.DartExpressLogisticsApplication for test class com.valtech.team18.DartExpressLogisticsApplicationControllerTest
+2022-12-27 22:12:44.644  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-12-27 22:12:44.644  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7f588bc6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3da8a302, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@21b75073, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@318ca53a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@ab11e76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@72f91c91, org.springframework.test.context.transaction.TransactionalTestExecutionListener@69d6fe75, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3d273300, org.springframework.test.context.event.EventPublishingTestExecutionListener@3fe7c87c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5c04685, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5bbb351e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5f80b25a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5e2525fe, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@59d6a4d1, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5b476930]
+2022-12-27 22:12:44.691  INFO 5756 --- [main] c.v.t.controller.ApplicationController   : Fetching newPassword for supplier {}
+2022-12-27 22:12:44.692 DEBUG 5756 --- [main] c.v.t.controller.ApplicationController   : Successfully fetched {} newPassword
+2022-12-27 22:12:44.716  INFO 5756 --- [main] c.v.t.controller.ApplicationController   : Fetching newPassword for driver {}
+2022-12-27 22:12:44.717 DEBUG 5756 --- [main] c.v.t.controller.ApplicationController   : Successfully fetched {} newPassword
+2022-12-27 22:12:44.732  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.valtech.team18.DartExpressLogisticsLoginAndRegisterTests], using SpringBootContextLoader
+2022-12-27 22:12:44.733  INFO 5756 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.valtech.team18.DartExpressLogisticsLoginAndRegisterTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-12-27 22:12:44.733  INFO 5756 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.valtech.team18.DartExpressLogisticsLoginAndRegisterTests]: DartExpressLogisticsLoginAndRegisterTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-12-27 22:12:44.736  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.valtech.team18.DartExpressLogisticsApplication for test class com.valtech.team18.DartExpressLogisticsLoginAndRegisterTests
+2022-12-27 22:12:44.739  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-12-27 22:12:44.744  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4446e1d9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3f13720f, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1df60140, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@62d4dac4, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@11efa76e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@35c83c56, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1899c7ae, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5cdf2c83, org.springframework.test.context.event.EventPublishingTestExecutionListener@30e734a1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@44b99467, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@124b8fe9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@37d50217, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3e9e7a70, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@360ccb68, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@78762e87]
+2022-12-27 22:12:44.760 DEBUG 5756 --- [main] c.v.t.service.AdminLoginServiceImpl      : Validating Login Credentials for admin@gmail.com and admin
+2022-12-27 22:12:44.767 DEBUG 5756 --- [main] c.v.t.service.AdminLoginServiceImpl      : Valdating for null
+2022-12-27 22:12:44.785 DEBUG 5756 --- [main] c.v.t.service.AdminLoginServiceImpl      : Validating for User [id=6, email=admin@gmail.com, password=admin, suppId=null, truckId=null, approval=true, otpId=null, roles=[null]]
+2022-12-27 22:12:44.791  INFO 5756 --- [main] c.v.t.service.AdminLoginServiceImpl      : Validation Successfull!
+2022-12-27 22:12:44.793 DEBUG 5756 --- [main] c.v.t.service.AdminLoginServiceImpl      : Validating Login Credentials for admin and user
+2022-12-27 22:12:44.799 DEBUG 5756 --- [main] c.v.t.service.AdminLoginServiceImpl      : Valdating for User [id=6, email=admin@gmail.com, password=admin, suppId=null, truckId=null, approval=true, otpId=null, roles=[]]
+2022-12-27 22:12:44.811  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.valtech.team18.DartExpressLogisticsSupplierControllerTest], using SpringBootContextLoader
+2022-12-27 22:12:44.812  INFO 5756 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.valtech.team18.DartExpressLogisticsSupplierControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-12-27 22:12:44.813  INFO 5756 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.valtech.team18.DartExpressLogisticsSupplierControllerTest]: DartExpressLogisticsSupplierControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-12-27 22:12:44.817  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.valtech.team18.DartExpressLogisticsApplication for test class com.valtech.team18.DartExpressLogisticsSupplierControllerTest
+2022-12-27 22:12:44.818  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-12-27 22:12:44.818  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5e7fc012, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@63e0c744, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@445d4517, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3284f91f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@125bc00d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@77e4ffe5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@59bf79f3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4c663fda, org.springframework.test.context.event.EventPublishingTestExecutionListener@f1d5f3, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@50ba19df, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@726882da, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@f0deba2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1ddf9fd, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1297cf8, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@37e15055]
+2022-12-27 22:12:44.857  INFO 5756 --- [main] c.v.team18.service.SupplierServiceImpl   : Loading Order Details for Supplier 1
+2022-12-27 22:12:44.860 DEBUG 5756 --- [main] c.v.team18.service.SupplierServiceImpl   : Successfully Loaded Order Details for Supplier! []
+2022-12-27 22:12:44.861  INFO 5756 --- [main] c.v.team18.service.SupplierServiceImpl   : Loading Truck Details for Order 1
+2022-12-27 22:12:44.861  INFO 5756 --- [main] c.v.team18.service.SupplierServiceImpl   : Loading Order Details for Supplier 1
+2022-12-27 22:12:44.862 DEBUG 5756 --- [main] c.v.team18.service.SupplierServiceImpl   : Successfully Loaded Order Details for Supplier! []
+2022-12-27 22:12:44.864 DEBUG 5756 --- [main] c.v.team18.service.SupplierServiceImpl   : Successfully Loaded Truck Details for Order!
+2022-12-27 22:12:44.879  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.valtech.team18.DartExpressLogisticsTruckDriverControllerTest], using SpringBootContextLoader
+2022-12-27 22:12:44.880  INFO 5756 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.valtech.team18.DartExpressLogisticsTruckDriverControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-12-27 22:12:44.880  INFO 5756 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.valtech.team18.DartExpressLogisticsTruckDriverControllerTest]: DartExpressLogisticsTruckDriverControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-12-27 22:12:44.882  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.valtech.team18.DartExpressLogisticsApplication for test class com.valtech.team18.DartExpressLogisticsTruckDriverControllerTest
+2022-12-27 22:12:44.884  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-12-27 22:12:44.884  INFO 5756 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@47e89fed, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1fcef6f9, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@57cfb4d8, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@d4f2f3d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@e5bce8e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@66ca8882, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4c0989f7, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@384b718c, org.springframework.test.context.event.EventPublishingTestExecutionListener@68b4e7b5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5a88ecb9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5ace902e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@396a4dea, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@76ac8c3d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6b5c4b75, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@453de9d0]
+2022-12-27 22:12:44.908  INFO 5756 --- [main] c.v.t.service.TruckDetailsServiceImpl    : Loading Order Details for Driver 1
+2022-12-27 22:12:44.927 DEBUG 5756 --- [main] c.v.t.service.TruckDetailsServiceImpl    : Successfully Loaded Order Details for Driver! []
+2022-12-27 22:12:44.930  INFO 5756 --- [main] c.v.t.service.TruckDetailsServiceImpl    : Loading Supplier Id for Order 1
+2022-12-27 22:12:44.931  INFO 5756 --- [main] c.v.t.service.TruckDetailsServiceImpl    : Loading Order Details for Driver 1
+2022-12-27 22:12:44.931 DEBUG 5756 --- [main] c.v.t.service.TruckDetailsServiceImpl    : Successfully Loaded Order Details for Driver! []
+2022-12-27 22:12:44.932 DEBUG 5756 --- [main] c.v.t.service.TruckDetailsServiceImpl    : Successfully Loaded Supplier Id for Order!
+2022-12-27 22:12:45.025  INFO 5756 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 22:12:45.031  INFO 5756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-27 22:12:45.035  INFO 5756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-27 22:14:51.817  INFO 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 17.0.4 on ctOS with PID 7808 (E:\Project\Team18\target\classes started by Anuj in E:\Project\Team18)
+2022-12-27 22:14:51.818 DEBUG 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 22:14:51.818  INFO 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 22:14:51.900  INFO 7808 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Anuj\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Anuj/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2022-12-27 22:14:51.902  INFO 7808 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-27 22:14:51.904  INFO 7808 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-27 22:14:52.836  INFO 7808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 22:14:52.950  INFO 7808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 6 JPA repository interfaces.
+2022-12-27 22:14:54.037  INFO 7808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6969 (http)
+2022-12-27 22:14:54.061  INFO 7808 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 22:14:54.062  INFO 7808 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 22:14:54.409  INFO 7808 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 22:14:54.425  INFO 7808 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 22:14:54.427  INFO 7808 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2517 ms
+2022-12-27 22:14:54.466  INFO 7808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-27 22:14:54.891  INFO 7808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-27 22:14:54.915  INFO 7808 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/data/DartExpress'
+2022-12-27 22:14:55.292  INFO 7808 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 22:14:55.362  INFO 7808 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-27 22:14:55.575  INFO 7808 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-27 22:14:55.733  INFO 7808 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-12-27 22:14:56.517  INFO 7808 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 22:14:56.529  INFO 7808 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 22:14:57.325  WARN 7808 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 22:14:57.659  INFO 7808 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-27 22:14:57.729  INFO 7808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6969 (http) with context path ''
+2022-12-27 22:14:57.743  INFO 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 6.424 seconds (JVM running for 7.156)
+2022-12-27 22:18:14.181  INFO 7808 --- [http-nio-6969-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-27 22:18:14.181  INFO 7808 --- [http-nio-6969-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-27 22:18:14.185  INFO 7808 --- [http-nio-6969-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-12-27 22:18:17.525  WARN 7808 --- [http-nio-6969-exec-2] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon.ico
+2022-12-27 22:18:17.583  WARN 7808 --- [http-nio-6969-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /favicon.ico]
+2022-12-27 22:23:17.865  INFO 7808 --- [http-nio-6969-exec-4] c.v.t.controller.ApplicationController   : Fetching adminLoginVal for admin
+2022-12-27 22:23:17.882 DEBUG 7808 --- [http-nio-6969-exec-4] c.v.t.service.AdminLoginServiceImpl      : Validating Login Credentials for admin@gmail.com and admin
+2022-12-27 22:23:18.042 DEBUG 7808 --- [http-nio-6969-exec-4] c.v.t.service.AdminLoginServiceImpl      : Valdating for User [id=6, email=admin@gmail.com, password=admin, suppId=null, truckId=null, approval=true, otpId=null, roles=[]]
+2022-12-27 22:23:18.044  INFO 7808 --- [http-nio-6969-exec-4] c.v.t.service.AdminLoginServiceImpl      : Validation Successfull!
+2022-12-27 22:23:18.113  INFO 7808 --- [http-nio-6969-exec-5] c.v.team18.controller.AdminController    : Fetching Home for Admin....
+2022-12-27 22:23:18.113 DEBUG 7808 --- [http-nio-6969-exec-5] c.v.team18.controller.AdminController    : Successfully Fetched Home for Admin!
+2022-12-27 22:24:56.244  INFO 7808 --- [http-nio-6969-exec-3] c.v.t.controller.SupplierController      : Registering a new supplier
+2022-12-27 22:24:56.252  INFO 7808 --- [http-nio-6969-exec-3] c.v.team18.service.SupplierServiceImpl   : Registering user....
+2022-12-27 22:24:56.316 DEBUG 7808 --- [http-nio-6969-exec-3] c.v.team18.service.MailMessageImpl       : Registration Request Recieved from smanuj007@gmail.com for role SUPPLIER by name Anuj
+2022-12-27 22:25:08.994 ERROR 7808 --- [http-nio-6969-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only] with root cause
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:752) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.23.jar:5.3.23]
+	at com.valtech.team18.service.SupplierServiceImpl$$EnhancerBySpringCGLIB$$b58fc373.register(<generated>) ~[classes/:na]
+	at com.valtech.team18.controller.SupplierController.supplierRegister(SupplierController.java:56) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2022-12-27 22:30:54.821  INFO 7808 --- [http-nio-6969-exec-9] c.v.t.controller.SupplierController      : Registering a new supplier
+2022-12-27 22:30:54.823  INFO 7808 --- [http-nio-6969-exec-9] c.v.team18.service.SupplierServiceImpl   : Registering user....
+2022-12-27 22:30:54.827 DEBUG 7808 --- [http-nio-6969-exec-9] c.v.team18.service.MailMessageImpl       : Registration Request Recieved from smanuj007@gmail.com for role SUPPLIER by name Anuj
+2022-12-27 22:31:06.821 ERROR 7808 --- [http-nio-6969-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only] with root cause
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:752) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.23.jar:5.3.23]
+	at com.valtech.team18.service.SupplierServiceImpl$$EnhancerBySpringCGLIB$$b58fc373.register(<generated>) ~[classes/:na]
+	at com.valtech.team18.controller.SupplierController.supplierRegister(SupplierController.java:56) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2022-12-27 22:32:11.790  INFO 7808 --- [http-nio-6969-exec-3] c.v.t.controller.SupplierController      : Registering a new supplier
+2022-12-27 22:32:11.791  INFO 7808 --- [http-nio-6969-exec-3] c.v.team18.service.SupplierServiceImpl   : Registering user....
+2022-12-27 22:32:11.796 DEBUG 7808 --- [http-nio-6969-exec-3] c.v.team18.service.MailMessageImpl       : Registration Request Recieved from unkowngamer402@gmail.com for role SUPPLIER by name Anuj
+2022-12-27 22:32:23.793 ERROR 7808 --- [http-nio-6969-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only] with root cause
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:752) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.23.jar:5.3.23]
+	at com.valtech.team18.service.SupplierServiceImpl$$EnhancerBySpringCGLIB$$b58fc373.register(<generated>) ~[classes/:na]
+	at com.valtech.team18.controller.SupplierController.supplierRegister(SupplierController.java:56) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2022-12-27 22:39:16.414  INFO 7808 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-12-27 22:39:16.441  INFO 7808 --- [Thread-6] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-27 22:39:16.442  INFO 7808 --- [Thread-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-27 22:39:16.459  INFO 7808 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 22:39:16.464  INFO 7808 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-27 22:39:16.506  INFO 7808 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-27 22:39:16.598  INFO 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Starting DartExpressLogisticsApplication using Java 17.0.4 on ctOS with PID 7808 (E:\Project\Team18\target\classes started by Anuj in E:\Project\Team18)
+2022-12-27 22:39:16.599 DEBUG 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-12-27 22:39:16.599  INFO 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : No active profile set, falling back to 1 default profile: "default"
+2022-12-27 22:39:16.952  INFO 7808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-27 22:39:16.999  INFO 7808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 6 JPA repository interfaces.
+2022-12-27 22:39:17.164  INFO 7808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6969 (http)
+2022-12-27 22:39:17.166  INFO 7808 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-27 22:39:17.168  INFO 7808 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-27 22:39:17.330  INFO 7808 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-12-27 22:39:17.342  INFO 7808 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-27 22:39:17.343  INFO 7808 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 741 ms
+2022-12-27 22:39:17.363  INFO 7808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-12-27 22:39:17.401  INFO 7808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-12-27 22:39:17.413  INFO 7808 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/data/DartExpress'
+2022-12-27 22:39:17.477  INFO 7808 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-27 22:39:17.486  INFO 7808 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-12-27 22:39:17.646  INFO 7808 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-27 22:39:17.649  INFO 7808 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-27 22:39:17.936  WARN 7808 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-27 22:39:18.124  INFO 7808 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-27 22:39:18.152  INFO 7808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6969 (http) with context path ''
+2022-12-27 22:39:18.163  INFO 7808 --- [restartedMain] c.v.t.DartExpressLogisticsApplication    : Started DartExpressLogisticsApplication in 1.609 seconds (JVM running for 1467.577)
+2022-12-27 22:39:18.167  INFO 7808 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-12-27 22:39:27.525  INFO 7808 --- [http-nio-6969-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-27 22:39:27.525  INFO 7808 --- [http-nio-6969-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-27 22:39:27.526  INFO 7808 --- [http-nio-6969-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-27 22:39:47.487  INFO 7808 --- [http-nio-6969-exec-3] c.v.t.controller.SupplierController      : Registering a new supplier
+2022-12-27 22:39:47.492  INFO 7808 --- [http-nio-6969-exec-3] c.v.team18.service.SupplierServiceImpl   : Registering user....
+2022-12-27 22:39:47.521 DEBUG 7808 --- [http-nio-6969-exec-3] c.v.team18.service.MailMessageImpl       : Registration Request Recieved from smanuj007@gmail.com for role SUPPLIER by name Anuj
+2022-12-27 22:40:00.071 DEBUG 7808 --- [http-nio-6969-exec-3] c.v.team18.service.SupplierServiceImpl   : Registration Successfully Recieved!
+2022-12-27 22:41:00.860  INFO 7808 --- [http-nio-6969-exec-7] c.v.t.controller.TruckDriverController   : Registering truck driver
+2022-12-27 22:41:00.870  INFO 7808 --- [http-nio-6969-exec-7] c.v.t.service.TruckDetailsServiceImpl    : Registering user....
+2022-12-27 22:42:06.626  INFO 7808 --- [http-nio-6969-exec-8] c.v.t.controller.TruckDriverController   : Registering truck driver
+2022-12-27 22:42:06.627  INFO 7808 --- [http-nio-6969-exec-8] c.v.t.service.TruckDetailsServiceImpl    : Registering user....
+2022-12-27 22:42:06.633 DEBUG 7808 --- [http-nio-6969-exec-8] c.v.team18.service.MailMessageImpl       : Registration Request Recieved from unkowngamer402@gmail.com for role TRUCKDRIVER by name Anuj
+2022-12-27 22:42:19.138 DEBUG 7808 --- [http-nio-6969-exec-8] c.v.t.service.TruckDetailsServiceImpl    : Registration Successfully Recieved!
