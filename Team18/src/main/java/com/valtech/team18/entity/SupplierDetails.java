@@ -15,12 +15,10 @@ public class SupplierDetails {
 	// suppName and suppPassword strings are used to save supplier login
 	// credentials
 	private String suppName;
-	private String email;
-	private String suppPassword;
+	
 	private String fromAddress;
 	private long suppContactDetails;
-	private boolean approved;
-	private String otp;
+	
 	private long landLine;
 
 	public long getLandLine() {
@@ -29,38 +27,6 @@ public class SupplierDetails {
 
 	public void setLandLine(long landLine) {
 		this.landLine = landLine;
-	}
-
-	public String getOtp() {
-		return otp;
-	}
-
-	public void setOtp(String otp) {
-		this.otp = otp;
-	}
-
-	public String getSuppPassword() {
-		return suppPassword;
-	}
-
-	public void setSuppPassword(String suppPassword) {
-		this.suppPassword = suppPassword;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public boolean isApproved() {
-		return approved;
-	}
-
-	public void setApproved(boolean approved) {
-		this.approved = approved;
 	}
 
 	public int getSuppId() {
@@ -100,38 +66,31 @@ public class SupplierDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SupplierDetails(int suppId, String suppName, String email, String suppPassword, String fromAddress,
-			long suppContactDetails, boolean approved, String otp, long landLine) {
+	public SupplierDetails(int suppId, String suppName, String fromAddress,
+			long suppContactDetails, long landLine) {
 		super();
 		this.suppId = suppId;
 		this.suppName = suppName;
-		this.email = email;
-		this.suppPassword = suppPassword;
 		this.fromAddress = fromAddress;
 		this.suppContactDetails = suppContactDetails;
-		this.approved = approved;
-		this.otp = otp;
 		this.landLine = landLine;
 	}
 
-	public SupplierDetails(String suppName, String email, String suppPassword, String fromAddress,
-			long suppContactDetails, boolean approved, String otp, long landLine) {
+	public SupplierDetails(String suppName, String fromAddress,
+			long suppContactDetails,long landLine) {
 		super();
 		this.suppName = suppName;
-		this.email = email;
-		this.suppPassword = suppPassword;
 		this.fromAddress = fromAddress;
 		this.suppContactDetails = suppContactDetails;
-		this.approved = approved;
-		this.otp = otp;
 		this.landLine = landLine;
 	}
 
 	@Override
 	public String toString() {
-		return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", email=" + email + ", suppPassword="
-				+ suppPassword + ", fromAddress=" + fromAddress + ", suppContactDetails=" + suppContactDetails
-				+ ", approved=" + approved + ", otp=" + otp + ", landLine=" + landLine + "]";
+		return "SupplierDetails [suppId=" + suppId + ", suppName=" + suppName + ", fromAddress=" + fromAddress
+				+ ", suppContactDetails=" + suppContactDetails + ", landLine=" + landLine + "]";
 	}
+
+	
 
 }

@@ -7,7 +7,7 @@ import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
 
 public interface AdminService {
-	
+
 	// Get all order details in a list
 	List<OrderDetails> getAllOrderD();
 

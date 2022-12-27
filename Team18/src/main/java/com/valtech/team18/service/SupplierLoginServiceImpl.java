@@ -9,21 +9,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.valtech.team18.entity.Otps;
 //import com.valtech.team18.entity.PendingSupplier;
 import com.valtech.team18.entity.SupplierDetails;
+import com.valtech.team18.entity.User;
+import com.valtech.team18.repo.OtpRepo;
 import com.valtech.team18.repo.SupplierDetailsRepo;
+import com.valtech.team18.repo.UserRepo;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class SupplierLoginServiceImpl implements SupplierLoginService {
-	
-	private static final Logger logger= LoggerFactory.getLogger(SupplierLoginServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(SupplierLoginServiceImpl.class);
 
 	@Autowired
 	private SupplierDetailsRepo supplierDetailsRepo;
 
 	@Autowired
 	private MailMessage mailMessage;
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Autowired
+	private OtpRepo otpRepo;
 
 	public static String getRandomNumberString() {
 		logger.info("Generating Random String....");
@@ -43,9 +53,12 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		logger.info("Validating Login Credentials....");
 
 		try {
-			SupplierDetails sup = supplierDetailsRepo.findByEmailAndApprovedTrue(email);
+//			SupplierDetails sup = supplierDetailsRepo.findByEmailAndApprovedTrue(email);
+//			User usr = userRepo.findByEmail(email);
+			User usr=userRepo.findByEmailAndApprovalTrue(email);
+			String roles="supp";
 
-			if ((email.equals(sup.getEmail())) && (password.equals(sup.getSuppPassword()))) {
+			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))&&(roles.equals(usr.getRoles()))) {
 				logger.info("Successfully Validated Login Credentials!");
 				return true;
 			}
@@ -63,19 +76,24 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	public int getIdFromEmail(String email) {
 		logger.info("Retreiving Id assoicated with mail " + email);
 		logger.debug("Successfully Retreived Id assoicated with mail " + email);
-		return supplierDetailsRepo.findByEmail(email).getSuppId();
+		//return supplierDetailsRepo.findByEmail(email).getSuppId();
+		return userRepo.findByEmail(email).getSuppId().getSuppId();
 	}
 
 	@Override
-	public boolean checkmail(String email) {
+	public boolean generateOtp(String email) {
 		logger.info("Confirming Mail....");
-		SupplierDetails sd = supplierDetailsRepo.findByEmail(email);
-		if (sd.getEmail() != null) {
+		
+		User usr=userRepo.findByEmail(email);
+		SupplierDetails sd = supplierDetailsRepo.findBySuppId(usr.getSuppId().getSuppId());
+		if (usr.getEmail() != null) {
 			String pass = getRandomNumberString();
-			sd.setOtp(pass);
-			supplierDetailsRepo.save(sd);
+			Otps otp = new Otps(pass);
+			usr.setOtpId(otp.getOtpId());
+//			supplierDetailsRepo.save(sd);
+			userRepo.save(usr);
 			try {
-				mailMessage.sendOTP(sd.getEmail(), pass, "Supplier", sd.getSuppName());
+				mailMessage.sendOTP(usr.getEmail(), pass, "Supplier", sd.getSuppName());
 				logger.debug("Mail Confirmed and Sent!");
 			} catch (Exception e) {
 				logger.debug("Mail Confirmation Unsuccessfull!");
@@ -91,8 +109,13 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	@Override
 	public boolean checkOTP(int id, String otp) {
 		logger.info("Confirming OTP....");
+		User usr=userRepo.findById(id).get();
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
-		if (otp.equals(sd.getOtp())){
+		String tempOtpId = usr.getOtpId();
+		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(otpId);
+//		Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
+		if (otp.equals(otp10.getOtp())) {
 			logger.debug("OTP Confirmed!");
 			return true;
 		}
@@ -103,12 +126,18 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	@Override
 	public void changePassword(int id, String password) {
 		logger.info("Changing password....");
+		User usr=userRepo.findById(id).get();
 		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
-		sd.setSuppPassword(password);
-		sd.setOtp(null);
+		
+		usr.setPassword(password);
+//		usr.setOtp(null);
+		String tempOtpId = usr.getOtpId();
+		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp = otpRepo.findByOtpId(otpId);
+		otp.setOtp(null);
 		supplierDetailsRepo.save(sd);
 		try {
-			mailMessage.successfulPasswordChange(sd.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.successfulPasswordChange(usr.getEmail(), "Supplier", sd.getSuppName());
 			logger.info("Password Changed Successfully!");
 		} catch (Exception e) {
 			logger.debug("Password Changed Failed!");

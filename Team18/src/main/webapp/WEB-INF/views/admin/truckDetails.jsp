@@ -92,54 +92,67 @@
 
 		<center>
 			<h2>Truck Details</h2>
-		
-            <div class="card" style="width: 39rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Note <i class="fa fa-exclamation-circle" aria-hidden="true"></i></h5>
-                  
-                  <p class="card-text">Optimum temperature for Food items between 14 C to 25 C, Medicines/Icecreams between -10 C to 5 C   </p>
-                  
-                </div>
-              </div>
-        
-        </center> <br>
+
+			<div class="card" style="width: 39rem;">
+				<div class="card-body">
+					<h5 class="card-title">
+						Note <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+					</h5>
+
+					<p class="card-text">Optimum temperature for Food items between
+						14 C to 25 C, Medicines/Icecreams between -10 C to 5 C</p>
+
+				</div>
+			</div>
+
+		</center>
+		<br>
 		<!-- Table to display Truck details -->
-    <div class="table-responsive">
-		<table class="table table-hover table-secondary table-striped">
-			<thead >
-				<tr>
-					<td>Truck Id</td>
-					<td>Driver Name</td>
-					<td>Driver Contact number</td>
-					<td data-toggle="tooltip" data-placement="top" title="Optimum temperature for Food items between 14 C to 25 C, Medicines/Icecreams between -10 C to 5 C  " >Live  Temperature    </td>
-                    <td>Send Alerts </td>
-					<td>Live Location</td>
-				</tr>
-			</thead> 
-			<tbody>
-				<c:forEach items="${TruckDetails}" var="TruckDetails">
+		<div class="table-responsive">
+			<table class="table table-hover table-secondary table-striped">
+				<thead>
 					<tr>
-						<td>${TruckDetails.truckId}</td>
-						<td>${TruckDetails.driverName}</td>
-						<td>${TruckDetails.driverPhNum}</td>
-                        <td > <div class="text-dark" id="ct" value="${TruckDetails}"></div> </td>
-                        
-<!--                         <td><div class="text-dark" id="ct"></div></td> -->
-						<td>
-							<form action="/alert/${TruckDetails.truckId}" method="POST" class="form-signin  ">
-								<button class="btn btn-dark  btn-block" name="Alert"
-											value="Alert" type="Submit" data-toggle="tooltip" data-placement="top" title="Send Alerts to the driver">Alert</button>
-                          
-						</form></td>
-						<td><a
-							href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141"> <button class="btn  btn-md btn-warning" data-toggle="tooltip" data-placement="top" title="View Current Location">
-								<i class="fa fa-location-arrow" ></i>Current 
-								Location</a></td>
+						<td>Truck Id</td>
+						<td>Driver Name</td>
+						<td>Driver Contact number</td>
+						<td data-toggle="tooltip" data-placement="top"
+							title="Optimum temperature for Food items between 14 C to 25 C, Medicines/Icecreams between -10 C to 5 C  ">Live
+							Temperature</td>
+						<td>Send Alerts</td>
+						<td>Live Location</td>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-    </div>
+				</thead>
+				<tbody>
+					<c:forEach items="${TruckDetails}" var="TruckDetails">
+						<tr>
+							<td>${TruckDetails.truckId}</td>
+							<td>${TruckDetails.driverName}</td>
+							<td>${TruckDetails.driverPhNum}</td>
+							<td>
+								<div class="text-dark" id="ct" value="${TruckDetails}"></div>
+							</td>
+
+							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
+							<td>
+								<form action="/alert/${TruckDetails.truckId}" method="POST"
+									class="form-signin  ">
+									<button class="btn btn-dark  btn-block" name="Alert"
+										value="Alert" type="Submit" data-toggle="tooltip"
+										data-placement="top" title="Send Alerts to the driver">Alert</button>
+
+								</form>
+							</td>
+							<td><a
+								href="https://www.google.com/maps/place/Valtech/@12.9164417,77.5968254,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae150e413b549d:0x24ddb1c1c2c81592!8m2!3d12.9164365!4d77.5990141">
+									<button class="btn  btn-md btn-warning" data-toggle="tooltip"
+										data-placement="top" title="View Current Location">
+										<i class="fa fa-location-arrow"></i>Current Location
+							</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 </body>
 
 <!-- Footer -->

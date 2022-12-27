@@ -1,7 +1,9 @@
 package com.valtech.team18.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,17 +13,23 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.valtech.team18.entity.OrderDetails;
+import com.valtech.team18.entity.Otps;
+import com.valtech.team18.entity.Role;
 import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
+import com.valtech.team18.entity.User;
 import com.valtech.team18.repo.OrderDetailsRepo;
+import com.valtech.team18.repo.OtpRepo;
+import com.valtech.team18.repo.RoleRepo;
 import com.valtech.team18.repo.SupplierDetailsRepo;
 import com.valtech.team18.repo.TruckDetailsRepo;
+import com.valtech.team18.repo.UserRepo;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class SupplierServiceImpl implements SupplierService {
 
-	private static final Logger logger= LoggerFactory.getLogger(SupplierServiceImpl.class);	
+	private static final Logger logger = LoggerFactory.getLogger(SupplierServiceImpl.class);
 
 	@Autowired
 	private OrderDetailsRepo orderDetailsRepo;
@@ -34,6 +42,15 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Autowired
 	private MailMessage mailMessage;
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Autowired
+	private RoleRepo roleRepo;
+	
+	@Autowired
+	private OtpRepo otpRepo;
 
 	@Override
 	public List<TruckDetails> getAllTruckD() {
@@ -52,45 +69,48 @@ public class SupplierServiceImpl implements SupplierService {
 	@Override
 	public List<OrderDetails> getAllOrdersBySuppId(int suppId) {
 		logger.info("Loading Order Details for Supplier " + suppId);
-		logger.debug("Successfully Loaded Order Details for Supplier! " + orderDetailsRepo.getAllOrdersBySuppId(suppId));
+		logger.debug(
+				"Successfully Loaded Order Details for Supplier! " + orderDetailsRepo.getAllOrdersBySuppId(suppId));
 		return orderDetailsRepo.getAllOrdersBySuppId(suppId);
 	}
 
 	@Override
 	public List<Integer> getAllDriverIdFromOrderDetails(OrderDetails od) {
 		logger.info("Loading Driver ID for Order " + od);
-		logger.debug("Successfully Loaded Driver ID for Order! " + orderDetailsRepo.getDriverIdBySuppId(od.getSuppId()));
+		logger.debug(
+				"Successfully Loaded Driver ID for Order! " + orderDetailsRepo.getDriverIdBySuppId(od.getSuppId()));
 		return orderDetailsRepo.getDriverIdBySuppId(od.getSuppId());
 	}
 
-	@Override
-	public List<SupplierDetails> getPendingSupplier() {
-		logger.info("Loading Pending Supplier Details....");
-		logger.debug("Successfully Loaded Pending Supplier Details! " + supplierDetailsRepo.findAllByApprovedFalse());
-		return supplierDetailsRepo.findAllByApprovedFalse();
-	}
+//	@Override
+//	public List<SupplierDetails> getPendingSupplier() {
+//		logger.info("Loading Pending Supplier Details....");
+//		logger.debug("Successfully Loaded Pending Supplier Details! " + supplierDetailsRepo.findAllByApprovedFalse());
+//		return supplierDetailsRepo.findAllByApprovedFalse();
+//	}
+//
+//	@Override
+//	public List<SupplierDetails> getApprovedSupplier() {
+//		logger.info("Loading Approved Supplier Details....");
+//		logger.debug("Successfully Loaded Approved Supplier Details! " + supplierDetailsRepo.findAllByApprovedTrue());
+//		return supplierDetailsRepo.findAllByApprovedTrue();
+//	}
 
 	@Override
-	public List<SupplierDetails> getApprovedSupplier() {
-		logger.info("Loading Approved Supplier Details....");
-		logger.debug("Successfully Loaded Approved Supplier Details! " + supplierDetailsRepo.findAllByApprovedTrue());
-		return supplierDetailsRepo.findAllByApprovedTrue();
-	}
-
-	@Override
-	public SupplierDetails approvingSupplier(int id) {
+	public User approvingSupplier(int id) {
 		// TruckDetails td=truckDetailsRepo.findById(id).get();
 		// td.setApproved(true);
 		logger.info("Approving Supplier " + id);
 		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
-		sd.setApproved(true);
+		User usr = userRepo.findById(id).get();
+		usr.setApproval(true);
 		try {
-			mailMessage.registeredSuccessfully(sd.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.registeredSuccessfully(usr.getEmail(), "Supplier", sd.getSuppName());
 			logger.debug("Successfully Approved Supplier! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return supplierDetailsRepo.save(sd);
+		return userRepo.save(usr);
 
 	}
 
@@ -99,9 +119,11 @@ public class SupplierServiceImpl implements SupplierService {
 		logger.info("Deleting Rejected Supplier " + id);
 		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		supplierDetailsRepo.deleteById(id);
+		User usr = userRepo.findById(id).get();
+		userRepo.deleteById(id);
 		try {
-			mailMessage.registerationFailure(sd.getEmail(), "Supplier", sd.getSuppName());
-			logger.debug("Deleted Rejected Supplier! " + id);
+			mailMessage.registerationFailure(usr.getEmail(), "Supplier", sd.getSuppName());
+			logger.debug("Deleted Rejected Supplier! " + usr.getEmail());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -130,18 +152,38 @@ public class SupplierServiceImpl implements SupplierService {
 	public boolean register(String username, String email, String password, String fromAddress, String contactNumber,
 			String landLine) {
 		logger.info("Registering user....");
+		System.out.println(username+"   "+email+"    "+password+"    "+fromAddress+ "    "+contactNumber+ "     "+ landLine);
 		// TODO Auto-generated method stub
 		long contactNumbe = Long.valueOf(contactNumber);
 		long landLin = Long.valueOf(landLine);
 		// long landLin1=null;
 		boolean set = false;
-		SupplierDetails sl = supplierDetailsRepo.findByEmail(email);
-		if (sl == null) {
-			SupplierDetails sd = new SupplierDetails(username, email, password, fromAddress, contactNumbe, set, null,
-					landLin);
+		//SupplierDetails sl = supplierDetailsRepo.findByEmail(email);
+		User usr=userRepo.findByEmail(email);
+		if (usr == null) {
+			SupplierDetails sd = new SupplierDetails(username, fromAddress, contactNumbe, landLin);
+			System.out.println("sd= "+sd);
 			supplierDetailsRepo.save(sd);
+//			String otp="123456";
+//			Otps otp1=new Otps(otp);
+			User usr1 = new User(email, password, sd);
+			
+//			String tempOtpId = usr1.getOtpId();
+//			System.out.println("user :    "+tempOtpId);
+//			int otpId=Integer.valueOf(tempOtpId);
+//			Otps otp10 = otpRepo.findByOtpId(otpId);
+			
+			Role role=	roleRepo.findByName("SUPPLIER");
+				
+			Set<Role> roles=new HashSet<Role>();
+			roles.add(role);
+			System.out.println(email+password+sd+" test "+roles);
+			
+			usr1.setRoles(roles);
+			System.out.println("usr= "+usr1);
+			userRepo.save(usr1);
 			try {
-				mailMessage.notifyRegisteration(sd.getEmail(), "Supplier", sd.getSuppName());
+				mailMessage.notifyRegisteration(usr1.getEmail(), "SUPPLIER", sd.getSuppName());
 				logger.debug("Registration Successfully Recieved!");
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -152,12 +194,24 @@ public class SupplierServiceImpl implements SupplierService {
 		return false;
 
 	}
-	
+
 	@Override
-	public void deleteSupplier(int id){
+	public void deleteSupplier(int id) {
 		logger.info("Deleting Supplier " + id);
 		logger.debug("Successfully Deleted Supplier!");
 		supplierDetailsRepo.deleteBySuppId(id);
+	}
+
+	@Override
+	public List<SupplierDetails> getPendingSupplier() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SupplierDetails> getApprovedSupplier() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

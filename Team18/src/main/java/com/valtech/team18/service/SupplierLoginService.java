@@ -5,17 +5,16 @@ package com.valtech.team18.service;
 
 public interface SupplierLoginService {
 
-
 	boolean loginvalidation(String username, String password);
-	
+
 	int getIdFromEmail(String email);
 
-	boolean checkmail(String email);
+	boolean generateOtp(String email);
 
-	boolean checkOTP(int id,String otp);
+	boolean checkOTP(int id, String otp);
 
 	void changePassword(int id, String password);
-	
-//	SupplierDetails saveNew(PendingSupplier ps);
+
+	// SupplierDetails saveNew(PendingSupplier ps);
 
 }

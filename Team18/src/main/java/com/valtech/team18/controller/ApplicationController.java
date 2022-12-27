@@ -89,14 +89,6 @@ public class ApplicationController {
 
 		return "mainHomePage";
 
-		// if (adminLoginService.loginvalidation(email, password) == true) {
-		// return "redirect:/admin/adminHome";
-		// } else {
-		// String message = "Invalid Username and Password";
-		// System.out.println(message);
-		// model.addAttribute("mess", message);
-		// return "admin/adminLogin";
-		// }
 	}
 
 	// Navigate to the About Us page
@@ -120,7 +112,7 @@ public class ApplicationController {
 	public String forgotPass(@RequestParam("email") String email, @RequestParam("role") String role, Model model) {
 		logger.info("Fetching forgotPassword");
 		if (role.equals("supp")) {
-			if (supplierLoginService.checkmail(email)) {
+			if (supplierLoginService.generateOtp(email)) {
 				// return "newPassword";
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/newPassword/supp/" + id;
@@ -132,7 +124,7 @@ public class ApplicationController {
 				return "forgotPassword";
 			}
 		} else {
-			if (truckLoginService.checkmail(email)) {
+			if (truckLoginService.generateOtp(email)) {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/newPassword/driver/" + id;
 			} else {

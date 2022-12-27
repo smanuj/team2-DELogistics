@@ -15,50 +15,36 @@ public class TruckDetails {
 	// driverName and driverPassword strings are used to save driver login
 	// credentials
 	private String driverName;
-	private String driverPassword;
+
 	private long driverPhNum;
 	private double temp;
-	private String email;
-	private boolean approved;
-	private String otp;
+
 
 
 	public TruckDetails() {
 		super();
 	}
 
-	public TruckDetails(String driverName, String driverPassword, long driverPhNum, double temp, String email,
-			boolean approved, String otp) {
+	public TruckDetails(String driverName, long driverPhNum, double temp) {
 		super();
 		this.driverName = driverName;
-		this.driverPassword = driverPassword;
 		this.driverPhNum = driverPhNum;
 		this.temp = temp;
-		this.email = email;
-		this.approved = approved;
-		this.otp = otp;
+		
 	}
 
-	public TruckDetails(int truckId, String driverName, String driverPassword, long driverPhNum, double temp,
-			String email, boolean approved, boolean pending) {
+	public TruckDetails(int truckId, String driverName, long driverPhNum, double temp,
+			 boolean pending) {
 		super();
 		this.truckId = truckId;
 		this.driverName = driverName;
-		this.driverPassword = driverPassword;
 		this.driverPhNum = driverPhNum;
 		this.temp = temp;
-		this.email = email;
-		this.approved = approved;
+	
 
 	}
 
-	public String getOtp() {
-		return otp;
-	}
 
-	public void setOtp(String otp) {
-		this.otp = otp;
-	}
 
 	public int getTruckId() {
 		return truckId;
@@ -92,35 +78,11 @@ public class TruckDetails {
 		this.temp = temp;
 	}
 
-	public String getDriverPassword() {
-		return driverPassword;
-	}
-
-	public void setDriverPassword(String driverPassword) {
-		this.driverPassword = driverPassword;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public boolean isApproved() {
-		return approved;
-	}
-
-	public void setApproved(boolean approved) {
-		this.approved = approved;
-	}
-
 	@Override
 	public String toString() {
-		return "TruckDetails [truckId=" + truckId + ", driverName=" + driverName + ", driverPassword=" + driverPassword
-				+ ", driverPhNum=" + driverPhNum + ", temp=" + temp + ", email=" + email + ", approved=" + approved
-				+ "]";
+		return "TruckDetails [truckId=" + truckId + ", driverName=" + driverName + ", driverPhNum=" + driverPhNum
+				+ ", temp=" + temp + "]";
 	}
+
 
 }

@@ -9,15 +9,10 @@ public interface TruckLoginService {
 
 	int getIdFromEmail(String email);
 
-	boolean checkmail(String email);
+	boolean generateOtp(String email);
 
 	boolean checkOTP(int id, String otp);
 
 	void changePassword(int id, String password);
-
-	
-	
-	
-//	TruckDetails saveNew(PendingDriver pd);
 
 }

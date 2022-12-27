@@ -25,55 +25,77 @@ public class User {
 	private String email;
 	private String password;
 	@OneToOne(targetEntity = SupplierDetails.class)
-	@JoinColumn(name = "suppId", referencedColumnName = "suppId")
-	private String suppId;
+	@JoinColumn(name = "supp_Id", referencedColumnName = "suppId")
+	private SupplierDetails suppId;
 	@OneToOne(targetEntity = TruckDetails.class)
-	@JoinColumn(name = "driverId", referencedColumnName = "truckId")
-	private String driverId;
+	@JoinColumn(name = "truck_Id", referencedColumnName = "truckId")
+	private TruckDetails truckId;
 	private boolean approval;
 	@OneToOne(targetEntity = Otps.class)
 	@JoinColumn(name = "otpId", referencedColumnName = "otpId")
-	private int otpId;
+	private String otpId;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE,fetch=FetchType.EAGER)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles = new HashSet<Role>();
+	
+
+	private Set<Role> roles=new HashSet<Role>();
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int id, String email, String password, String suppId, String driverId, boolean approval,
-			Set<Role> roles, int otpId) {
+	public User(int id, String email, String password, SupplierDetails suppId, TruckDetails truckId, boolean approval,
+			Set<Role> roles) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.suppId = suppId;
-		this.driverId = driverId;
-		this.approval = false;
+		this.truckId = truckId;
+		this.approval = approval;
 		this.roles = roles;
-		this.otpId = otpId;
+		this.otpId = "1";
 	}
+	
 
-	public User(String email, String password, String suppId, String driverId, boolean approval, Set<Role> roles,
-			int otpId) {
+	public User(String email, String password, SupplierDetails suppId) {
+		this.email = email;
+		this.password = password;
+		this.suppId = suppId;
+		this.approval = false;
+	}
+	public User(String email, String password,TruckDetails truckId) {
+		this.email = email;
+		this.password = password;
+		this.truckId = truckId;
+		this.approval = false;
+	}
+	public User(String email, String password, SupplierDetails suppId, TruckDetails truckId, boolean approval,
+			Set<Role> roles) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.suppId = suppId;
-		this.driverId = driverId;
-		this.approval = false;
+		this.truckId = truckId;
+		this.approval = approval;
 		this.roles = roles;
-		this.otpId = otpId;
+		this.otpId = "1";
 	}
 
-	public int getOtpId() {
+	public String getOtpId() {
 		return otpId;
 	}
 
-	public void setOtpId(int otpId) {
+	public User(String email, String password, boolean approval, Set<Role> roles) {
+		this.email = email;
+		this.password = password;
+		this.approval = approval;
+		this.roles = roles;
+	}
+
+	public void setOtpId(String otpId) {
 		this.otpId = otpId;
 	}
 
@@ -101,20 +123,20 @@ public class User {
 		this.password = password;
 	}
 
-	public String getSuppId() {
+	public SupplierDetails getSuppId() {
 		return suppId;
 	}
 
-	public void setSuppId(String suppId) {
+	public void setSuppId(SupplierDetails suppId) {
 		this.suppId = suppId;
 	}
 
-	public String getDriverId() {
-		return driverId;
+	public TruckDetails getTruckId() {
+		return truckId;
 	}
 
-	public void setDriverId(String driverId) {
-		this.driverId = driverId;
+	public void setTruckId(TruckDetails truckId) {
+		this.truckId = truckId;
 	}
 
 	public boolean getApproval() {
@@ -132,11 +154,8 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", suppId=" + suppId + ", driverId="
-				+ driverId + ", approval=" + approval + ", otpId=" + otpId + ", roles=" + roles + "]";
-	}
+
 
 }

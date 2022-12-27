@@ -1,10 +1,14 @@
 package com.valtech.team18.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,9 +18,11 @@ public class Role {
 	@Column(name="role_id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	 @Column(unique=true)
-	 private String name;
-	 
+	@Column(unique=true)
+	private String name;
+
+
+	
 	public int getId() {
 		return id;
 	}
@@ -33,7 +39,4 @@ public class Role {
 	public String toString() {
 		return "Role [id=" + id + ", name=" + name + "]";
 	}
-	 
-	
-	
 }

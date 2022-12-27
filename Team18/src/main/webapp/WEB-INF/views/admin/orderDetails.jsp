@@ -32,19 +32,19 @@
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/contactUs" data-toggle="tooltip" data-placement="top"
-						title="Go to Contact us">Contact Us</a></li>
+			aria-current="page" href="/contactUs" data-toggle="tooltip"
+			data-placement="top" title="Go to Contact us">Contact Us</a></li>
 
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/aboutUs" data-toggle="tooltip" data-placement="top"
-						title="Go About Us">About Us</a></li>
+			aria-current="page" href="/aboutUs" data-toggle="tooltip"
+			data-placement="top" title="Go About Us">About Us</a></li>
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/admin/adminHome" data-toggle="tooltip" data-placement="top"
-						title="Go back to Home">Home</a></li>
+			aria-current="page" href="/admin/adminHome" data-toggle="tooltip"
+			data-placement="top" title="Go back to Home">Home</a></li>
 	</div>
 </div>
 
@@ -99,8 +99,9 @@
 							href="https://www.google.com/maps/place/${OrderDetails.toAddress}"><button class="btn btn-lg btn-md btn-primary">
 								<i class="fa fa-map-marker" aria-hidden="true"></i>Drop 
 								Location</a></td> --%>
-								<td><a class="text-primary"
-							href="https://www.google.com/maps/place/${OrderDetails.toAddress}"> ${OrderDetails.toAddress}</a></td>
+						<td><a class="text-primary"
+							href="https://www.google.com/maps/place/${OrderDetails.toAddress}">
+								${OrderDetails.toAddress}</a></td>
 						<td>${OrderDetails.time}</td>
 						<td>${OrderDetails.phNum}</td>
 						<td>${OrderDetails.orderType}</td>
@@ -110,7 +111,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		 <div class="position-absolute bottom-0 start-50 translate-middle-x">
+		<div class="position-absolute bottom-0 start-50 translate-middle-x">
 
 			<a href="/admin/newOrder"><button type="button"
 					value="supDetails" name="supDetails"

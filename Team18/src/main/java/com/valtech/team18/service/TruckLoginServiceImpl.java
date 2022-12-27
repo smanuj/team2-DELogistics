@@ -9,22 +9,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.valtech.team18.entity.Otps;
+import com.valtech.team18.entity.SupplierDetails;
 //import com.valtech.team18.entity.SupplierDetails;
 //import com.valtech.team18.entity.PendingDriver;
 import com.valtech.team18.entity.TruckDetails;
+import com.valtech.team18.entity.User;
+import com.valtech.team18.repo.OtpRepo;
 import com.valtech.team18.repo.TruckDetailsRepo;
+import com.valtech.team18.repo.UserRepo;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS)
 public class TruckLoginServiceImpl implements TruckLoginService {
-	
-	private static final Logger logger= LoggerFactory.getLogger(TruckLoginServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(TruckLoginServiceImpl.class);
 
 	@Autowired
 	private TruckDetailsRepo truckDetailsRepo;
 
 	@Autowired
 	private MailMessage mailMessage;
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Autowired
+	private OtpRepo otpRepo;
 
 	public static String getRandomNumberString() {
 		logger.info("Generating Random String....");
@@ -44,9 +54,12 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		logger.info("Validating Login Credentials....");
 
 		try {
-			TruckDetails sup = truckDetailsRepo.findByEmailAndApprovedTrue(email);
-
-			if ((email.equals(sup.getEmail())) && (password.equals(sup.getDriverPassword()))) {
+//			TruckDetails sup = truckDetailsRepo.findByEmailAndApprovedTrue(email);
+//			User usr = userRepo.findByEmail(email);
+			User usr=userRepo.findByEmailAndApprovalTrue(email);
+			
+			String roles="driver";
+			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword())) && (roles.equals(usr.getRoles()))) {
 				logger.info("Successfully Validated Login Credentials!");
 				return true;
 			}
@@ -64,21 +77,24 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	public int getIdFromEmail(String email) {
 		logger.info("Retreiving Id assoicated with mail " + email);
 		logger.debug("Successfully Retreived Id assoicated with mail " + email);
-		return truckDetailsRepo.findByEmail(email).getTruckId();
+		//return truckDetailsRepo.findByEmail(email).getTruckId();
+		return userRepo.findByEmail(email).getTruckId().getTruckId();
 		// return supplierDetailsRepo.findByEmail(email).getSuppId();
 	}
 
 	@Override
-	public boolean checkmail(String email) {
+	public boolean generateOtp(String email) {
 		logger.info("Confirming Mail....");
-		TruckDetails td = truckDetailsRepo.findByEmail(email);
+		User usr=userRepo.findByEmail(email);
+		TruckDetails td = truckDetailsRepo.findByTruckId(usr.getTruckId().getTruckId());
 
-		if (td.getEmail() != null) {
+		if (usr.getEmail() != null) {
 			String pass = getRandomNumberString();
-			td.setOtp(pass);
-			truckDetailsRepo.save(td);
+			Otps otp = new Otps(pass);
+			usr.setOtpId(otp.getOtpId());
+			userRepo.save(usr);
 			try {
-				mailMessage.sendOTP(td.getEmail(), pass, "Driver", td.getDriverName());
+				mailMessage.sendOTP(usr.getEmail(), pass, "Driver", td.getDriverName());
 				logger.debug("Mail Confirmed and Sent!");
 			} catch (Exception e) {
 				logger.debug("Mail Confirmation Unsuccessfull!");
@@ -93,30 +109,40 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	@Override
 	public boolean checkOTP(int id, String otp) {
 		logger.info("Confirming OTP....");
+		User usr=userRepo.findById(id).get();
 		TruckDetails td = truckDetailsRepo.findByTruckId(id);
-		if (otp.equals(td.getOtp())) {
+		String tempOtpId = usr.getOtpId();
+		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(otpId);
+		//Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
+		if (otp.equals(otp10.getOtp())) {
 			logger.debug("OTP Confirmed!");
 			return true;
 		}
 		logger.debug("OTP Failed!");
 		return false;
+		
 	}
 
 	@Override
 	public void changePassword(int id, String password) {
 		logger.info("Changing password....");
+		User usr=userRepo.findById(id).get();
 		TruckDetails td = truckDetailsRepo.findByTruckId(id);
-		td.setDriverPassword(password);
-		td.setOtp(null);
+		usr.setPassword(password);
+		String tempOtpId = usr.getOtpId();
+		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(otpId);
+		//Otps otp = otpRepo.findById(usr.getOtpId()).get();
+		otp10.setOtp(null);
 		truckDetailsRepo.save(td);
 		try {
-			mailMessage.successfulPasswordChange(td.getEmail(), "Driver", td.getDriverName());
+			mailMessage.successfulPasswordChange(usr.getEmail(), "Driver", td.getDriverName());
 			logger.debug("Password Changed Successfully!");
 		} catch (Exception e) {
 			logger.debug("Password Changed Failed!");
 			e.printStackTrace();
 		}
-
 	}
 
 	// Save new supplier details
@@ -130,6 +156,5 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	// TruckDetails td = new TruckDetails(username, password, driverNumber);
 	// return truckDetailsRepo.save(td);
 	// }
-	
 
 }

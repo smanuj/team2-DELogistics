@@ -10,26 +10,28 @@ public class Otps {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int otpId;
-	private int otp;
+	private String otpId;
+	private String otp;
 
-	public int getOtpId() {
+	
+
+	public String getOtpId() {
 		return otpId;
 	}
 
-	public void setOtpId(int otpId) {
+	public void setOtpId(String otpId) {
 		this.otpId = otpId;
 	}
 
-	public int getOtp() {
+	public String getOtp() {
 		return otp;
 	}
 
-	public void setOtp(int otp) {
+	public void setOtp(String otp) {
 		this.otp = otp;
 	}
 
-	public Otps(int otpId, int otp) {
+	public Otps(String otpId, String otp) {
 		super();
 		this.otpId = otpId;
 		this.otp = otp;
@@ -37,10 +39,9 @@ public class Otps {
 
 	public Otps() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Otps(int otp) {
+	public Otps(String otp) {
 		super();
 		this.otp = otp;
 	}
