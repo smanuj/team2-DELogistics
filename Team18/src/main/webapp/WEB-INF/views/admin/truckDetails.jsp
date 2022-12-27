@@ -125,16 +125,16 @@
 				<tbody>
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
 						<tr>
-							<td>${TruckDetails.truckId}</td>
-							<td>${TruckDetails.driverName}</td>
-							<td>${TruckDetails.driverPhNum}</td>
+							<td>${TruckDetails.id}</td>
+							<td>${TruckDetails.email}</td>
+							<td>${TruckDetails.email}</td>
 							<td>
 								<div class="text-dark" id="ct" value="${TruckDetails}"></div>
 							</td>
 
 							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
 							<td>
-								<form action="/alert/${TruckDetails.truckId}" method="POST"
+								<form action="/alert/${TruckDetails.id}" method="POST"
 									class="form-signin  ">
 									<button class="btn btn-dark  btn-block" name="Alert"
 										value="Alert" type="Submit" data-toggle="tooltip"

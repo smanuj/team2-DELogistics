@@ -55,10 +55,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		try {
 //			SupplierDetails sup = supplierDetailsRepo.findByEmailAndApprovedTrue(email);
 //			User usr = userRepo.findByEmail(email);
-			User usr=userRepo.findByEmailAndApprovalTrue(email);
-			String roles="supp";
+			User usr=userRepo.findByEmailAndApprovalTrueAndSuppIdNotNull(email);
 
-			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))&&(roles.equals(usr.getRoles()))) {
+			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))) {
 				logger.info("Successfully Validated Login Credentials!");
 				return true;
 			}

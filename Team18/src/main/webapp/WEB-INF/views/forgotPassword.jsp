@@ -115,7 +115,7 @@
 					
 					<div class="position-absolute top-0 start-0">
 					<div class="text-danger fs-3">
-					<strong>${mess}</strong>
+					<strong>${mess1}</strong>
 					</div>
 					</div>
 					
@@ -132,7 +132,7 @@
 <footer>
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

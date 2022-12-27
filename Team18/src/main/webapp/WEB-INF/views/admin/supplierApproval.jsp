@@ -94,19 +94,19 @@
 				<tbody>
 					<c:forEach var="PendingSupplier" items="${PendingSupplier }" >
 						<tr>
-							<td>${PendingSupplier.suppId }</td>
-							<td>${PendingSupplier.suppName }</td>
+							<td>${PendingSupplier.id }</td>
 							<td>${PendingSupplier.email }</td>
-							<td>${PendingSupplier.suppContactDetails }</td>
-							<td>${PendingSupplier.fromAddress }</td>
+							<td>${PendingSupplier.email }</td>
+							<td>${PendingSupplier.email }</td>
+							<td>${PendingSupplier.email }</td>
 							<form method="post"
-								action="/admin/supplierApproval/${PendingSupplier.suppId}">
+								action="/admin/supplierApproval/${PendingSupplier.id}">
 								<td><input type="submit" value="Approve"
 									class="btn btn-lg  btn-success" id="details" name="Approve">
 									<!-- <i class="fa fa-ban"></i> --></td>
 							</form>
 							<form method="post"
-								action="/admin/supplierApproval/sdelete/${PendingSupplier.suppId}">
+								action="/admin/supplierApproval/sdelete/${PendingSupplier.id}">
 								<td><input type="submit" value="Reject"
 									class="btn btn-lg  btn-danger " id="details" name="Reject">
 									<!-- <i class="fa fa-ban"></i> --></td>
@@ -125,7 +125,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

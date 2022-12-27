@@ -56,10 +56,9 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		try {
 //			TruckDetails sup = truckDetailsRepo.findByEmailAndApprovedTrue(email);
 //			User usr = userRepo.findByEmail(email);
-			User usr=userRepo.findByEmailAndApprovalTrue(email);
+			User usr=userRepo.findByEmailAndApprovalTrueAndTruckIdNotNull(email);
 			
-			String roles="driver";
-			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword())) && (roles.equals(usr.getRoles()))) {
+			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))) {
 				logger.info("Successfully Validated Login Credentials!");
 				return true;
 			}

@@ -101,11 +101,11 @@ public class SupplierServiceImpl implements SupplierService {
 		// TruckDetails td=truckDetailsRepo.findById(id).get();
 		// td.setApproved(true);
 		logger.info("Approving Supplier " + id);
-		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
+//		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
 		usr.setApproval(true);
 		try {
-			mailMessage.registeredSuccessfully(usr.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.registeredSuccessfully(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.debug("Successfully Approved Supplier! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,12 +117,12 @@ public class SupplierServiceImpl implements SupplierService {
 	@Override
 	public void deleteRejectedSupplier(int id) {
 		logger.info("Deleting Rejected Supplier " + id);
-		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
-		supplierDetailsRepo.deleteById(id);
+//		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
+		supplierDetailsRepo.deleteBySuppId(usr.getSuppId().getSuppId());
 		userRepo.deleteById(id);
 		try {
-			mailMessage.registerationFailure(usr.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.registerationFailure(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.debug("Deleted Rejected Supplier! " + usr.getEmail());
 		} catch (Exception e) {
 			e.printStackTrace();

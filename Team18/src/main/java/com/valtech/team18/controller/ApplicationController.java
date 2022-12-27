@@ -49,7 +49,7 @@ public class ApplicationController {
 		logger.info("Fetching adminLoginVal for admin");
 
 		System.out.println("test1");
-		if (role.equals("admin")) {
+		if (role.equals("ADMIN")) {
 			System.out.println("test2");
 			if (adminLoginService.loginvalidation(email, password) == true) {
 				System.out.println("test3");
@@ -60,7 +60,7 @@ public class ApplicationController {
 				model.addAttribute("mess", message);
 				return "mainHomePage";
 			}
-		} else if (role.equals("supp")) {
+		} else if (role.equals("SUPPLIER")) {
 			if (supplierLoginService.loginvalidation(email, password) == true) {
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/supplier/supplierHome/" + id;
@@ -72,7 +72,7 @@ public class ApplicationController {
 			}
 		}
 
-		else if (role.equals("driver")) {
+		else if (role.equals("TRUCKDRIVER")) {
 			if (truckLoginService.loginvalidation(email, password) == true) {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/truckDriver/truckDriverHome/" + id;

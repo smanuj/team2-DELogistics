@@ -214,9 +214,9 @@ a {
 
 											<option value="" disabled selected>Select</option>
 
-											<option value="admin">Admin</option>
-											<option value="supp">Supplier</option>
-											<option value="driver">Truck Driver</option>
+											<option value="ADMIN">Admin</option>
+											<option value="SUPPLIER">Supplier</option>
+											<option value="TRUCKDRIVER">Truck Driver</option>
 
 										</select>
 
@@ -297,7 +297,7 @@ a {
 <footer>
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 

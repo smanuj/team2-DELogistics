@@ -25,6 +25,7 @@ import com.valtech.team18.service.NewOrderService;
 import com.valtech.team18.service.SendMail;
 import com.valtech.team18.service.SupplierService;
 import com.valtech.team18.service.TruckDetailsService;
+import com.valtech.team18.service.UserDetailService;
 
 @Controller
 public class AdminController {
@@ -54,6 +55,9 @@ public class AdminController {
 	
 	@Autowired
 	UserRepo userRepo;
+	
+	@Autowired
+	UserDetailService userDetailService;
 
 	// Navigate to Home page for Admin
 	@GetMapping("/admin/adminHome")
@@ -78,14 +82,14 @@ public class AdminController {
 	// Navigate to Supplier Details page for Admin
 	@GetMapping("/admin/supplierDetails")
 	public String supDetails(Model model) {
-		model.addAttribute("SupplierDetails", suppService.getApprovedSupplier());
+		model.addAttribute("SupplierDetails", userDetailService.getApprovedSupplier());
 		return "admin/supplierDetails";
 	}
 
 	// Navigate to Truck Details page for Admin
 	@GetMapping("/admin/truckDetails")
 	public String truckDetails(Model model) {
-		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
+		model.addAttribute("TruckDetails", userDetailService.getApprovedDriver());
 		return "admin/truckDetails";
 	}
 

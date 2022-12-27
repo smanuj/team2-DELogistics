@@ -86,14 +86,14 @@
 			<tbody>
 				<c:forEach items="${PendingDriver}" var="PendingDriver">
 					<tr>
-						<td>${PendingDriver.truckId}</td>
-						<td>${PendingDriver.driverName}</td>
+						<td>${PendingDriver.id}</td>
 						<td>${PendingDriver.email}</td>
-						<td>${PendingDriver.driverPhNum}</td>
+						<td>${PendingDriver.email}</td>
+						<td>${PendingDriver.email}</td>
 
 
 						<form method="post"
-							action="/admin/driverApproval/${PendingDriver.truckId}">
+							action="/admin/driverApproval/${PendingDriver.id}">
 
 							<td><input type="submit" value="Approve"
 								class="btn btn-lg  btn-success" id="Approve" name="Approve"
@@ -101,7 +101,7 @@
 								title="Click Here To Approve "></td>
 						</form>
 						<form method="post"
-							action="/admin/driverApproval/ddelete/${PendingDriver.truckId}">
+							action="/admin/driverApproval/ddelete/${PendingDriver.id}">
 							<td><input type="submit" value="Reject"
 								class="btn btn-lg  btn-danger " id="details" name="Reject"
 								data-toggle="tooltip" data-placement="top"
@@ -121,7 +121,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

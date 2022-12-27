@@ -5,6 +5,7 @@ import java.util.List;
 import com.valtech.team18.entity.OrderDetails;
 import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
+import com.valtech.team18.entity.User;
 
 public interface TruckDetailsService {
 
@@ -18,7 +19,7 @@ public interface TruckDetailsService {
 
 	List<TruckDetails> getApprovedDriver();
 
-	TruckDetails approvingDriver(int id);
+	User approvingDriver(int id);
 
 	void deleteRejectedDriver(int id);
 
