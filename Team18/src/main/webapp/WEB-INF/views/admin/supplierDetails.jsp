@@ -83,16 +83,18 @@
 					<td>Supplier Name</td>
 					<td>From Address</td>
 					<td>Contact info</td>
+					<td>LandLine</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${SupplierDetails}" var="SupplierDetails">
 					<tr>
-						<td>${SupplierDetails.id}</td>
-						<td>${SupplierDetails.email}</td>
+						<td>${SupplierDetails.suppId}</td>
+						<td>${SupplierDetails.suppName}</td>
 						<td><a
-							href="https://www.google.com/maps/place/${SupplierDetails.email}">${SupplierDetails.email}</a></td>
-						<td>${SupplierDetails.email}</td>
+							href="https://www.google.com/maps/place/${SupplierDetails.fromAddress}">${SupplierDetails.fromAddress}</a></td>
+						<td>${SupplierDetails.suppContactDetails}</td>
+						<td>${SupplierDetails.landLine}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

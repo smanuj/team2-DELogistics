@@ -82,14 +82,14 @@ public class AdminController {
 	// Navigate to Supplier Details page for Admin
 	@GetMapping("/admin/supplierDetails")
 	public String supDetails(Model model) {
-		model.addAttribute("SupplierDetails", userDetailService.getApprovedSupplier());
+		model.addAttribute("SupplierDetails", suppService.getApprovedSupplier());
 		return "admin/supplierDetails";
 	}
 
 	// Navigate to Truck Details page for Admin
 	@GetMapping("/admin/truckDetails")
 	public String truckDetails(Model model) {
-		model.addAttribute("TruckDetails", userDetailService.getApprovedDriver());
+		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
 		return "admin/truckDetails";
 	}
 

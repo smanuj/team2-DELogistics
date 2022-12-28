@@ -126,11 +126,6 @@
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
 					<tr>
 							<td>${TruckDetails.truckId}</td>
-  
-
-						
-							
-							
 							<td>${TruckDetails.}</td>
 							<td>
 								<div class="text-dark" id="ct" "></div>
