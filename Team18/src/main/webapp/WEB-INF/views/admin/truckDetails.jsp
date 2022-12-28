@@ -131,8 +131,7 @@
 							<!-- <td>
 								<div class="text-dark" id="ct" "></div>
 							</td> -->
-							<td>temp</td>
-							<%-- <td>Math.round(${TruckDetails.temp},1)</td> --%>
+							<td>${TruckDetails.temp}</td>
 
 							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
 							<td>

@@ -147,7 +147,8 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		long contactNumbe = Long.valueOf(contactNumber);
 		boolean set = false;
 		Random r = new Random();
-		float random = -10 + r.nextFloat() * (45 - (-10));
+		float random1 = -10 + r.nextFloat() * (45 - (-10));
+		float random = Math.round(random1);
 		// TruckDetails td = truckDetailsRepo.findByEmail(email);
 		User usr = userRepo.findByEmailAndTruckIdNotNull(email);
 		if (usr == null) {
