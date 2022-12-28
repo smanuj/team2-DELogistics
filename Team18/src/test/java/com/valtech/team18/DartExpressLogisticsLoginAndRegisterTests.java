@@ -112,11 +112,12 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 //		 List<SupplierDetails> sd=supplierDetailsRepo.findAll();
 //		 List<User> usr=userRepo.findAll();
 //		 int a=usr.size();
-//		 supplierService.register("username1", "email23@gmail.com", "password1", "fromAddresss", "6361748785", "25358698967");
+//		
+//		supplierService.register("username1", "email23@gmail.com", "password1", "fromAddresss", "6361748785", "25358698967");
 //		 sd=supplierDetailsRepo.findAll();
-//		 usr=userRepo.findAll();
+//		 usr=userRepo.findAll(); 
 //		 int b=usr.size();
-////		 SupplierDetails sd2=supplierDetailsRepo.findByEmail("email23@gmail.com");
+//		 //SupplierDetails sd2=supplierDetailsRepo.findByEmail("email23@gmail.com");
 //		 User usr1=userRepo.findByEmail("email23@gmail.com");
 //		 assertEquals(a+1, b);
 //		// userRepo.deleteBySuppId(usr1.getId());
@@ -124,18 +125,21 @@ public class DartExpressLogisticsLoginAndRegisterTests {
 //		 assertEquals(b-1, a);
 //		 
 //	 }
-	 
+//	 
 //	 @Test
 //     public void testDriverRegisteration() throws Exception{
 //		 List<TruckDetails> td = truckDetailsRepo.findAll();
-//		 int x =td.size();
+//		 List<User> usr=userRepo.findAll();
+//		 int x =usr.size();
 //		 truckDetailsService.register("Test", "password", "anujsm112345@gmail.com", "7896998962");
 //		  td = truckDetailsRepo.findAll();
-//		 int y = td.size();
-//		 TruckDetails td2 = truckDetailsRepo.findByEmail("anujsm112345@gmail.com");
+//		  usr=userRepo.findAll();
+//		 int y = usr.size();
+//		 //TruckDetails td2 = truckDetailsRepo.findByEmail("anujsm112345@gmail.com");
+//		 User usr1=userRepo.findByEmail("anujsm112345@gmail.com");
 //	       assertEquals(x+1, y);
-//	     truckDetailsRepo.deleteById(td2.getTruckId());
+//	   //  userRepo.deleteById(usr.getTruckId().getTruckId());
+//	       userDetailService.deleteTruckDriverRegister(usr1.getId());
 //	     assertEquals(y-1, x);
-//     }
-	 
+//     }	 
 }

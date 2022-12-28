@@ -19,5 +19,6 @@ public interface UserDetailService {
 	void deleteTruck(int id);
 
 	void deleteSupplierRegister(int id);
-
+	
+	void deleteTruckDriverRegister(int id);
 }

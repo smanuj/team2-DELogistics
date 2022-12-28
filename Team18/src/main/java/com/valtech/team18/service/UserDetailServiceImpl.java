@@ -69,7 +69,12 @@ public class UserDetailServiceImpl implements UserDetailService  {
 	}
 	@Override
 	public void deleteSupplierRegister(int id){
-		String sql = "delete products where id = ?";
+		String sql = "delete User where id = ?";
+        jdbcTemplate.update(sql, id);
+	}
+	@Override
+	public void deleteTruckDriverRegister(int id){
+		String sql = "delete User where id = ?";
         jdbcTemplate.update(sql, id);
 	}
 	
