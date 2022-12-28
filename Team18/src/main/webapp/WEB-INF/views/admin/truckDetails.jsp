@@ -126,10 +126,13 @@
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
 					<tr>
 							<td>${TruckDetails.truckId}</td>
-							<td>${TruckDetails.}</td>
-							<td>
+							<td>${TruckDetails.driverName}</td>
+							<td>${TruckDetails.driverPhNum}</td>
+							<!-- <td>
 								<div class="text-dark" id="ct" "></div>
-							</td>
+							</td> -->
+							<td>temp</td>
+							<%-- <td>Math.round(${TruckDetails.temp},1)</td> --%>
 
 							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
 							<td>
