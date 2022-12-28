@@ -174,8 +174,8 @@ public class AdminController {
 	public String newOrder(Model model) {
 		logger.info("Fetching newOrder for admin {}");
 
-		model.addAttribute("SupplierDetails", userDetailService.getApprovedSupplier());
-		model.addAttribute("TruckDetails", userDetailService.getApprovedDriver());
+		model.addAttribute("SupplierDetails", suppService.getApprovedSupplier());
+		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
 		//
 		return "admin/newOrder";
 	}

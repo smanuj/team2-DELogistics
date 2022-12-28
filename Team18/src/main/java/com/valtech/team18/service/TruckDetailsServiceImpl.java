@@ -193,8 +193,12 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Override
 	public List<TruckDetails> getApprovedDriver() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> usr=userRepo.findAllByApprovalTrueAndTruckIdNotNull();
+		List<TruckDetails> td=new ArrayList<>();
+		for (User user : usr) {
+			td.add(user.getTruckId());
+		}
+		return td;
 	}
 
 }

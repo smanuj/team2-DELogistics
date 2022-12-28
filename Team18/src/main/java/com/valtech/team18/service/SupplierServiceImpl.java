@@ -211,8 +211,12 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public List<SupplierDetails> getApprovedSupplier() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> usr=userRepo.findAllByApprovalTrueAndSuppIdNotNull();
+		List<SupplierDetails> sd=new ArrayList<>();
+		for (User us : usr) {
+				sd.add(us.getSuppId());
+		}
+		return sd;
 	}
 
 }
