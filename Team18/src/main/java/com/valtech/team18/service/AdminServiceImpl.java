@@ -64,7 +64,11 @@ public class AdminServiceImpl implements AdminService {
 	public void sendAlertMail(int tId) {
 		logger.info("Sending alert....");
 		TruckDetails td = truckDetailsRepo.findByTruckId(tId);
-		User usr = userRepo.findByTruckId(td.getTruckId());
+		System.out.println(td);
+		System.out.println(td.getTruckId());
+		int td1= td.getTruckId();
+		User usr = userRepo.findByTruckId(td);
+		System.out.println(usr);
 		mailMessage.sendAlert(usr.getEmail(), td.getDriverName());
 		logger.debug("Alert Sent!");
 	}

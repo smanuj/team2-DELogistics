@@ -147,7 +147,8 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		long contactNumbe = Long.valueOf(contactNumber);
 		boolean set = false;
 		Random r = new Random();
-		float random = -10 + r.nextFloat() * (45 - (-10));
+		float random1 = -10 + r.nextFloat() * (45 - (-10));
+		float random = Math.round(random1);
 		// TruckDetails td = truckDetailsRepo.findByEmail(email);
 		User usr = userRepo.findByEmailAndTruckIdNotNull(email);
 		if (usr == null) {
@@ -193,8 +194,12 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Override
 	public List<TruckDetails> getApprovedDriver() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> usr=userRepo.findAllByApprovalTrueAndTruckIdNotNull();
+		List<TruckDetails> td=new ArrayList<>();
+		for (User user : usr) {
+			td.add(user.getTruckId());
+		}
+		return td;
 	}
 
 }

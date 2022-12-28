@@ -125,27 +125,17 @@
 				<tbody>
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
 					<tr>
-							<td>${TruckDetails.id}</td>
-  <fieldset name="${TruckDetails.suppId}">
-      <legend>
-        <c:forEach items="${TruckDetails.truckId}" var="supp">
-         <td> <c:out value="${supp.driverName}" /></td>
-        </c:forEach>
-      </legend>
-     
-  </fieldset>
-
-						
-							
-							
-							<td>${TruckDetails.email}</td>
-							<td>
+							<td>${TruckDetails.truckId}</td>
+							<td>${TruckDetails.driverName}</td>
+							<td>${TruckDetails.driverPhNum}</td>
+							<!-- <td>
 								<div class="text-dark" id="ct" "></div>
-							</td>
+							</td> -->
+							<td>${TruckDetails.temp}</td>
 
 							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
 							<td>
-								<form action="/alert/${TruckDetails.id}" method="POST"
+								<form action="/alert/${TruckDetails.truckId}" method="POST"
 									class="form-signin  ">
 									<button class="btn btn-dark  btn-block" name="Alert"
 										value="Alert" type="Submit" data-toggle="tooltip"
