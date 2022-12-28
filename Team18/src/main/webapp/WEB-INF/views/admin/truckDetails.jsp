@@ -124,17 +124,28 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${TruckDetails}" var="TruckDetails">
-						<tr>
-							<td>${TruckDetails.truckId}</td>
-							<td>${TruckDetails.driverName}</td>
-							<td>${TruckDetails.driverPhNum}</td>
+					<tr>
+							<td>${TruckDetails.id}</td>
+  <fieldset name="${TruckDetails.suppId}">
+      <legend>
+        <c:forEach items="${TruckDetails.truckId}" var="supp">
+         <td> <c:out value="${supp.driverName}" /></td>
+        </c:forEach>
+      </legend>
+     
+  </fieldset>
+
+						
+							
+							
+							<td>${TruckDetails.email}</td>
 							<td>
-								<div class="text-dark" id="ct" value="${TruckDetails}"></div>
+								<div class="text-dark" id="ct" "></div>
 							</td>
 
 							<!--                         <td><div class="text-dark" id="ct"></div></td> -->
 							<td>
-								<form action="/alert/${TruckDetails.truckId}" method="POST"
+								<form action="/alert/${TruckDetails.id}" method="POST"
 									class="form-signin  ">
 									<button class="btn btn-dark  btn-block" name="Alert"
 										value="Alert" type="Submit" data-toggle="tooltip"
@@ -164,7 +175,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	� 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	  2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

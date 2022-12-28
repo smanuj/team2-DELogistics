@@ -25,6 +25,7 @@ import com.valtech.team18.service.NewOrderService;
 import com.valtech.team18.service.SendMail;
 import com.valtech.team18.service.SupplierService;
 import com.valtech.team18.service.TruckDetailsService;
+import com.valtech.team18.service.UserDetailService;
 
 @Controller
 public class AdminController {
@@ -51,9 +52,12 @@ public class AdminController {
 
 	@Autowired
 	NewOrderService newOrderService;
-	
+
 	@Autowired
 	UserRepo userRepo;
+
+	@Autowired
+	UserDetailService userDetailService;
 
 	// Navigate to Home page for Admin
 	@GetMapping("/admin/adminHome")
@@ -78,14 +82,14 @@ public class AdminController {
 	// Navigate to Supplier Details page for Admin
 	@GetMapping("/admin/supplierDetails")
 	public String supDetails(Model model) {
-		model.addAttribute("SupplierDetails", suppService.getApprovedSupplier());
+		model.addAttribute("SupplierDetails", userDetailService.getApprovedSupplier());
 		return "admin/supplierDetails";
 	}
 
 	// Navigate to Truck Details page for Admin
 	@GetMapping("/admin/truckDetails")
 	public String truckDetails(Model model) {
-		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
+		model.addAttribute("TruckDetails", userDetailService.getApprovedDriver());
 		return "admin/truckDetails";
 	}
 
@@ -94,7 +98,7 @@ public class AdminController {
 	@GetMapping("/admin/driverApproval")
 	public String driverApp(Model model) {
 		// model.addAttribute("PendingDriver", registerService.getDriverList());
-		List<User> user=userRepo.findAllByApprovalFalseAndTruckIdNotNull();
+		List<User> user = userRepo.findAllByApprovalFalseAndTruckIdNotNull();
 		for (User user2 : user) {
 			System.out.print(user2);
 		}
@@ -120,8 +124,8 @@ public class AdminController {
 	// Approve/Reject the pending Supplier details
 	@GetMapping("/admin/supplierApproval")
 	public String supplierApp(Model model) {
-		
-		List<User> user=userRepo.findAllByApprovalFalseAndSuppIdNotNull();
+
+		List<User> user = userRepo.findAllByApprovalFalseAndSuppIdNotNull();
 		for (User user2 : user) {
 			System.out.print(user2);
 		}
@@ -170,8 +174,8 @@ public class AdminController {
 	public String newOrder(Model model) {
 		logger.info("Fetching newOrder for admin {}");
 
-		model.addAttribute("SupplierDetails", suppService.getApprovedSupplier());
-		model.addAttribute("TruckDetails", tdService.getApprovedDriver());
+		model.addAttribute("SupplierDetails", userDetailService.getApprovedSupplier());
+		model.addAttribute("TruckDetails", userDetailService.getApprovedDriver());
 		//
 		return "admin/newOrder";
 	}

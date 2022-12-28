@@ -88,12 +88,11 @@
 			<tbody>
 				<c:forEach items="${SupplierDetails}" var="SupplierDetails">
 					<tr>
-						<td>
-							<!--<a href="${SupplierDetails.suppId}">  -->${SupplierDetails.suppId}</td>
-						<td>${SupplierDetails.suppName}</td>
+						<td>${SupplierDetails.id}</td>
+						<td>${SupplierDetails.email}</td>
 						<td><a
-							href="https://www.google.com/maps/place/${SupplierDetails.fromAddress}">${SupplierDetails.fromAddress}</a></td>
-						<td>${SupplierDetails.suppContactDetails}</td>
+							href="https://www.google.com/maps/place/${SupplierDetails.email}">${SupplierDetails.email}</a></td>
+						<td>${SupplierDetails.email}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -109,7 +108,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

@@ -32,7 +32,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	private MailMessage mailMessage;
 	@Autowired
 	private UserRepo userRepo;
-	
+
 	@Autowired
 	private OtpRepo otpRepo;
 
@@ -56,10 +56,9 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		try {
 //			TruckDetails sup = truckDetailsRepo.findByEmailAndApprovedTrue(email);
 //			User usr = userRepo.findByEmail(email);
-			User usr=userRepo.findByEmailAndApprovalTrue(email);
-			
-			String roles="driver";
-			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword())) && (roles.equals(usr.getRoles()))) {
+			User usr = userRepo.findByEmailAndApprovalTrueAndTruckIdNotNull(email);
+
+			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))) {
 				logger.info("Successfully Validated Login Credentials!");
 				return true;
 			}
@@ -77,7 +76,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	public int getIdFromEmail(String email) {
 		logger.info("Retreiving Id assoicated with mail " + email);
 		logger.debug("Successfully Retreived Id assoicated with mail " + email);
-		//return truckDetailsRepo.findByEmail(email).getTruckId();
+		// return truckDetailsRepo.findByEmail(email).getTruckId();
 		return userRepo.findByEmail(email).getTruckId().getTruckId();
 		// return supplierDetailsRepo.findByEmail(email).getSuppId();
 	}
@@ -85,13 +84,15 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	@Override
 	public boolean generateOtp(String email) {
 		logger.info("Confirming Mail....");
-		User usr=userRepo.findByEmail(email);
+		User usr = userRepo.findByEmailAndTruckIdNotNull(email);
 		TruckDetails td = truckDetailsRepo.findByTruckId(usr.getTruckId().getTruckId());
 
 		if (usr.getEmail() != null) {
 			String pass = getRandomNumberString();
 			Otps otp = new Otps(pass);
-			usr.setOtpId(otp.getOtpId());
+			System.out.println("otp:   "+otp);
+			otpRepo.save(otp);
+			usr.setOtpId(otp);
 			userRepo.save(usr);
 			try {
 				mailMessage.sendOTP(usr.getEmail(), pass, "Driver", td.getDriverName());
@@ -109,31 +110,31 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 	@Override
 	public boolean checkOTP(int id, String otp) {
 		logger.info("Confirming OTP....");
-		User usr=userRepo.findById(id).get();
+		User usr = userRepo.findById(id).get();
 		TruckDetails td = truckDetailsRepo.findByTruckId(id);
-		String tempOtpId = usr.getOtpId();
-		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp10 = otpRepo.findByOtpId(otpId);
-		//Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
+//		int tempOtpId = usr.getOtpId();
+//		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
+		// Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
 		if (otp.equals(otp10.getOtp())) {
 			logger.debug("OTP Confirmed!");
 			return true;
 		}
 		logger.debug("OTP Failed!");
 		return false;
-		
+
 	}
 
 	@Override
 	public void changePassword(int id, String password) {
 		logger.info("Changing password....");
-		User usr=userRepo.findById(id).get();
+		User usr = userRepo.findById(id).get();
 		TruckDetails td = truckDetailsRepo.findByTruckId(id);
 		usr.setPassword(password);
-		String tempOtpId = usr.getOtpId();
-		Integer otpId=Integer.parseInt(tempOtpId);
-		Otps otp10 = otpRepo.findByOtpId(otpId);
-		//Otps otp = otpRepo.findById(usr.getOtpId()).get();
+//		int tempOtpId = usr.getOtpId();
+//		Integer otpId=Integer.parseInt(tempOtpId);
+		Otps otp10 = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
+		// Otps otp = otpRepo.findById(usr.getOtpId()).get();
 		otp10.setOtp(null);
 		truckDetailsRepo.save(td);
 		try {

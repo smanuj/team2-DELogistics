@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.valtech.team18.repo.UserRepo;
 import com.valtech.team18.service.AdminLoginService;
 import com.valtech.team18.service.SupplierLoginService;
 import com.valtech.team18.service.TruckLoginService;
@@ -27,6 +28,9 @@ public class ApplicationController {
 
 	@Autowired
 	TruckLoginService truckLoginService;
+	
+	@Autowired
+	UserRepo userRepo;
 
 	// Navigate to Login Page
 	@GetMapping("/login")
@@ -49,7 +53,7 @@ public class ApplicationController {
 		logger.info("Fetching adminLoginVal for admin");
 
 		System.out.println("test1");
-		if (role.equals("admin")) {
+		if (role.equals("ADMIN")) {
 			System.out.println("test2");
 			if (adminLoginService.loginvalidation(email, password) == true) {
 				System.out.println("test3");
@@ -60,7 +64,7 @@ public class ApplicationController {
 				model.addAttribute("mess", message);
 				return "mainHomePage";
 			}
-		} else if (role.equals("supp")) {
+		} else if (role.equals("SUPPLIER")) {
 			if (supplierLoginService.loginvalidation(email, password) == true) {
 				int id = supplierLoginService.getIdFromEmail(email);
 				return "redirect:/supplier/supplierHome/" + id;
@@ -72,7 +76,7 @@ public class ApplicationController {
 			}
 		}
 
-		else if (role.equals("driver")) {
+		else if (role.equals("TRUCKDRIVER")) {
 			if (truckLoginService.loginvalidation(email, password) == true) {
 				int id = truckLoginService.getIdFromEmail(email);
 				return "redirect:/truckDriver/truckDriverHome/" + id;
@@ -111,10 +115,10 @@ public class ApplicationController {
 	@PostMapping("/forgotPassword")
 	public String forgotPass(@RequestParam("email") String email, @RequestParam("role") String role, Model model) {
 		logger.info("Fetching forgotPassword");
-		if (role.equals("supp")) {
+		if (role.equals("SUPPLIER")) {
 			if (supplierLoginService.generateOtp(email)) {
 				// return "newPassword";
-				int id = supplierLoginService.getIdFromEmail(email);
+				int id = userRepo.findByEmailAndSuppIdNotNull(email).getId();
 				return "redirect:/newPassword/supp/" + id;
 
 			} else {
@@ -124,8 +128,9 @@ public class ApplicationController {
 				return "forgotPassword";
 			}
 		} else {
+			System.out.println(role);
 			if (truckLoginService.generateOtp(email)) {
-				int id = truckLoginService.getIdFromEmail(email);
+				int id = userRepo.findByEmailAndTruckIdNotNull(email).getId();
 				return "redirect:/newPassword/driver/" + id;
 			} else {
 				String message = "Invalid Email-Id for Driver";

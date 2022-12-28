@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.valtech.team18.entity.OrderDetails;
-import com.valtech.team18.entity.Otps;
 import com.valtech.team18.entity.Role;
 import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
@@ -88,30 +87,30 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	// }
 
 	@Override
-	public TruckDetails approvingDriver(int id) {
+	public User approvingDriver(int id) {
 
 		logger.info("Approving Driver " + id);
-		TruckDetails td = truckDetailsRepo.findById(id).get();
+//		TruckDetails td = truckDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
 		usr.setApproval(true);
 		try {
-			mailMessage.registeredSuccessfully(usr.getEmail(), "Driver", td.getDriverName());
+			mailMessage.registeredSuccessfully(usr.getEmail(), "Driver", usr.getTruckId().getDriverName());
 			logger.debug("Successfully Approved Driver! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return truckDetailsRepo.save(td);
+		return userRepo.save(usr);
 	}
 
 	@Override
 	public void deleteRejectedDriver(int id) {
 		logger.info("Deleting Rejected Driver " + id);
-		TruckDetails td = truckDetailsRepo.findById(id).get();
-		truckDetailsRepo.deleteById(id);
+//		TruckDetails td = truckDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
+		truckDetailsRepo.deleteByTruckId(usr.getTruckId().getTruckId());
 		userRepo.deleteById(id);
 		try {
-			mailMessage.registerationFailure(usr.getEmail(), "Driver", td.getDriverName());
+			mailMessage.registerationFailure(usr.getEmail(), "Driver", usr.getTruckId().getDriverName());
 			logger.debug("Deleted Rejected Driver! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -150,7 +149,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		Random r = new Random();
 		float random = -10 + r.nextFloat() * (45 - (-10));
 		// TruckDetails td = truckDetailsRepo.findByEmail(email);
-		User usr = userRepo.findByEmail(email);
+		User usr = userRepo.findByEmailAndTruckIdNotNull(email);
 		if (usr == null) {
 			TruckDetails tdn = new TruckDetails(username, contactNumbe, random);
 

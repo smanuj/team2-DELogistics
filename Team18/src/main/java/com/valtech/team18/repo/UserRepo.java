@@ -10,32 +10,38 @@ import com.valtech.team18.entity.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
-	
+
 	List<User> findAllByApprovalFalse();
+
 //
 	List<User> findAllByApprovalTrue();
+
 //
 	User findByEmailAndApprovalTrue(String email);
 
+	User findByEmailAndApprovalTrueAndTruckIdNotNull(String email);
+
+	User findByEmailAndApprovalTrueAndSuppIdNotNull(String email);
+
 //	User findByEmail(String email);
-	
+
 	User findByEmail(String email);
 
 	User findByTruckId(int id);
-	User findBySuppId(int id);
-	
-	User deleteBySuppId(int id);
-	
-	List<User> findAllByApprovalFalseAndSuppIdNotNull();
-	
-	List<User> findAllByApprovalFalseAndTruckIdNotNull();
-	
-	List<User> findAllByApprovalTrueAndSuppIdNotNull();
-	
-	List<User> findAllByApprovalTrueAndTruckIdNotNull();
-	
-	
-	
-	
 
+	User findBySuppId(int id);
+
+	User deleteBySuppId(int id);
+
+	List<User> findAllByApprovalFalseAndSuppIdNotNull();
+
+	List<User> findAllByApprovalFalseAndTruckIdNotNull();
+
+	List<User> findAllByApprovalTrueAndSuppIdNotNull();
+
+	List<User> findAllByApprovalTrueAndTruckIdNotNull();
+
+	User findByEmailAndTruckIdNotNull(String email);
+
+	User findByEmailAndSuppIdNotNull(String email);
 }

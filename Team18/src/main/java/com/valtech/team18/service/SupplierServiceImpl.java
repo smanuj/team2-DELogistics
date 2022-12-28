@@ -42,13 +42,13 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Autowired
 	private MailMessage mailMessage;
-	
+
 	@Autowired
 	private UserRepo userRepo;
-	
+
 	@Autowired
 	private RoleRepo roleRepo;
-	
+
 	@Autowired
 	private OtpRepo otpRepo;
 
@@ -101,11 +101,11 @@ public class SupplierServiceImpl implements SupplierService {
 		// TruckDetails td=truckDetailsRepo.findById(id).get();
 		// td.setApproved(true);
 		logger.info("Approving Supplier " + id);
-		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
+//		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
 		usr.setApproval(true);
 		try {
-			mailMessage.registeredSuccessfully(usr.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.registeredSuccessfully(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.debug("Successfully Approved Supplier! " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,12 +117,12 @@ public class SupplierServiceImpl implements SupplierService {
 	@Override
 	public void deleteRejectedSupplier(int id) {
 		logger.info("Deleting Rejected Supplier " + id);
-		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
-		supplierDetailsRepo.deleteById(id);
+//		SupplierDetails sd = supplierDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
+		supplierDetailsRepo.deleteBySuppId(usr.getSuppId().getSuppId());
 		userRepo.deleteById(id);
 		try {
-			mailMessage.registerationFailure(usr.getEmail(), "Supplier", sd.getSuppName());
+			mailMessage.registerationFailure(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.debug("Deleted Rejected Supplier! " + usr.getEmail());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -152,35 +152,36 @@ public class SupplierServiceImpl implements SupplierService {
 	public boolean register(String username, String email, String password, String fromAddress, String contactNumber,
 			String landLine) {
 		logger.info("Registering user....");
-		System.out.println(username+"   "+email+"    "+password+"    "+fromAddress+ "    "+contactNumber+ "     "+ landLine);
+		System.out.println(username + "   " + email + "    " + password + "    " + fromAddress + "    " + contactNumber
+				+ "     " + landLine);
 		// TODO Auto-generated method stub
 		long contactNumbe = Long.valueOf(contactNumber);
 		long landLin = Long.valueOf(landLine);
 		// long landLin1=null;
-		boolean set = false;
-		//SupplierDetails sl = supplierDetailsRepo.findByEmail(email);
-		User usr=userRepo.findByEmail(email);
+//		boolean set = false;
+		// SupplierDetails sl = supplierDetailsRepo.findByEmail(email);
+		User usr = userRepo.findByEmailAndSuppIdNotNull(email);
 		if (usr == null) {
 			SupplierDetails sd = new SupplierDetails(username, fromAddress, contactNumbe, landLin);
-			System.out.println("sd= "+sd);
+			System.out.println("sd= " + sd);
 			supplierDetailsRepo.save(sd);
 //			String otp="123456";
 //			Otps otp1=new Otps(otp);
 			User usr1 = new User(email, password, sd);
-			
+
 //			String tempOtpId = usr1.getOtpId();
 //			System.out.println("user :    "+tempOtpId);
 //			int otpId=Integer.valueOf(tempOtpId);
 //			Otps otp10 = otpRepo.findByOtpId(otpId);
-			
-			Role role=	roleRepo.findByName("SUPPLIER");
-				
-			Set<Role> roles=new HashSet<Role>();
+
+			Role role = roleRepo.findByName("SUPPLIER");
+
+			Set<Role> roles = new HashSet<Role>();
 			roles.add(role);
-			System.out.println(email+password+sd+" test "+roles);
-			
+			System.out.println(email + password + sd + " test " + roles);
+
 			usr1.setRoles(roles);
-			System.out.println("usr= "+usr1);
+			System.out.println("usr= " + usr1);
 			userRepo.save(usr1);
 			try {
 				mailMessage.notifyRegisteration(usr1.getEmail(), "SUPPLIER", sd.getSuppName());
