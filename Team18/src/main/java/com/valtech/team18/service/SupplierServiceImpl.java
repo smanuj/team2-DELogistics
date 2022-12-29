@@ -203,11 +203,7 @@ public class SupplierServiceImpl implements SupplierService {
 		supplierDetailsRepo.deleteBySuppId(id);
 	}
 
-	@Override
-	public List<SupplierDetails> getPendingSupplier() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public List<SupplierDetails> getApprovedSupplier() {

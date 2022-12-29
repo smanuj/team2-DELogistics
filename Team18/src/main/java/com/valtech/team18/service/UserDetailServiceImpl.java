@@ -14,71 +14,80 @@ import com.valtech.team18.entity.User;
 import com.valtech.team18.repo.UserRepo;
 
 @Service
-public class UserDetailServiceImpl implements UserDetailService  {
-	
+public class UserDetailServiceImpl implements UserDetailService {
+
 	private static final Logger logger = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 	@Autowired
 	private UserRepo userRepo;
-	
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+
 	@Override
 	public List<User> getPendingSupplier() {
 		logger.info("Loading Pending Supplier Details....");
-		//logger.debug("Successfully Loaded Pending Supplier Details! " + supplierDetailsRepo.findAllByApprovedFalse());
+		// logger.debug("Successfully Loaded Pending Supplier Details! " +
+		// supplierDetailsRepo.findAllByApprovedFalse());
 		return userRepo.findAllByApprovalFalseAndSuppIdNotNull();
 	}
 
 	@Override
 	public List<User> getApprovedSupplier() {
 		logger.info("Loading Approved Supplier Details....");
-		//logger.debug("Successfully Loaded Approved Supplier Details! " + supplierDetailsRepo.findAllByApprovedTrue());
+		// logger.debug("Successfully Loaded Approved Supplier Details! " +
+		// supplierDetailsRepo.findAllByApprovedTrue());
 		return userRepo.findAllByApprovalTrueAndSuppIdNotNull();
 	}
-	
-	
+
 	@Override
 	public List<User> getPendingDriver() {
 		logger.info("Loading Pending Driver Details....");
-//		logger.debug("Successfully Loaded Pending Driver Details! " + supplierDetailsRepo.findAllByApprovedFalse());
+		// logger.debug("Successfully Loaded Pending Driver Details! " +
+		// supplierDetailsRepo.findAllByApprovedFalse());
 		return userRepo.findAllByApprovalFalseAndTruckIdNotNull();
 	}
-
-	
-	
 
 	@Override
 	public List<User> getApprovedDriver() {
 		logger.info("Loading Approved Driver Details....");
-//		logger.debug("Successfully Loaded Approved Driver Details! " + supplierDetailsRepo.findAllByApprovedTrue());
+		// logger.debug("Successfully Loaded Approved Driver Details! " +
+		// supplierDetailsRepo.findAllByApprovedTrue());
 		return userRepo.findAllByApprovalTrueAndTruckIdNotNull();
 	}
-	
+
 	@Override
 	public void deleteSupplier(int id) {
 		logger.info("Deleting Supplier " + id);
 		logger.debug("Successfully Deleted Supplier!");
 		userRepo.deleteById(id);
 	}
+
 	@Override
 	public void deleteTruck(int id) {
 		logger.info("Deleting Supplier " + id);
 		logger.debug("Successfully Deleted Driver!");
 		userRepo.deleteById(id);
 	}
-	@Override
-	public void deleteSupplierRegister(int id){
-		String sql = "delete User where id = ?";
-        jdbcTemplate.update(sql, id);
-	}
-	@Override
-	public void deleteTruckDriverRegister(int id){
-		String sql = "delete User where id = ?";
-        jdbcTemplate.update(sql, id);
-	}
-	
-	
 
-	
+	@Override
+	public void deleteSupplierRegister(int id) {
+		String sql = "delete Users where id = ?";
+		jdbcTemplate.update(sql, id);
+	}
+
+	@Override
+	public void deleteTruckDriverRegister(int id) {
+		String sql = "delete Users where id = ?";
+		jdbcTemplate.update(sql, id);
+	}
+
+	@Override
+	public void changePassword(String password, int userId) throws Exception {
+		System.out.println(userId + password);
+		logger.info("updating pass");
+		String sql = "update Users set password = ? where id = ?";
+		jdbcTemplate.update(sql, password, userId);
+		logger.debug("password updated for id = " + userId);
+	}
+
 }

@@ -17,7 +17,7 @@ public interface SupplierService {
 
 	List<Integer> getAllDriverIdFromOrderDetails(OrderDetails od);
 
-	List<SupplierDetails> getPendingSupplier();
+
 
 	List<SupplierDetails> getApprovedSupplier();
 

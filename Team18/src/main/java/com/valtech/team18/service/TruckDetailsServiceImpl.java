@@ -186,11 +186,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		truckDetailsRepo.deleteByTruckId(id);
 	}
 
-	@Override
-	public List<TruckDetails> getPendingDriver() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public List<TruckDetails> getApprovedDriver() {
