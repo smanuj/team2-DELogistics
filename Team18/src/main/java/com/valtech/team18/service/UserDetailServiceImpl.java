@@ -57,14 +57,14 @@ public class UserDetailServiceImpl implements UserDetailService  {
 	
 	@Override
 	public void deleteSupplier(int id) {
-		logger.info("Deleting Supplier " + id);
-		logger.debug("Successfully Deleted Supplier!");
+		logger.info("Deleting Supplier....");
+		logger.debug("Successfully Deleted Supplier!" + id);
 		userRepo.deleteById(id);
 	}
 	@Override
 	public void deleteTruck(int id) {
-		logger.info("Deleting Supplier " + id);
-		logger.debug("Successfully Deleted Driver!");
+		logger.info("Deleting Supplier....");
+		logger.debug("Successfully Deleted Driver! " + id);
 		userRepo.deleteById(id);
 	}
 	@Override

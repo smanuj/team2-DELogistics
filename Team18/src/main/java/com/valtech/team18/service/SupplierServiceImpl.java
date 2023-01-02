@@ -106,8 +106,9 @@ public class SupplierServiceImpl implements SupplierService {
 		usr.setApproval(true);
 		try {
 			mailMessage.registeredSuccessfully(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
-			logger.debug("Successfully Approved Supplier! " + id);
+			logger.debug("Successfully Approved Supplier with" + usr.getEmail());
 		} catch (Exception e) {
+			logger.error("Suppler Rejected");
 			e.printStackTrace();
 		}
 		return userRepo.save(usr);
@@ -125,6 +126,7 @@ public class SupplierServiceImpl implements SupplierService {
 			mailMessage.registerationFailure(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.debug("Deleted Rejected Supplier! " + usr.getEmail());
 		} catch (Exception e) {
+			logger.error("Unable to Delete Rejected Supplier! Error at Line 128 in SupplierServiceImpl");
 			e.printStackTrace();
 		}
 	}
@@ -133,7 +135,7 @@ public class SupplierServiceImpl implements SupplierService {
 	public List<TruckDetails> getTruckDetailsFromOrder(int id) {
 		// model.addAttribute("OrderDetails",
 		// suppService.getAllOrdersBySuppId(id));
-		logger.info("Loading Truck Details for Order " + id);
+		logger.info("Loading Truck Details for Order....");
 		List<OrderDetails> od = getAllOrdersBySuppId(id);
 		List<Integer> driverid = new ArrayList<Integer>();
 		for (OrderDetails orderDetails : od) {
@@ -144,7 +146,7 @@ public class SupplierServiceImpl implements SupplierService {
 		for (Integer did : driverid) {
 			td.add(truckDetailsRepo.findById(did).get());
 		}
-		logger.debug("Successfully Loaded Truck Details for Order!");
+		logger.debug("Successfully Loaded Truck Details for Order! " + id);
 		return td;
 	}
 
@@ -185,8 +187,9 @@ public class SupplierServiceImpl implements SupplierService {
 			userRepo.save(usr1);
 			try {
 				mailMessage.notifyRegisteration(usr1.getEmail(), "SUPPLIER", sd.getSuppName());
-				logger.debug("Registration Successfully Recieved!");
+				logger.debug("Registration Successfully Recieved for " + usr1.getEmail());
 			} catch (Exception e) {
+				logger.error("Registration Not Received! Error at Line 190 at SupplierServiceImpl");
 				e.printStackTrace();
 			}
 			return true;
@@ -198,8 +201,8 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public void deleteSupplier(int id) {
-		logger.info("Deleting Supplier " + id);
-		logger.debug("Successfully Deleted Supplier!");
+		logger.info("Deleting Supplier...");
+		logger.debug("Successfully Deleted Supplier! "  + id);
 		supplierDetailsRepo.deleteBySuppId(id);
 	}
 

@@ -70,14 +70,15 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 
 			if ((username.equals(admin.getEmail())) && (password.equals(admin.getPassword()))) {
 				// if(username.equals("admin@gmail.com")&&(password.equals("admin"))){
-				logger.info("Validation Successfull!");
+				logger.info("Validation Successfull! for " + admin.getEmail());
 				return true;
 			}
-			logger.debug("Validation Unsuccessfull!");
+			logger.debug("Validation Unsuccessfull! for " + admin.getEmail());
 			return false;
 		}
 
 		catch (NullPointerException n) {
+			logger.error("Login Unsuccessful! Error found at Line 81 in AdminLoginServiceImpl");
 			return false;
 		}
 

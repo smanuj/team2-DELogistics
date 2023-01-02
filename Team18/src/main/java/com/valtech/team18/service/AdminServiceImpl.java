@@ -70,7 +70,7 @@ public class AdminServiceImpl implements AdminService {
 		User usr = userRepo.findByTruckId(td);
 		System.out.println(usr);
 		mailMessage.sendAlert(usr.getEmail(), td.getDriverName());
-		logger.debug("Alert Sent!");
+		logger.debug("Alert Sent! to " + usr);
 	}
 
 }

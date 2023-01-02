@@ -43,7 +43,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		int number = rnd.nextInt(999999);
 
 		// this will convert any number sequence into 6 character.
-		logger.debug("Successfully Generated Random String!");
+		logger.debug("Successfully Generated Random String!" + number);
 		return String.format("%06d", number);
 	}
 
@@ -58,7 +58,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 			User usr=userRepo.findByEmailAndApprovalTrueAndSuppIdNotNull(email);
 
 			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))) {
-				logger.info("Successfully Validated Login Credentials!");
+				logger.info("Successfully Validated Login Credentials for " + usr.getEmail());
 				return true;
 			}
 
@@ -66,6 +66,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 		}
 
 		catch (NullPointerException n) {
+			logger.error("Error Occurred while Logging-In at Line 69 in SupplierLoginServiceImpl");
 			return false;
 		}
 
@@ -96,9 +97,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 			userRepo.save(usr);
 			try {
 				mailMessage.sendOTP(usr.getEmail(), pass, "Supplier", sd.getSuppName());
-				logger.debug("Mail Confirmed and Sent!");
+				logger.debug("Mail Confirmed and Sent to " + usr.getEmail());
 			} catch (Exception e) {
-				logger.debug("Mail Confirmation Unsuccessfull!");
+				logger.error("Error while Sending Mail at Line 102 in SupplierLoginServiceImpl");
 				e.printStackTrace();
 			}
 			return true;
@@ -118,10 +119,10 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 //		Otps otp10 = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
 //		Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
 		if (otp.equals(usr.getOtpId().getOtp())) {
-			logger.debug("OTP Confirmed!");
+			logger.debug("OTP Confirmed and Sent to " + usr);
 			return true;
 		}
-		logger.debug("OTP Failed!");
+		logger.debug("OTP couldn't be sent to " + usr);
 		return false;
 	}
 
@@ -143,7 +144,7 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 			mailMessage.successfulPasswordChange(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.info("Password Changed Successfully!");
 		} catch (Exception e) {
-			logger.debug("Password Changed Failed!");
+			logger.error("Error while Changing Password at Line 147 in SupplierLoginServiceImpl");
 			e.printStackTrace();
 		}
 

@@ -44,7 +44,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		int number = rnd.nextInt(999999);
 
 		// this will convert any number sequence into 6 character.
-		logger.debug("Successfully Generated Random String!");
+		logger.debug("Successfully Generated Random String! -> " + number);
 		return String.format("%06d", number);
 	}
 
@@ -59,7 +59,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 			User usr = userRepo.findByEmailAndApprovalTrueAndTruckIdNotNull(email);
 
 			if ((email.equals(usr.getEmail())) && (password.equals(usr.getPassword()))) {
-				logger.info("Successfully Validated Login Credentials!");
+				logger.debug("Successfully Validated Login Credentials for " + usr.getEmail());
 				return true;
 			}
 
@@ -67,6 +67,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		}
 
 		catch (NullPointerException n) {
+			logger.error("Login Failed! Error at Line 70 in TruckLoginServiceImpl");
 			return false;
 		}
 
@@ -74,7 +75,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 
 	@Override
 	public int getIdFromEmail(String email) {
-		logger.info("Retreiving Id assoicated with mail " + email);
+		logger.info("Retreiving Id assoicated with mail....");
 		logger.debug("Successfully Retreived Id assoicated with mail " + email);
 		// return truckDetailsRepo.findByEmail(email).getTruckId();
 		return userRepo.findByEmail(email).getTruckId().getTruckId();
@@ -96,9 +97,9 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 			userRepo.save(usr);
 			try {
 				mailMessage.sendOTP(usr.getEmail(), pass, "Driver", td.getDriverName());
-				logger.debug("Mail Confirmed and Sent!");
+				logger.debug("Mail Confirmed and Sent to " + usr.getEmail());
 			} catch (Exception e) {
-				logger.debug("Mail Confirmation Unsuccessfull!");
+				logger.error("Mail Confirmation Unsuccessfull! Error at Line 102 in TruckLoginServiceImpl");
 				e.printStackTrace();
 			}
 			return true;
@@ -117,10 +118,10 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		Otps otp10 = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
 		// Otps otp1 = otpRepo.findById(usr.getOtpId()).get();
 		if (otp.equals(otp10.getOtp())) {
-			logger.debug("OTP Confirmed!");
+			logger.debug("OTP Confirmed and Sent to " + usr);
 			return true;
 		}
-		logger.debug("OTP Failed!");
+		logger.debug("Unable to sent OTP to " + usr);
 		return false;
 
 	}
@@ -139,9 +140,9 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		truckDetailsRepo.save(td);
 		try {
 			mailMessage.successfulPasswordChange(usr.getEmail(), "Driver", td.getDriverName());
-			logger.debug("Password Changed Successfully!");
+			logger.debug("Password Changed Successfully for " + usr.getEmail());
 		} catch (Exception e) {
-			logger.debug("Password Changed Failed!");
+			logger.error("Error while Changing Password at Line 145 in TruckLoginServiceImpl");
 			e.printStackTrace();
 		}
 	}

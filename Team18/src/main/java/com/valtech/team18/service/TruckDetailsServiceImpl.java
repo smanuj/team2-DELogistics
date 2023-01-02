@@ -89,7 +89,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	@Override
 	public User approvingDriver(int id) {
 
-		logger.info("Approving Driver " + id);
+		logger.info("Approving Driver....");
 //		TruckDetails td = truckDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
 		usr.setApproval(true);
@@ -97,6 +97,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 			mailMessage.registeredSuccessfully(usr.getEmail(), "Driver", usr.getTruckId().getDriverName());
 			logger.debug("Successfully Approved Driver! " + id);
 		} catch (Exception e) {
+			logger.error("Driver Couldn't be Approved! Error at Line 100 in TruckDetailsServiceImpl");
 			e.printStackTrace();
 		}
 		return userRepo.save(usr);
@@ -104,7 +105,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Override
 	public void deleteRejectedDriver(int id) {
-		logger.info("Deleting Rejected Driver " + id);
+		logger.info("Deleting Rejected Driver....");
 //		TruckDetails td = truckDetailsRepo.findById(id).get();
 		User usr = userRepo.findById(id).get();
 		truckDetailsRepo.deleteByTruckId(usr.getTruckId().getTruckId());
@@ -119,14 +120,14 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 	}
 
 	public TruckDetails getTruckDetailsById(int truckId) {
-		logger.info("Loading Truck Details for Id " + truckId);
+		logger.info("Loading Truck Details for Id....");
 		logger.debug("Successfully Loaded Truck Details for Id " + truckId);
 		return truckDetailsRepo.findByTruckId(truckId);
 	}
 
 	@Override
 	public List<SupplierDetails> getSupplierFromOrder(int id) {
-		logger.info("Loading Supplier Id for Order " + id);
+		logger.info("Loading Supplier Id for Order....");
 		List<OrderDetails> od = getAllOrdersByDriverId(id);
 		List<Integer> suppId = new ArrayList<Integer>();
 		for (OrderDetails orderDetails : od) {
@@ -137,7 +138,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 			sd.add(supplierDetailsRepo.findById(sid).get());
 
 		}
-		logger.debug("Successfully Loaded Supplier Id for Order!");
+		logger.debug("Successfully Loaded Supplier Id for Order! " + id);
 		return sd;
 	}
 
@@ -170,8 +171,9 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 			try {
 				mailMessage.notifyRegisteration(usr1.getEmail(), "TRUCKDRIVER", tdn.getDriverName());
-				logger.debug("Registration Successfully Recieved!");
+				logger.debug("Registration Successfully Recieved!" + usr1.getEmail());
 			} catch (Exception e) {
+				logger.error("Registration Failed! Error at Line 175 in TruckDetailsService.");
 				e.printStackTrace();
 			}
 			return true;
@@ -181,8 +183,8 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Override
 	public void deleteTruckDriver(int id) {
-		logger.info("Deleting Truck Driver " + id);
-		logger.debug("Successfully Deleted Truck Driver!");
+		logger.info("Deleting Truck Driver....");
+		logger.debug("Successfully Deleted Truck Driver! " + id);
 		truckDetailsRepo.deleteByTruckId(id);
 	}
 
