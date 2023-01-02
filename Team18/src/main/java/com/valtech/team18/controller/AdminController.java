@@ -103,7 +103,6 @@ public class AdminController {
 			System.out.print(user2);
 		}
 		model.addAttribute("PendingDriver", user);
-		System.out.println(tdService.getPendingDriver());
 
 		return "admin/driverApproval";
 	}

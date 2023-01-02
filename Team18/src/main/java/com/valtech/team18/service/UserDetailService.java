@@ -21,4 +21,6 @@ public interface UserDetailService {
 	void deleteSupplierRegister(int id);
 	
 	void deleteTruckDriverRegister(int id);
+
+	void changePassword(String password, int userId) throws Exception;
 }

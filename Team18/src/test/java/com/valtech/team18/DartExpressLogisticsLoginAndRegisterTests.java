@@ -76,70 +76,67 @@ public class DartExpressLogisticsLoginAndRegisterTests {
      }
 	 
  
-//	 @Test
-//     public void testSupplierLogin1Validation() throws Exception{
-//		 List<SupplierDetails> suppD=supplierDetailsRepo.findAllByApprovedTrue();
-//		 
-//		 SupplierDetails sp=  new SupplierDetails("test", "test12345@test.com", "testpass", "Davangere", 63637878L, true, "", 9693685L);
-//		 for (SupplierDetails supplierDetails : suppD) {
-//			 if(supplierDetails.getEmail().equals(sp.getEmail())){
-//				 
-//			 }
-//			 else{
-//				 supplierDetailsRepo.save(sp);
-//			 }
-//		}
-//		 assertEquals(true, supplierLoginService.loginvalidation("test12345@test.com","testpass"));
-//	     assertEquals(false, supplierLoginService.loginvalidation("supplier","user"));
-//     }
-//	 @Test
-//     public void testDriverLoginValidation() throws Exception{
-//		 List<TruckDetails> truckD=truckDetailsRepo.findAllByApprovedTrue();
-//		 
-//		 TruckDetails td=new TruckDetails("santhosh", "Santhu12", 9698985852L, 8.25, "driver1234@gmail.com", true, "5285");
-//		 for(TruckDetails truckDetails : truckD){
-//			 if(truckDetails.getEmail().equals(td.getEmail())){
-//				 System.out.println("exists");
-//			 }else{
-//				 truckDetailsRepo.save(td);
-//			 }
-//		 }
-//	       assertEquals(true, truckLoginService.loginvalidation("driver1234@gmail.com","Santhu12"));
-//	       assertEquals(false, truckLoginService.loginvalidation("truck","user"));
-//     }
-//	 @Test
-//	 public void testSupplierRegistration() throws Exception{
-//		 List<SupplierDetails> sd=supplierDetailsRepo.findAll();
-//		 List<User> usr=userRepo.findAll();
-//		 int a=usr.size();
-//		
-//		supplierService.register("username1", "email23@gmail.com", "password1", "fromAddresss", "6361748785", "25358698967");
-//		 sd=supplierDetailsRepo.findAll();
-//		 usr=userRepo.findAll(); 
-//		 int b=usr.size();
-//		 //SupplierDetails sd2=supplierDetailsRepo.findByEmail("email23@gmail.com");
-//		 User usr1=userRepo.findByEmail("email23@gmail.com");
-//		 assertEquals(a+1, b);
-//		// userRepo.deleteBySuppId(usr1.getId());
-//		 userDetailService.deleteSupplierRegister(usr1.getId());
-//		 assertEquals(b-1, a);
-//		 
-//	 }
-//	 
-//	 @Test
-//     public void testDriverRegisteration() throws Exception{
-//		 List<TruckDetails> td = truckDetailsRepo.findAll();
-//		 List<User> usr=userRepo.findAll();
-//		 int x =usr.size();
-//		 truckDetailsService.register("Test", "password", "anujsm112345@gmail.com", "7896998962");
-//		  td = truckDetailsRepo.findAll();
-//		  usr=userRepo.findAll();
-//		 int y = usr.size();
-//		 //TruckDetails td2 = truckDetailsRepo.findByEmail("anujsm112345@gmail.com");
-//		 User usr1=userRepo.findByEmail("anujsm112345@gmail.com");
-//	       assertEquals(x+1, y);
-//	   //  userRepo.deleteById(usr.getTruckId().getTruckId());
-//	       userDetailService.deleteTruckDriverRegister(usr1.getId());
-//	     assertEquals(y-1, x);
-//     }	 
+	 @Test
+     public void testSupplierLogin1Validation() throws Exception{
+		 List<User> usr=userRepo.findAllByApprovalTrueAndSuppIdNotNull();
+		 
+		 SupplierDetails sp=  new SupplierDetails("test", "Davangere", 63637878L,9693685L);
+		 User usr1=new User("test123456@test.com","testpass",sp);
+		 for (User user : usr) {
+			 if(user.getEmail().equals(usr1.getEmail())){
+				 
+			 }
+			 else{
+				 userRepo.save(usr1);
+			 }
+		}
+		 assertEquals(true, supplierLoginService.loginvalidation("test123456@test.com","testpass"));
+	     assertEquals(false, supplierLoginService.loginvalidation("supplier","user"));
+     }
+	 @Test
+     public void testDriverLoginValidation() throws Exception{
+		 List<User> usr=userRepo.findAllByApprovalTrueAndTruckIdNotNull();
+		 
+		 TruckDetails td=new TruckDetails("santhosh", 9698985852L, 8.25);
+		 User usr1=new User("driver123456@gmail.com","Santhu12",td);
+		 for(User user : usr){
+			 if(user.getEmail().equals(usr1.getEmail())){
+				 System.out.println("exists");
+			 }else{
+				 userRepo.save(usr1);
+			 }
+		 }
+	       assertEquals(true, truckLoginService.loginvalidation("driver123456@gmail.com","Santhu12"));
+	       assertEquals(false, truckLoginService.loginvalidation("truck","user"));
+     }
+	 @Test
+	 public void testSupplierRegistration() throws Exception{
+		 List<SupplierDetails> sd=supplierDetailsRepo.findAll();
+		 List<User> usr=userRepo.findAll();
+		 int a=usr.size();
+		supplierService.register("username1", "email2345@gmail.com", "password1", "fromAddresss", "6361748785", "25358698967");
+		 sd=supplierDetailsRepo.findAll();
+		 usr=userRepo.findAll(); 
+		 int b=usr.size();
+		 User usr1=userRepo.findByEmail("email2345@gmail.com");
+		 assertEquals(a+1, b);
+		 userDetailService.deleteSupplierRegister(usr1.getId());
+		 assertEquals(b-1, a);
+		 
+	 }
+	 
+	 @Test
+     public void testDriverRegisteration() throws Exception{
+		 List<TruckDetails> td = truckDetailsRepo.findAll();
+		 List<User> usr=userRepo.findAll();
+		 int x =usr.size();
+		 truckDetailsService.register("Test", "password", "anujsm11234567@gmail.com", "7896998962");
+		  td = truckDetailsRepo.findAll();
+		  usr=userRepo.findAll();
+		 int y = usr.size();
+		 User usr1=userRepo.findByEmail("anujsm11234567@gmail.com");
+	       assertEquals(x+1, y);
+	       userDetailService.deleteTruckDriverRegister(usr1.getId());
+	     assertEquals(y-1, x);
+    }	 
 }

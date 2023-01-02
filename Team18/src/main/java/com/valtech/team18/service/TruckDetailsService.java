@@ -15,8 +15,7 @@ public interface TruckDetailsService {
 
 	List<OrderDetails> getAllOrdersByDriverId(int id);
 
-	List<TruckDetails> getPendingDriver();
-
+	
 	List<TruckDetails> getApprovedDriver();
 
 	User approvingDriver(int id);
