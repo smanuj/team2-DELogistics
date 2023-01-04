@@ -9,6 +9,12 @@ The delivery truck has onboard temperature sensor through which the temperature 
 
 ##Issue tracker: https://docs.google.com/spreadsheets/d/1E8jfJa2kr-hC41tBFTPXFApowukTxkaK8iwN2IspkA0/edit#gid=1596376564
 
+##Credentials of sample users:
+
+*Admin: admin@gmail.com  admin
+*Supplier: samplesupplier@gmail.com   Qwerty12#
+*Driver: testDriver@gmail.com   Sample@2022
+
 ## Getting Started
 
 * Register a supplier and driver before trying to log in for the first time
