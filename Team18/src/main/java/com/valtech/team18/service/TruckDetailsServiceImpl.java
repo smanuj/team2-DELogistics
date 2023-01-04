@@ -47,6 +47,9 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 
 	@Autowired
 	private RoleRepo roleRepo;
+	
+	@Autowired
+	private UserDetailService userDetailService;
 
 	@Override
 	public List<OrderDetails> getAllOrderD() {
@@ -110,6 +113,7 @@ public class TruckDetailsServiceImpl implements TruckDetailsService {
 		User usr = userRepo.findById(id).get();
 		truckDetailsRepo.deleteByTruckId(usr.getTruckId().getTruckId());
 		userRepo.deleteById(id);
+//		userDetailService.deleteTruckDriverRegister(id);
 		try {
 			mailMessage.registerationFailure(usr.getEmail(), "Driver", usr.getTruckId().getDriverName());
 			logger.debug("Deleted Rejected Driver! " + id);

@@ -34,6 +34,9 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	
 	@Autowired
 	private OtpRepo otpRepo;
+	
+	@Autowired
+	private UserDetailService userDetailService;
 
 	public static String getRandomNumberString() {
 		logger.info("Generating Random String....");
@@ -129,17 +132,25 @@ public class SupplierLoginServiceImpl implements SupplierLoginService {
 	@Override
 	public void changePassword(int id, String password) {
 		logger.info("Changing password....");
-		User usr=userRepo.findById(id).get();
-//		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
+		SupplierDetails sd = supplierDetailsRepo.findBySuppId(id);
 		
+		User usr=userRepo.findById(id).get();
 		usr.setPassword(password);
-		usr.setOtpId(null);
-//		usr.setOtp(null);
+		
+		try {
+			userDetailService.changePassword(password, id);
+			usr.setOtpId(null);
 //		int tempOtpId = usr.getOtpId();
 //		Integer otpId=Integer.parseInt(tempOtpId);
-//		Otps otp = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
-//		supplierDetailsRepo.save(sd);
-		userRepo.save(usr);
+		Otps otp = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
+		supplierDetailsRepo.save(sd);
+//		usr.setOtp(null);
+		otp.setOtp(null);
+		otpRepo.save(otp);
+			userRepo.save(usr);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 		try {
 			mailMessage.successfulPasswordChange(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.info("Password Changed Successfully!");

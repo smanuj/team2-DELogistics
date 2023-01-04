@@ -26,7 +26,7 @@ public class DartExpressLogisticsApplicationControllerTest {
 
 	 @Test
      public void testMainHomePage() throws Exception{
-         mvc.perform(get("/")).andDo(print()).andExpect(content().string("")).andExpect(status().isOk());
+         mvc.perform(get("/mainHomePage")).andDo(print()).andExpect(content().string("")).andExpect(status().isOk());
      }
 	 @Test
      public void testAboutUsPage() throws Exception{

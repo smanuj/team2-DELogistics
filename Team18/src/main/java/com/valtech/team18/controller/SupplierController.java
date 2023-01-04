@@ -56,7 +56,7 @@ public class SupplierController {
 			boolean check = suppService.register(username, email, password, fromAddress, contactNumber, landLine);
 
 			if (check) {
-				return "redirect:/";
+				return "redirect:/mainHomePage";
 
 			} else {
 				String str = "Email already in use";

@@ -123,7 +123,7 @@ body {
 
 			<li class="nav-item" style="margin-top: 6px; list-style-type: none;"><a
 				class="nav-link active d-inline-block  text-white "
-				aria-current="page" href="/">Home</a></li>
+				aria-current="page" href="/mainHomePage">Home</a></li>
 		</div>
 	</div>
 
@@ -331,7 +331,7 @@ body {
 <footer class="bg-dark text-right text-white">
 	<div class="text-right p-3"
 		style="background-color: rgba(0, 0, 0, 0.2);">
-		2020 Copyright: <a class="text-white" href="/">delogistics.com</a>
+		2020 Copyright: <a class="text-white" href="/mainHomePage">delogistics.com</a>
 	</div>
 	<!-- Copyright -->
 </footer>

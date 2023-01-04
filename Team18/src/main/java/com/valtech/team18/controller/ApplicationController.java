@@ -40,14 +40,14 @@ public class ApplicationController {
 	}
 
 	// Navigate to Login Page
-	@GetMapping("/")
+	@GetMapping("/mainHomePage")
 	public String mainhomepage() {
 
 		return "/mainHomePage";
 	}
 
 	// Submit username and password for validating Admin Login
-	@PostMapping("/")
+	@PostMapping("/mainHomePage")
 	public String adminLoginVal(@RequestParam("email") String email, @RequestParam("password") String password,
 			@RequestParam("role") String role, ModelMap model) {
 		logger.info("Fetching adminLoginVal for admin");
@@ -170,7 +170,7 @@ public class ApplicationController {
 				String message = "Password has been changed";
 				// model.addAttribute("mess", message);
 				System.out.println(message);
-				return "redirect:/";
+				return "redirect:/mainHomePage";
 			} else {
 				String message = "Entered passwords do not match";
 				System.out.println(message);

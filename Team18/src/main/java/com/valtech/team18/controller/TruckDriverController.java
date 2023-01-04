@@ -54,7 +54,7 @@ public class TruckDriverController {
 			boolean check = tdService.register(username, password, email, contactNumber);
 
 			if (check) {
-				return "redirect:/";
+				return "redirect:/mainHomePage";
 
 			} else {
 				String str = "Email already in use";

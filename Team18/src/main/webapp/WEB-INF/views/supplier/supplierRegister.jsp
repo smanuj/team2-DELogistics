@@ -59,7 +59,7 @@
 					<li class="nav-item"
 						style="margin-top: 6px; list-style-type: none;"><a
 						class="nav-link active d-inline-block  text-white "
-						aria-current="page" href="/">Login</a></li>
+						aria-current="page" href="/mainHomePage">Login</a></li>
 				</div>
 			</div>
 	</div>
@@ -222,7 +222,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 </html>

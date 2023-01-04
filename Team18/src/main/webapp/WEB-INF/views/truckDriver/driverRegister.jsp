@@ -62,7 +62,7 @@
 					<li class="nav-item"
 						style="margin-top: 6px; list-style-type: none;"><a
 						class="nav-link active d-inline-block  text-white "
-						aria-current="page" href="/" data-toggle="tooltip"
+						aria-current="page" href="/mainHomePage" data-toggle="tooltip"
 						data-placement="top" title="Go back to Login">Login</a></li>
 				</div>
 			</div>
@@ -207,7 +207,7 @@
 <footer>
 	<div class="text-align-right p-3 text-white"
 		style="background-color: black;">
-		© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+		ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 	</div>
 </footer>
 

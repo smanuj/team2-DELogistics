@@ -60,7 +60,7 @@
 
 				<li class="nav-item" style="margin-top: 6px; list-style-type: none;"><a
 					class="nav-link active d-inline-block  text-white "
-					aria-current="page" href="/">Home</a></li>
+					aria-current="page" href="/mainHomePage">Home</a></li>
 			</div>
 		</div>
 	</div>

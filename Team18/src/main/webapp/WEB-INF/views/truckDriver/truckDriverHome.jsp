@@ -71,7 +71,7 @@
 
 		<li class="nav-item"><a
 			class="nav-link active d-inline-block align-top text-white "
-			aria-current="page" href="/">Logout</a></li>
+			aria-current="page" href="/mainHomePage">Logout</a></li>
 	</div>
 </div>
 
@@ -171,7 +171,7 @@
 
 <div class="text-align-right p-3 text-white"
 	style="background-color: black;">
-	© 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
+	ï¿½ 2020 Copyright: <a class="text-white" href="/aboutUs">delogistics.com</a>
 </div>
 </footer>
 

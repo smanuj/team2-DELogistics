@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import com.valtech.team18.dao.UserDao;
+
 import com.valtech.team18.entity.SupplierDetails;
 import com.valtech.team18.entity.TruckDetails;
 import com.valtech.team18.entity.User;
@@ -20,8 +22,10 @@ public class UserDetailServiceImpl implements UserDetailService {
 	@Autowired
 	private UserRepo userRepo;
 
+
+	
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private UserDao userDao;
 
 	@Override
 	public List<User> getPendingSupplier() {
@@ -71,23 +75,17 @@ public class UserDetailServiceImpl implements UserDetailService {
 
 	@Override
 	public void deleteSupplierRegister(int id) {
-		String sql = "delete Users where id = ?";
-		jdbcTemplate.update(sql, id);
+		userDao.deleteSupplierRegistration(id);
 	}
 
 	@Override
 	public void deleteTruckDriverRegister(int id) {
-		String sql = "delete Users where id = ?";
-		jdbcTemplate.update(sql, id);
+		userDao.deleteTruckDriverRegistration(id);
 	}
 
 	@Override
 	public void changePassword(String password, int userId) throws Exception {
-		System.out.println(userId + password);
-		logger.info("updating pass");
-		String sql = "update Users set password = ? where id = ?";
-		jdbcTemplate.update(sql, password, userId);
-		logger.debug("password updated for id = " + userId);
+		userDao.changePass(password, userId);
 	}
 
 }

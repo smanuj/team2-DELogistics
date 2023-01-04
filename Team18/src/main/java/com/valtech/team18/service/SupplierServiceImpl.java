@@ -51,6 +51,9 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Autowired
 	private OtpRepo otpRepo;
+	
+	@Autowired
+	private UserDetailService userDetailService;
 
 	@Override
 	public List<TruckDetails> getAllTruckD() {
@@ -122,6 +125,7 @@ public class SupplierServiceImpl implements SupplierService {
 		User usr = userRepo.findById(id).get();
 		supplierDetailsRepo.deleteBySuppId(usr.getSuppId().getSuppId());
 		userRepo.deleteById(id);
+//		userDetailService.deleteSupplierRegister(id);
 		try {
 			mailMessage.registerationFailure(usr.getEmail(), "Supplier", usr.getSuppId().getSuppName());
 			logger.debug("Deleted Rejected Supplier! " + usr.getEmail());

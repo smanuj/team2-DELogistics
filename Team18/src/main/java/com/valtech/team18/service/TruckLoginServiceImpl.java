@@ -137,6 +137,7 @@ public class TruckLoginServiceImpl implements TruckLoginService {
 		Otps otp10 = otpRepo.findByOtpId(usr.getOtpId().getOtpId());
 		// Otps otp = otpRepo.findById(usr.getOtpId()).get();
 		otp10.setOtp(null);
+		otpRepo.save(otp10);
 		truckDetailsRepo.save(td);
 		try {
 			mailMessage.successfulPasswordChange(usr.getEmail(), "Driver", td.getDriverName());
