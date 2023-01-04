@@ -7,6 +7,13 @@
 Team 2 has developed a web application for the given use case, this web application is used to track the delivery shipment using gps. 
 The delivery truck has onboard temperature sensor through which the temperature of the organic goods can be monitored by the admin, The admin can use the alert button to send a mail and sms to inform the truck driver in case of emergencies. This web application also has supplier login along with admin and driver. the supplier can log in and check the order and truck details associated with them.
 
+##Issue tracker: https://docs.google.com/spreadsheets/d/1E8jfJa2kr-hC41tBFTPXFApowukTxkaK8iwN2IspkA0/edit#gid=1596376564
+
+##Credentials of sample users:
+
+*Admin: admin@gmail.com  admin
+*Supplier: samplesupplier@gmail.com   Qwerty12#
+*Driver: testDriver@gmail.com   Sample@2022
 
 ## Getting Started
 
