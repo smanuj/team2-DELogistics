@@ -1,5 +1,8 @@
 package com.valtech.team18.service;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -41,6 +44,16 @@ public class SendMailImpl implements SendMail {
 		props.put("mail.smtp.ssl.protocols", "TLSv1.2");
 		props.put("mail.smtp.host", "smtp.office365.com");
 		props.put("mail.smtp.port", "587");
+		Properties prop = new Properties();
+		String fileName = "app.config";
+		try (FileInputStream fis = new FileInputStream(fileName)) {
+		    prop.load(fis);
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		    // FileNotFoundException catch is optional and can be collapsed
+		} catch (IOException ex) {
+		    ex.printStackTrace();
+		}
 
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
@@ -49,14 +62,21 @@ public class SendMailImpl implements SendMail {
 				// System.out.println("ID: "+appProperties.getId());
 				// System.out.println("Password: "+appProperties.getPassword());
 				logger.debug("Successfully Authenticated Password!");
-				return new PasswordAuthentication("dartexpresslogistics@outlook.com", "Qwertyuiop12#");
+				System.out.println(prop.getProperty("app.name"));
+				System.out.println(prop.getProperty("app.version"));
+				String username=prop.getProperty("mail.username");
+				String password=prop.getProperty("mail.password");
+				System.out.println(username);
+				System.out.println(password);
+				return new PasswordAuthentication(username, password);
 			}
 		});
 
 		try {
 			logger.info("Sending mail....");
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("dartexpresslogistics@outlook.com"));
+			String username=prop.getProperty("mail.username");
+			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 			message.setSubject(subject);
 			// message.setText("This email was sent with JavaMail.");

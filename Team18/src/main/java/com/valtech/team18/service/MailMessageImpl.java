@@ -13,10 +13,11 @@ public class MailMessageImpl implements MailMessage {
 
 	private static final Logger logger = LoggerFactory.getLogger(MailMessageImpl.class);
 
-	// SendMail mm = new SendMailImpl();
-
+//	@Autowired
+//	EmailService emailService;
+	
 	@Autowired
-	EmailService emailService;
+	SendMail sendMail;
 
 	@Override
 	public void sendAlert(String email, String name) {
@@ -24,7 +25,7 @@ public class MailMessageImpl implements MailMessage {
 		String subject = "Alert!! " + name;
 		String body = "Hello delivery partner, Please pull over whenever it is safe to do so and examine the delivery contents and the truck as the temperature seems to be highly varying as compared to the ideal temp. -admin";
 		// mm.sendMail(email, subject, body);
-		emailService.SendMail("smanuj007@gmail.com", email, subject, body);
+//		emailService.SendMail("smanuj007@gmail.com", email, subject, body);
 
 	}
 
@@ -36,7 +37,8 @@ public class MailMessageImpl implements MailMessage {
 		String body1 = "Hello, You have successfully registered as " + role
 				+ " at Dart Express Logistics, you can now log in to your account through the website using your registered email id and password. Thank you for choosing us :) -admin";
 		// mm.sendMail(email, subject1, body1);
-		emailService.SendMail("smanuj007@gmail.com", email, subject1, body1);
+//		emailService.SendMail("smanuj007@gmail.com", email, subject1, body1);
+		sendMail.sendMail(email, subject1, body1);
 	}
 
 	@Override
@@ -47,7 +49,7 @@ public class MailMessageImpl implements MailMessage {
 		String body2 = "Hello, We regret to inform you that your regristration request was not successful for " + role
 				+ " . This might have occured due to various reasons. Please contact us at dartexpresslogistics@outlook.com for more info. Thank you for understanding, you can try registering again if you think there was a mistake  -admin";
 		// mm.sendMail(email, subject2, body2);
-		emailService.SendMail("smanuj007@gmail.com", email, subject2, body2);
+//		emailService.SendMail("smanuj007@gmail.com", email, subject2, body2);
 	}
 
 	@Override
@@ -57,7 +59,7 @@ public class MailMessageImpl implements MailMessage {
 		String body3 = "Hello, Please use this OTP to reset your " + role + " account password: " + pass
 				+ " DO NOT SHARE THIS OTP WITH ANYONE!!. -admin";
 		// mm.sendMail(email, subject3, body3);
-		emailService.SendMail("smanuj007@gmail.com", email, subject3, body3);
+//		emailService.SendMail("smanuj007@gmail.com", email, subject3, body3);
 
 	}
 
@@ -69,7 +71,7 @@ public class MailMessageImpl implements MailMessage {
 		String body4 = "Congratulations, your password has been changed successfully for the " + role
 				+ " login. -admin";
 		// mm.sendMail(email, subject4, body4);
-		emailService.SendMail("smanuj007@gmail.com", email, subject4, body4);
+//		emailService.SendMail("smanuj007@gmail.com", email, subject4, body4);
 
 	}
 
@@ -80,7 +82,8 @@ public class MailMessageImpl implements MailMessage {
 		String body5 = "Hello, Your registeration form is received for the role: " + role
 				+ " You will be notified regarding the approval soon. -admin";
 		// mm.sendMail(email, subject5, body5);
-		emailService.SendMail("smanuj007@gmail.com", email, subject5, body5);
+//		emailService.SendMail("smanuj007@gmail.com", email, subject5, body5);
+		sendMail.sendMail(email, subject5, body5);
 	}
 
 }
