@@ -9,6 +9,12 @@ The delivery truck has onboard temperature sensor through which the temperature 
 
 ##Issue tracker: https://docs.google.com/spreadsheets/d/1E8jfJa2kr-hC41tBFTPXFApowukTxkaK8iwN2IspkA0/edit#gid=1596376564
 
+##Tomcat server link:  http://192.168.141.63:8080/DELogistics/mainHomePage   (pages aren't redirecting properly when navigated through root folder, please use IP link while we work on a fix)
+
+##IP link:  http://192.168.141.63:6969/mainHomePage
+
+##Jenkins CI fully functioning (buildsa automatically after each push)
+
 ##Credentials of sample users:
 
 *Admin: admin@gmail.com  admin
