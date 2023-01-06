@@ -40,6 +40,7 @@ The delivery truck has onboard temperature sensor through which the temperature 
 ### Installing
 
 * Download the entire project and import it as an existing maven project in spring boot 
+* Please enter the outlook account login credentials in app.config file before deploying the project
 
 ### Executing program
 
